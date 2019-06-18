@@ -4,54 +4,48 @@
 <!-- <meta charset="utf-8"> -->
 <title>TOP画面</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="top_style.css">
 </head>
 <body>
-  <!-- メインコンテンツ開始 -->
-  <div>
-    <!-- ヘッダー メニューバー開始 -->
+	<!-- メインコンテンツ開始 -->
+  <div class="top">
+    <!-- ヘッダー メニューバー -->
 
-    <!-- メニューバー終了 -->
 
     <!-- ロゴ　-->
-    <img src="top_picture.jpg" class="top_picture">
-    <img src="logo.png" class="logo">
+    <div class="top_image">
+        <img src="top_picture.jpg" class="top_picture" alt="トップ写真">
+        <img src="logo.png" class="logo" alt="ロゴ">
+    </div>
 
     <!-- アイコン -->
-    <!-- アイテム一覧 -->
-    <div class="row">
-      <div class="col-sm-2">
-      <button class="item" onclick="items()" id="item"></button>
-      <p>Item</p>
-    </div>
-    </div>
-    <!-- カレンダー -->
-    <div class="row">
-      <div class="col-sm-2">
-      <button class="Calener" onclick="calendar()" id="calender"></button>
-      <p>Calender</p>
-      </div>
-    </div>
-    <!-- アイテム登録 -->
-    <div class="row">
-      <div class="col-sm-2">
-      <button class="Add" onclick="add()" id="add"></button>
-      <p>Add</p>
-      </div>
-    </div>
-    <!-- コーディネート一覧 -->
-    <div class="row">
-      <div class="col-sm-2">
-      <button class="cordinate" onclick="coordinate()" id="coordinate"></button>
-      <p>Coordinate</p>
-      </div>
+    <div class="top_button">
+        <!-- アイテム一覧 -->
+        <button type="button" class="btn btn-primary"><span class="icon">Item</span></button>
+        <!-- カレンダー -->
+        <button type="button" class="btn btn-primary"><span class="icon">Calender</span></button>
+        <!-- アイテム登録 -->
+        <button type="button" class="btn btn-primary"><span class="icon">Add</span></button>
+        <!-- コーディネート一覧 -->
+        <button type="button" class="btn btn-primary"><span class="icon">Coordinate</span></button>
     </div>
 
+    <div class="top_bottom">
     <!-- スライドショー -->
-    <div class="ramdom_pic">スライドショー</div>
+    <img src="image2.jpg" class="slide_show" alt="スライドショー">
 
     <!-- 天気 -->
+      <div class="weather">
+      <img src="snowy.png" class="weather_today" alt="今日の天気"><br>
+      <hr size="5">
+      <img src="sunny.png" class="weather_tomorrow" alt="明日の天気">
+      </div>
+
+    </div>
+
 
   </div>
+  
 </body>
 
 </html>
