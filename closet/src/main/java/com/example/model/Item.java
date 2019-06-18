@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -38,9 +40,8 @@ public class Item {
 	private Integer subCategoryId;
 	
 	@JsonIgnore
-	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@Column(name = "season_id", precision = 11)
-	private Integer seasonId;
+	@ManyToOne
+	private Season season;
 	
 	@JsonIgnore
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
