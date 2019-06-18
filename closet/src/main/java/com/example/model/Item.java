@@ -48,7 +48,7 @@ public class Item {
 	private Integer colorId;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "user")
+	//@OneToMany(mappedBy = "user")
 	@Column(name = "user_id",nullable = false , precision = 11)
 	private User user;
 	

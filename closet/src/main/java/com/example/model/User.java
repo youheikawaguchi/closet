@@ -29,7 +29,6 @@ import lombok.Setter;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "id", nullable = false, precision = 11)
 	private Integer id;
 	
@@ -61,7 +60,7 @@ public class User {
 	private Integer areaId;
 	
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL)
+	//@OneToMany(cascade = CascadeType.ALL)
 	private List<Item> itemList;
 
 }
