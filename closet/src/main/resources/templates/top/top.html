@@ -4,19 +4,22 @@
 <head th:replace="common/header :: common_header(~{::title})">-->
 <!-- <meta charset="utf-8"> -->
 <title>TOP画面</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="top_style.css">
 </head>
 <body>
   <!-- メインコンテンツ開始 -->
   <form  th:action="@{/top/top}"></form>
   <div>
     <!-- ヘッダー メニューバー開始 -->
-
-    <!-- メニューバー終了 -->
+	<!-- メインコンテンツ開始 -->
+  <div class="top">
+    <!-- ヘッダー メニューバー -->
 
     <!-- ロゴ　-->
-    <img src="top_picture.jpg" class="top_picture">
-    <img src="logo.png" class="logo">
+    <div class="top_image">
+        <img src="top_picture.jpg" class="top_picture" alt="トップ写真">
+        <img src="logo.png" class="logo" alt="ロゴ">
+    </div>
 
     <!-- アイコン -->
     <!-- アイテム一覧 -->
@@ -46,14 +49,33 @@
       <button class="cordinate" onclick="coordinate()" id="coordinate"></button>
       <p>Coordinate</p>
       </div>
+    <div class="top_button">
+        <!-- アイテム一覧 -->
+        <button type="button" class="btn btn-primary"><span class="icon">Item</span></button>
+        <!-- カレンダー -->
+        <button type="button" class="btn btn-primary"><span class="icon">Calender</span></button>
+        <!-- アイテム登録 -->
+        <button type="button" class="btn btn-primary"><span class="icon">Add</span></button>
+        <!-- コーディネート一覧 -->
+        <button type="button" class="btn btn-primary"><span class="icon">Coordinate</span></button>
     </div>
 
+    <div class="top_bottom">
     <!-- スライドショー -->
-    <div class="ramdom_pic">スライドショー</div>
+    <img src="image2.jpg" class="slide_show" alt="スライドショー">
 
     <!-- 天気 -->
+      <div class="weather">
+      <img src="snowy.png" class="weather_today" alt="今日の天気"><br>
+      <hr size="5">
+      <img src="sunny.png" class="weather_tomorrow" alt="明日の天気">
+      </div>
+
+    </div>
+
 
   </div>
+  
 </body>
 
 </html>
