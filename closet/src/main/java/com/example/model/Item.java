@@ -2,11 +2,13 @@ package com.example.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -19,8 +21,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "items")
-public class Items {
-
+public class Item {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "item_id", nullable = false, precision = 11)
@@ -47,9 +48,9 @@ public class Items {
 	private int colorId;
 	
 	@JsonIgnore
-	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@Column(name = "id",nullable = false , precision = 11)
-	private int id;
+	@OneToMany(mappedBy = "user")
+	@Column(name = "user_id",nullable = false , precision = 11)
+	private User user;
 	
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "picture",nullable = false)

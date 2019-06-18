@@ -1,11 +1,15 @@
 package com.example.model;
 
 import java.time.Year;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -22,11 +26,10 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown=true)
 @Entity
 @Table(name = "users")
-public class Users{
-
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "id", nullable = false, precision = 11)
 	private Integer id;
 	
@@ -56,5 +59,9 @@ public class Users{
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "area_id", precision = 11)
 	private int areaId;
+	
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Item> itemList;
 
 }
