@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="item_list.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class=header>
+      </div>
+      
+      <div class=main>
+      
+        <div class=select_category>
+            
+          <ul id="accordion_menu">
+              <li>
+                <a data-toggle="collapse" href="#menu01" aria-controls="#menu01" aria-expanded="false">Tops</a>
+              </li>
+                <ul id="menu01" class="collapse" data-parent="#accordion_menu">
+                    <li><a href="#">--全て</a></li>
+                    <li><a href="#">--シャツ/ブラウス/カットソー</a></li>
+                    <li><a href="#">--ニット</a></li>
+                    <li><a href="#">--パーカー/スウェット</a></li>
+                </ul>
+              <li>
+                <a data-toggle="collapse" href="#menu02" aria-controls="#menu02" aria-expanded="false">Outer</a>
+              </li>
+              <li>
+                <a data-toggle="collapse" href="#menu03" aria-controls="#menu03" aria-expanded="false">Bottoms</a>
+              </li>
+                <ul id="menu03" class="collapse" data-parent="#accordion_menu">
+                    <li><a href="#">--全て</a></li>
+                    <li><a href="#">--パンツ</a></li>
+                    <li><a href="#">--スカート</a></li>
+                </ul>
+              <li>
+                <a data-toggle="collapse" href="#menu04" aria-controls="#menu04" aria-expanded="false">Onepice</a>
+              </li>
+                <ul id="menu04" class="collapse" data-parent="#accordion_menu">
+                    <li><a href="#">--全て</a></li>
+                    <li><a href="#">--ワンピース</a></li>
+                    <li><a href="#">--サロペット</a></li>
+                    <li><a href="#">--オールインワン</a></li>
+                </ul>
+              <li>
+                <a data-toggle="collapse" href="#menu05" aria-controls="#menu05" aria-expanded="false">Goods</a>
+              </li>
+                <ul id="menu05" class="collapse" data-parent="#accordion_menu">
+                    <li><a href="#">--全て</a></li>
+                    <li><a href="#">--帽子</a></li>
+                    <li><a href="#">--バッグ</a></li>
+                    <li><a href="#">--シューズ</a></li>
+                </ul>
+          </ul>
+      </div>
+
+        
+      <div class="select_season">
+            <ul id="accordion_menu">
+              <li>
+                <a data-toggle="collapse" href="#menu06" aria-controls="#menu06" aria-expanded="false">Season</a>
+              </li>
+                <ul id="menu06" class="collapse" data-parent="#accordion_menu">
+                    <li><a href="#">--全て</a></li>
+                    <li><a href="#">--春</a></li>
+                    <li><a href="#">--夏</a></li>
+                    <li><a href="#">--秋</a></li>
+                    <li><a href="#">--冬</a></li>
+                </ul>
+          </ul>
+      </div>
+    
+        　<div>
+		      <input type="color" value="#ffffff" list="colors">
+		      <datalist id="colors">
+			     <option value="#ff0000"></option>
+			     <option value="#00ff00"></option>
+			     <option value="#0000ff"></option>
+		      </datalist>
+        　</div>
+          
+        <div class=buttom>
+            <button>新しいアイテムの登録</button>
+        </div>
+          
+        <div class="item_list">
+            <ul>
+                <li class="item">item1</li>
+                <li class="item">item2</li>
+                <li class="item">item3</li>
+                <li class="item">item4</li>
+                <li class="item">item5</li>
+                <li class="item">item6</li>
+                <li class="item">item7</li>
+                <li class="item">item8</li>
+            </ul>
+        </div>
+          
+      </div>
+          
+  </body>
+</html>
