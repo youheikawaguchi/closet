@@ -29,11 +29,11 @@ import lombok.Setter;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "id", nullable = false, precision = 11)
 	private Integer id;
 	
 	@Size(min = 4, max = 30, message = "4~30文字で入力してください。")
-	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "user_id", length = 30, nullable=false, unique = true)
 	private String userId;
 
@@ -60,7 +60,7 @@ public class User {
 	private Integer areaId;
 	
 	@JsonIgnore
-	//@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Item> itemList;
 
 }

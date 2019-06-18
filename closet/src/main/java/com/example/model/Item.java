@@ -47,10 +47,10 @@ public class Item {
 	@Column(name = "color_id", precision = 11)
 	private Integer colorId;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	//@OneToMany(mappedBy = "user")
-	@Column(name = "user_id",nullable = false , precision = 11)
-	private User user;
+	//@Column(name = "user_id",nullable = false , precision = 11)
+	//private User user;
 	
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "picture",nullable = false)
