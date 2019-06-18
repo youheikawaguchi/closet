@@ -58,7 +58,7 @@ public class User {
 	@JsonIgnore
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "area_id", precision = 11)
-	private int areaId;
+	private Integer areaId;
 	
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL)

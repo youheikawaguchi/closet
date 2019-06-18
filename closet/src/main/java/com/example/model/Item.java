@@ -30,22 +30,22 @@ public class Item {
 	@JsonIgnore
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "category_id",nullable = false ,precision = 11)
-	private int categoryId;
+	private Integer categoryId;
 	
 	@JsonIgnore
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "sub_category_id", precision = 11)
-	private int subCategoryId;
+	private Integer subCategoryId;
 	
 	@JsonIgnore
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "season_id", precision = 11)
-	private int seasonId;
+	private Integer seasonId;
 	
 	@JsonIgnore
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "color_id", precision = 11)
-	private int colorId;
+	private Integer colorId;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "user")
