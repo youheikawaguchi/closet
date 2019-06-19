@@ -24,6 +24,6 @@ public class SubCategory {
 	@Column(name = "category_id")
 	private Integer categoryId;
 	
-	@Column(name = "category_name", length = 60, nullable=false)
-	private String categoryName;
+	@Column(name = "subcategory_name", length = 60, nullable=false)
+	private String subCategoryName;
 }

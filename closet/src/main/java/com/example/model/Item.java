@@ -5,10 +5,12 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -40,8 +42,13 @@ public class Item {
 	private Integer subCategoryId;
 	
 	@JsonIgnore
-	@ManyToOne
-	private Season season;
+	@Column(name = "season_id", precision = 11)
+	private Integer seasonId;
+	
+	//@JsonIgnore
+	//@ManyToOne(fetch=FetchType.EAGER)
+	//@JoinColumn(name = "season_id",insertable=false, updatable=false )
+	//private Season season;
 	
 	@JsonIgnore
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
