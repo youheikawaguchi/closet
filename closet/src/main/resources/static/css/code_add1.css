@@ -1,0 +1,122 @@
+.header {
+    
+    width: 100%;
+    height:120px;
+    background-color: #4D919F;
+}
+
+.slc{
+    display: block;
+    width: 750px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+.custom-select{
+    width: 750px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+#select1{
+    width: 750px;
+    height: 100px;
+    background-color:#E0F4F8;
+    margin: auto;
+    font-size: 30px
+}
+
+.photobtn{
+    height: 600px;
+    width: 480px;
+    background-color: #E0E0E0;
+    text-align: center;
+    margin: 50px auto; 
+}
+
+.photobtn_add{
+    height: 600px;
+    width: 480px;
+    text-align: center;
+}
+
+.photobtn
+.btn1,.btn-info1{
+    margin: 55px 5px 8px 20px;
+    width: 120px;
+    height: 120px;
+    font-size: 50px;
+    background-color: #A8CCD4;
+    color: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+
+
+.Title1{
+    width: 750px;
+    margin: 0 auto;
+}
+
+.Title1
+.form-control{
+    width: 750px;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.Memo1{
+    width: 750px;
+    margin: 0 auto;
+}
+
+.Memo1
+.form-control{
+    width: 750px;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+
+.enterbtn{
+    width: 660px;
+    margin: 60px auto;
+}
+
+.btn{
+    width: 250px;
+    height: 60px;
+    border-radius: 10px;
+    float:left;
+    text-align: center;
+    color: white;
+}
+
+.btn.btn-success {
+    background-color: #95B8BF;
+    margin: 40px;
+    border: none;
+    font-size: 28px;
+}
+
+.btn.btn-success:hover {
+    background-color: #95B8BF;
+}
+
+.btn.btn-warning {
+    background-color: #D9B918;
+    margin: 40px;
+    border: none;
+    font-size: 28px;
+}
+
+.btn.btn-warnig:hover {
+background-color: #D9B918;
+}
