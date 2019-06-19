@@ -29,13 +29,13 @@ public class Calender {
 	
 	//@JsonIgnore
 	//@OneToMany(mappedBy = "user")
-	//@Column(name = "user_id",nullable = false , precision = 11)
-	//private User user;
+	@Column(name = "id",nullable = false , precision = 11)
+	private /*User*/ int user;
 	
 	//@JsonIgnore
 	//@OneToMany(mappedBy = "user")
-	//@Column(name = "coodinate_id",nullable = false , precision = 11)
-	//private Coodinate coodinate;
+	@Column(name = "coordinate_id",nullable = false , precision = 11)
+	private /*Coordinate*/ int coordinate;
 	
 	@Column(name = "event", length = 30)
 	private String event;
@@ -45,6 +45,6 @@ public class Calender {
 	@Column(name = "event_date",nullable=false)
 	private Date eventDate;
 	
-	@Column(name = "met_parson", length = 30)
-	private String metParson;
+	@Column(name = "met_person", length = 30)
+	private String metPerson;
 }

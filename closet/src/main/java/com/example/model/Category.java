@@ -1,12 +1,15 @@
 package com.example.model;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -24,4 +27,10 @@ public class Category {
 	
 	@Column(name = "category_name", length = 60, nullable=false)
 	private String categoryName;
+	
+	@OneToMany(mappedBy="category",cascade = CascadeType.ALL,orphanRemoval=true)
+	private List<Item> itemlist;
+	
+	@OneToMany(mappedBy="category",cascade = CascadeType.ALL,orphanRemoval=true)
+	private List<Item> subCategorylist;
 }
