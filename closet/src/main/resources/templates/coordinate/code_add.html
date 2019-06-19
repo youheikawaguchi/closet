@@ -9,8 +9,7 @@
 
 <body>
     <div class=header></div>
-        
-    <form action="#">
+       
         <div class=slc>
             <select id="select1" class="custom-select" name="have_calender">
                 <option selected value="">------</option>
@@ -19,7 +18,7 @@
             </select>
         </div>
 
-
+	<form action="#">
         <div class="photobtn">
             <div class="photobtn_add">
                 <button type="button" class="btn1 btn-info1" name="c_item1">＋</button>
@@ -53,8 +52,55 @@
                 <button type="button" class="btn btn-success">戻る</button>
                 <button type="button" class="btn btn-warning">登録</button>
             </div>
+            
+            <div class="hdd">
+            	<input type="hidden" name="slc" value="0">
+           	</div>
+           	
         </div>
     </form>
+    
+    
+    <form action="#">
+        <div class="photobtn">
+            <div class="photobtn_add">
+                <button type="button" class="btn1 btn-info1" name="c_item1">＋</button>
+                <button type="button" class="btn1 btn-info1" name="c_item2">＋</button> 
+                <button type="button" class="btn1 btn-info1" name="c_item3">＋</button> 
+                <br>
+                <button type="button" class="btn1 btn-info1" name="c_item4">＋</button>
+                <button type="button" class="btn1 btn-info1" name="c_item5">＋</button> 
+                <button type="button" class="btn1 btn-info1" name="c_item6">＋</button>
+                <br>
+                <button type="button" class="btn1 btn-info1" name="c_item7">＋</button>
+                <button type="button" class="btn1 btn-info1" name="c_item8">＋</button> 
+                <button type="button" class="btn1 btn-info1" name="c_item9">＋</button> 
+                <br>
+            </div>
+        </div>
+
+        <div>
+            <div class="form2">
+                <input type="text"  placeholder="Memo" class="event">
+            </div>
+            <div>
+                <input type="date" class="date">
+            </div>
+            <div>
+                <input type="text"  placeholder="Person" class="who">
+            </div>
+            <div>
+                <textarea placeholder="Memo" class="" name="code_memo" cols="50" rows="5"></textarea>
+            </div>
+        </div>
+        
+        <div class="hdd">
+			<input type="hidden" name="slc" value="1">
+        </div>
+    
+    </form>
+    
+</body>
         
 </body>
     
