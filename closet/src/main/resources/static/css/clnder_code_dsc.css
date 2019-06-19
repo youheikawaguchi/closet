@@ -54,7 +54,7 @@ table {
 }
 
 ul {
-    width: 540px;
+    width: 536px;
     height: 600px;
     border: solid black;
     margin: auto;
@@ -69,6 +69,7 @@ li {
     border: solid 2px black;
     margin: 10px;
     text-align: center;
+    background-color: #E0E0E0;
 }
 
 .c_dsc {
@@ -83,10 +84,15 @@ p {
     margin-bottom: 50px;
 }
 
+.text {
+    width: 806px;
+    margin: auto;
+}
 .memo {
     width: 766px;
     height:180px;
     border: solid black;
+    margin: 20px;
 }
 
 .c_button {
@@ -98,4 +104,24 @@ p {
     width: 200px;
     height: 80px;
     margin: 40px;
+}
+
+.btn.btn-info {
+    font-size: 28px;
+    background-color:#95B8BF;
+    border:none;
+}
+
+.btn.btn-info:hover {
+    background-color: #7CA0A7;
+}
+
+.btn.btn-warning {
+    font-size: 28px;
+    background-color: #D9B918;
+    border:none;
+}
+
+.btn.btn-warning:hover {
+    background-color:#BEA10D;
 }
