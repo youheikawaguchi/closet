@@ -1,102 +1,67 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="item_edit.css" type="text/css">
-      
-      <style>
-          .photo {
-              height: 400px;
-              width: 300px;
-              border: solid black;
-              text-align: center;
-              margin: 0 auto;  
-          }
-          
-          .select1,.select2,.select3,.select4 {
-              height: 30px;
-              width: 300px;
-              margin: 10px auto;
-              border-radius: 5px;
-              background-color: #C2E9F2;
-          }
-          
-          a {
-              height: 30px;
-              width: 100px;
-              border-radius: 5px;
-              float:left;
-              text-align: center; 
-              color: white;
-          }
-          
-          #a {
-              background-color: #4D919F;
-              margin: 30px;
-          }
-          
-          #b {
-              background-color: #D9B918;
-              margin: 30px;
-          }
-          
-      </style>
-  </head>
-  <body>
-      <div class=wrapper>
-          <div class=header></div>
-          
-          <div class=main>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="item_edit.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">      
+</head>
+<body>  
+    <div class=header>
+    </div>
+    
+    <div class="container-fluid">
+        <div class=photo>
+            <div class=add_btn>
+                <button type="button" class="btn btn-info">＋</button>
+            </div>
+        </div>
+        
+        <form>
+            <div class="select">
+                <select id="select" class="custom-select">
+                    <option selected>カテゴリを選択してください</option>
+                    <option value="1">トップス</option>
+                    <option value="2">アウター</option>
+                    <option value="3">ボトムス</option>
+                    <option value="4">ワンピース</option>
+                    <option value="5">小物</option>
+                </select>
+                <br>
+                <select id="select" class="custom-select">
+                    <option selected>サブカテゴリーを選択してください</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                <br>
+                <select id="select" class="custom-select">
+                    <option selected>季節を選択してください</option>
+                    <option value="1">春</option>
+                    <option value="2">夏</option>
+                    <option value="3">秋</option>
+                    <option value="4">冬</option>
+                    <option value="5">春夏</option>
+                    <option value="6">秋冬</option>
+                </select>
+                <br>
+                <select id="select" class="custom-select">
+                    <option selected>色を選択してください</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
             
-              <div class=photo>
-                  <button>＋</button>
-              </div>
-              
-              <ul class=tag>
-                  <select class="select1">
-                      <option value="サンプル0">カテゴリを選択してください</option>
-                      <option value="サンプル1">トップス</option>
-                      <option value="サンプル2">アウター</option>
-                      <option value="サンプル3">ボトムス</option>
-                      <option value="サンプル3">ワンピース</option>
-                      <option value="サンプル3">小物</option>
-                  </select>
-                  <br>
-                  <select class="select2">
-                      <option value="サンプル0">サブカテゴリを選択してください</option>
-                      <option value="サンプル1">サブカテゴリー１</option>
-                      <option value="サンプル2">サブカテゴリー２</option>
-                      <option value="サンプル3">サブカテゴリー３</option>
-                      <option value="サンプル3">サブカテゴリー４</option>
-                  </select>
-                  <br>
-                  <select class="select3">
-                      <option value="サンプル0">季節を選択してください</option>
-                      <option value="サンプル1">春</option>
-                      <option value="サンプル2">夏</option>
-                      <option value="サンプル3">秋</option>
-                      <option value="サンプル4">冬</option>
-                  </select>
-                  <br>
-                  <select class="select4">
-                      <option value="サンプル0">色を選択してください</option>
-                      <option value="サンプル1">サンプル1</option>
-                      <option value="サンプル2">サンプル2</option>
-                      <option value="サンプル3">サンプル3</option>
-                  </select>
-              </ul>
-              
-              <div class=memo>
-                <textarea cols="50" rows="10">MEMO</textarea>
-              </div>
-              
-              <div class=buttom>
-                  	<a id=a>戻る</a>
-                  	<a id=b>登録</a>
-              </div>
-              
-          </div>
-      
-      </div>
-  </body>
+            <div class=memo>
+                <textarea id="textarea" class="textarea">MEMO</textarea>
+            </div>
+        </form>
+        
+        <div class=button>
+            <form th:action="@{/item/item_edit}"><button type="button" class="btn btn-success">戻る</button></form>
+            <button type="button" class="btn btn-warning">編集</button>
+        </div>
+        
+    </div>
+</body>
 </html>
