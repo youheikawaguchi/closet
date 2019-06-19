@@ -31,37 +31,35 @@ public class Item {
 	@Column(name = "item_id", nullable = false, precision = 11)
 	private Integer itemId;
 	
+	/*subCategoryID*/
 	@JsonIgnore
-	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@Column(name = "category_id",nullable = false ,precision = 11)
-	private Integer categoryId;
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	private Category category;
+	
+	/*subCategoryID*/
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "sub_category_id")
+	private SubCategory subCategory;
 	
 	@JsonIgnore
-	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@Column(name = "sub_category_id", precision = 11)
-	private Integer subCategoryId;
-	
-	@JsonIgnore
-	@Column(name = "season_id", precision = 11)
-	private Integer seasonId;
-	
-	//@JsonIgnore
-	//@ManyToOne(fetch=FetchType.EAGER)
-	//@JoinColumn(name = "season_id",insertable=false, updatable=false )
-	//private Season season;
+	@ManyToOne
+	@JoinColumn(name = "season_id")
+	private Season season;
 	
 	@JsonIgnore
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "color_id", precision = 11)
 	private Integer colorId;
 	
+	/*usersのID:双方向にするとき*/
 	//@JsonIgnore
 	//@OneToMany(mappedBy = "user")
-	//@Column(name = "user_id",nullable = false , precision = 11)
 	//private User user;
 	
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@Column(name = "picture",nullable = false)
+	@Column(name = "picture")
 	private String picture;
 	
 	@Size(max = 300, message = "300字以下で入力してください")
@@ -71,9 +69,9 @@ public class Item {
 	
 	//@JsonIgnore
 	//@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name = "create_at")
-	private Date createAt;
+	@Column(name = "created_at")
+	private Date createdAt;
 	
-	@Column(name = "update_at")
-	private Date updateAt;
+	@Column(name = "updated_at")
+	private Date updatedAt;
 }
