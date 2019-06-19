@@ -1,31 +1,84 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="item_details.css" type="text/css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
-    <form th:action="@{/item/item_details}"></form>
-    
-    <div class="header"></div>
-        
-        <div class=photo>
-            <img src="..." class="img-fluid" alt="Responsive image">
-        </div>
-        
-        <div class="category">
-            <div class="badge">カテゴリー</div>
-            <div class="badge">季節</div>
-            <div class="badge">カラー</div>
-        </div>
-        
-        <div class=memo>MEMO</div>
-        
-        <div class="button">
-            <button type="button" class="btn btn-primary">削除</button>
-            <button type="button" class="btn btn-secondary">編集</button>
-        </div>
-    
-</body>
+      
+      <style>
+          .photo {
+              height: 400px;
+              width: 300px;
+              border: solid black;
+              text-align: center;
+              margin: 0 auto;  
+          }
+          
+          .tag {
+              list-style: none;
+              text-align: center;  
+          }
+          
+          li {
+              height: 30px;
+              width: 100px;
+              background-color:#C2E9F2; 
+              float:left;
+              border-radius: 10px;
+              text-align: center;
+              margin: auto;
+          }
+          
+          .memo {
+              height: 150px;
+              width: 300px;
+              border: solid black;
+              text-align: center;
+              margin: 0 auto;  
+          }
+          
+          a {
+              height: 30px;
+              width: 100px;
+              border-radius: 10px;
+              float:left;
+              text-align: center; 
+          }
+          
+          #a {
+              background-color: #4D919F;
+              margin: 30px;
+          }
+          
+          #b {
+              background-color: #D9B918;
+              margin: 30px;
+          }
+      
+      </style>
+  </head>
+  <body>
+      <div class=wrapper>
+          <div class=header>header</div>
+          
+          <div class=main>
+            
+              <div class=photo>photo</div>
+              
+              <ul class=tag>
+                  <li>カテゴリー</li>
+                  <li>季節</li>
+                  <li>カラー</li>
+              </ul>
+              
+              <div class=memo>MEMO</div>
+              
+              <div class=buttom>
+                  	<a id=a>削除</a>
+                  	<a id=b>編集</a>
+              </div>
+              
+          </div>
+      
+      </div>
+  </body>
 </html>
