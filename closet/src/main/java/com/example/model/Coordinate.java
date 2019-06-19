@@ -17,32 +17,32 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "coodinate")
-public class Coodinate {
+@Table(name = "coordinate")
+public class Coordinate {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "coodinate_id")
-	private Integer coodinateId;
+	@Column(name = "coordinate_id")
+	private Integer coordinateId;
 	
 	//@JsonIgnore
 	//@OneToMany(mappedBy = "user")
-	//@Column(name = "user_id",nullable = false , precision = 11)
-	//private User user;
+	@Column(name = "id",nullable = false , precision = 11)
+	private /*User*/ int user;
 	
-	@Column(name = "event", length = 30)
-	private String coodinate_title;
+	@Column(name = "coordinate_title", length = 30)
+	private String coordinate_title;
 	
 	@Column(name = "comment", length = 300)
 	private String comment;
 	
 	//@JsonIgnore
 	//@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name = "create_at")
-	private Date createAt;
+	@Column(name = "created_at")
+	private Date createdAt;
 	
-	@Column(name = "update_at")
-	private Date updateAt;
+	@Column(name = "updated_at")
+	private Date updatedAt;
 	
 	@JsonIgnore
 	@Column(name = "have_calender")
