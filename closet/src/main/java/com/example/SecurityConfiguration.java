@@ -32,7 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		//静的リソースへのアクセスに対するセキュリティ設定を無視
-		web.ignoring().antMatchers("/webjars/**", "/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+		web.ignoring().antMatchers("/favicon.ico","/webjars/**", "/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
 		}
 	
 	@Override
