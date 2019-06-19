@@ -2,22 +2,36 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+    <link rel="stylesheet" href="createacc.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <title>新規アカウント作成</title>
 </head>
 
     <body>
-        <div>
-        <h1>はじめまして！</h1>
-        <p>このアプリでクローゼットの中身を<br>便利に管理しましょう</p>
+        <div class="container">
+            <div class="start2">
+                <p id="hello">はじめまして！</p>
+                <p>このアプリでクローゼットの中身を<br>便利に管理しましょう</p>
+            </div>
+            
+        <form>
+            <div class="form-group">
+                <label for="useId"></label>
+                <input type="text" class="form-control" id="UserId1" aria-describedby="UserID" placeholder="UserID">
+            </div> 
+            <div class="form-group">
+                <label for="passWord"></label>
+                <input type="password" class="form-control" id="Password1" placeholder="Password">
+            </div>
+            
+            <div class="button_wrapper">
+                <button type="submit" class="btn btn-primary">プロフィール登録へ</button>
+            </div>
+            
+        </form>
+        
         </div>
     
-        <div><br>
-        <input type="text" name="name" placeholder="UserID" size="30" maxlength="20">
-        </div>
-        <div><br>
-        <input type="text" name="address" placeholder="Password" size="30" maxlength="20">
-        </div>
-        <div><input type="button" value="プロフィール登録へ" class="button"></div>
-    
-        <p><a href="遷移したい画面のURL">このアプリを初めて使う！</a></p>
     </body>
+
+</html>
