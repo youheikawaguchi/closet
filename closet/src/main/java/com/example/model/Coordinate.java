@@ -55,7 +55,12 @@ public class Coordinate {
 	@Column(name = "have_calender")
 	private byte haveCalender;
 	
+	/*カレンダー連携*/
 	@JsonIgnore
 	@OneToMany(mappedBy="coordinate",cascade = CascadeType.ALL,orphanRemoval=true)
 	private List<Calender> calenderList;
+	
+	/*Itemとの多対多連携*/
+    @ManyToMany( mappedBy = "coordinatelist")
+    private List<Item> itemlist;  
 }
