@@ -21,8 +21,8 @@
 
 .logo{
   position: absolute;
-  width: 200px;
-  height:100px;
+  width: 450px;
+  height:220px;
   background-image: url("../images/top/logo.png");
   background-size: contain;
   background-repeat: no-repeat;
