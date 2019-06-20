@@ -60,7 +60,7 @@ public class User {
 	private Integer areaId;
 	
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="user",cascade = CascadeType.ALL,orphanRemoval=true)
 	private List<Item> itemList;
 
 }
