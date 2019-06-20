@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,6 +41,7 @@ public class Area {
 	@Column(name = "longitude", length = 60, nullable=false)
 	private double longitude;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="area",cascade = CascadeType.ALL,orphanRemoval=true)
 	private List<User> userlist;
 }

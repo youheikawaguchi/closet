@@ -33,10 +33,10 @@ public class Calendar {
 	@Column(name = "calender_id")
 	private Integer calendarId;
 	
-	//@JsonIgnore
-	//@OneToMany(mappedBy = "user")
-	@Column(name = "id",nullable = false , precision = 11)
-	private /*User*/ int user;
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "id")
+	private User user;
 	
 	/*coordinate：一対多*/
 	@JsonIgnore
