@@ -52,7 +52,7 @@ public class Coordinate {
 	@Column(name = "updated_at")
 	private Date updatedAt;
 	
-	@Column(name = "have_calender")
+	@Column(name = "have_calendar")
 	private byte haveCalender;
 	
 	/*カレンダー連携*/
