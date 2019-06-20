@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -53,14 +55,14 @@ public class User {
 	@JsonIgnore
 	@Column(name = "admin_key")
 	private byte adminKey;
-
-	@JsonIgnore
-	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@Column(name = "area_id", precision = 11)
-	private Integer areaId;
 	
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL)
+	@ManyToOne
+	@JoinColumn(name = "area_id")
+	private Area area;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="user",cascade = CascadeType.ALL,orphanRemoval=true)
 	private List<Item> itemList;
 
 }
