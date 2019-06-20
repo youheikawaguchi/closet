@@ -52,6 +52,7 @@ public class Coordinate {
 	@Column(name = "updated_at")
 	private Date updatedAt;
 	
+	@JsonIgnore
 	@Column(name = "have_calendar")
 	private byte haveCalender;
 	

@@ -9,11 +9,9 @@ INSERT IGNORE INTO users (id,user_id,password,gender,born_year,admin_key,area_id
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
     VALUES(1,1,1,1,1,1, 'picture',"メモ");
 INSERT IGNORE INTO calendar (calendar_id,id,coordinate_id,event,event_date,met_person)
-    VALUES(1, 1, 1,'event', "2019-06-17", met_person);
-INSERT IGNORE INTO coordinate (coordinate_id,id,coordinate_title,comment,created_at,updated_at)
-    VALUES(1, 1,'title', "coment", "2019-06-17", "2019-06-17");
-INSERT IGNORE INTO coordinate_choice (coordinate_id,item_id)
-    VALUES(1,1);
+    VALUES(1, 1, 1,'event', "2019-06-17", "met_person");
+INSERT IGNORE INTO coordinate (coordinate_id,id,coordinate_title,comment,created_at,updated_at,have_calendar)
+    VALUES(1, 1,'title', "coment", "2019-06-17", "2019-06-17",1);
 INSERT IGNORE INTO season (season_id,season_name) VALUES(1,"春"),(2,"夏"),(3,"秋"),(4,"冬"),(5,"春夏"),(6,"秋冬"),(7,"ALL SEASON");
 INSERT IGNORE INTO color (color_id,color_name)
 VALUES(1,"ホワイト"),(2,"ブラック"),(3,"グレー"),(4,"ブラウン"),(5,"ベージュ"),(6,"グリーン"),(7,"ブルー"),(8,"パープル"),(9,"イエロー"),(10,"ピンク"),(11,"レッド"),(12,"オレンジ"),(13,"シルバー"),(14,"ゴールド"),(15,"その他");
