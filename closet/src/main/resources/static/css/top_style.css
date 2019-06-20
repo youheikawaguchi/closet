@@ -49,6 +49,7 @@
 .btn-blue:hover{
   background-color: #95B8BF;
   opacity: inherit;
+  color:white;
 }
 .btn-yellow{
   background-color: #D9B918;
@@ -60,6 +61,7 @@
 .btn-yellow:hover{
   background-color: #D9B918;
   opacity: inherit;
+  color:white;
 }
 
 .icon_pic{
