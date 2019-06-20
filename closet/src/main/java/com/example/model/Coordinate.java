@@ -58,7 +58,7 @@ public class Coordinate {
 	/*カレンダー連携*/
 	@JsonIgnore
 	@OneToMany(mappedBy="coordinate",cascade = CascadeType.ALL,orphanRemoval=true)
-	private List<Calender> calenderList;
+	private List<Calendar> calendarList;
 	
 	/*Itemとの多対多連携*/
     @ManyToMany( mappedBy = "coordinatelist")

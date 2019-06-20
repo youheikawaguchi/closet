@@ -26,12 +26,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "calender")
-public class Calender {
+@Table(name = "calendar")
+public class Calendar {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "calender_id")
-	private Integer calenderId;
+	private Integer calendarId;
 	
 	//@JsonIgnore
 	//@OneToMany(mappedBy = "user")
