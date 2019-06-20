@@ -13,8 +13,8 @@
         <div class=slc>
             <select id="select1" class="custom-select" name="have_calender" onChange="c_Select()">
                 <option selected value="">------</option>
-                <option value="">コーディネートのみ登録</option>
-                <option value="">カレンダーに登録</option>
+                <option value="code" >コーディネートのみ登録</option>
+                <option value="calender">カレンダーに登録</option>
             </select>
         </div>
 
@@ -37,7 +37,7 @@
         </div>
 
         <div class="form1">
-
+			<div class="aaa">
             <div class="Title1">
                 <label for="Title2"></label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="Title_name" placeholder="Title" name="c_title">
@@ -58,10 +58,12 @@
            	</div>
            	
         </div>
+        </div>
     </form>
     
     
     <form action="#">
+    	<div class="bbb">
         <div class="photobtn">
             <div class="photobtn_add">
                 <button type="button" class="btn1 btn-info1" name="c_item1">＋</button>
@@ -97,7 +99,7 @@
         <div class="hdd">
 			<input type="hidden" name="slc" value="1">
         </div>
-    
+    	</div>
     </form>
     
 </body>
