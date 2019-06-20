@@ -15,23 +15,25 @@ public class ItemController {
 
 	//アイテム登録/編集
 	@GetMapping("/item/item_edit")
-	public ModelAndView item_edit(ModelAndView mav) {
+	public ModelAndView ItemEdit(ModelAndView mav) {
 
 		mav.setViewName("item/item_edit");
 
 		return mav;
 	}
 	
+	/*
 	@PostMapping("/item/item_edit")
 	public ModelAndView postItem_edit(ModelAndView mav) {
 		
 		mav.setViewName("item/item_edit");
 		return mav;
 	}
+	*/
 	
 	//アイテム一覧
 	@GetMapping("/item/item_list")
-	public ModelAndView item_list(ModelAndView mav) {
+	public ModelAndView ItemList(ModelAndView mav) {
 		//mav.addObject("user", user);
 		mav.setViewName("item/item_list");
 
@@ -40,14 +42,22 @@ public class ItemController {
 	
 	//アイテム詳細
 	@GetMapping("/item/item_details")
-	public ModelAndView item_details(ModelAndView mav) {
+	public ModelAndView ItemDetails(ModelAndView mav) {
 
 		mav.setViewName("item/item_details");
 
 		return mav;
 	}
 	
-	//
+	//アイテムselect
+	//アイテム詳細
+	@GetMapping("/item/item_select")
+	public ModelAndView ItemSelect(ModelAndView mav) {
+
+		mav.setViewName("item/item_select");
+
+		return mav;
+	}
 	
 	
 	

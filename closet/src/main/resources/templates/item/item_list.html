@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
     
 <head>
     <meta charset="utf-8">
@@ -87,9 +87,9 @@
             </div>
         </div>
         
-        <div class=button>
+        <form class=button th:action="@{/item/item_edit}">
             <button type="button" class="btn btn-block">新しいアイテムの登録</button>
-        </div>
+        </form>
 
         <div class="item_list">
             <ul class="list list-unstyled">
