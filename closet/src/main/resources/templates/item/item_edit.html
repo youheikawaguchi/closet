@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="item_edit.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">      
 </head>
 <body>  
+    <form th:action="@{/item/item_edit}"></form>
     <div class=header>
     </div>
     
@@ -20,46 +21,46 @@
             <div class="select">
                 <select id="select" class="custom-select">
                     <option selected>カテゴリを選択してください</option>
-                    <option value="1">トップス</option>
-                    <option value="2">アウター</option>
-                    <option value="3">ボトムス</option>
-                    <option value="4">ワンピース</option>
-                    <option value="5">小物</option>
+                    <option name="category1" value="1">トップス</option>
+                    <option name="category2" value="2">アウター</option>
+                    <option name="category3" value="3">ボトムス</option>
+                    <option name="category4" value="4">ワンピース</option>
+                    <option name="category5" value="5">小物</option>
                 </select>
                 <br>
                 <select id="select" class="custom-select">
                     <option selected>サブカテゴリーを選択してください</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option name="sub_category1" value="1">One</option>
+                    <option name="sub_category2" value="2">Two</option>
+                    <option name="sub_category3" value="3">Three</option>
                 </select>
                 <br>
                 <select id="select" class="custom-select">
                     <option selected>季節を選択してください</option>
-                    <option value="1">春</option>
-                    <option value="2">夏</option>
-                    <option value="3">秋</option>
-                    <option value="4">冬</option>
-                    <option value="5">春夏</option>
-                    <option value="6">秋冬</option>
+                    <option name="season1" value="1">春</option>
+                    <option name="season2" value="2">夏</option>
+                    <option name="season3" value="3">秋</option>
+                    <option name="season4" value="4">冬</option>
+                    <option name="season5" value="5">春夏</option>
+                    <option name="season6" value="6">秋冬</option>
                 </select>
                 <br>
                 <select id="select" class="custom-select">
                     <option selected>色を選択してください</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option name="color1" value="1">One</option>
+                    <option name="color2" value="2">Two</option>
+                    <option name="color3" value="3">Three</option>
                 </select>
             </div>
             
             <div class=memo>
-                <textarea id="textarea" class="textarea">MEMO</textarea>
+                <textarea name="memo" id="textarea" class="textarea" placeholder="MEMO"></textarea>
             </div>
         </form>
         
         <div class=button>
-            <form th:action="@{/item/item_edit}"><button type="button" class="btn btn-success">戻る</button></form>
-            <button type="button" class="btn btn-warning">編集</button>
+            <button type="button" class="btn btn-success">戻る</button>
+            <button type="button" class="btn btn-warning">決定</button>
         </div>
         
     </div>
