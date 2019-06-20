@@ -1,0 +1,23 @@
+package com.example.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class CalenderController {
+
+	@GetMapping(value= {"/calender"})
+	public ModelAndView calender() {
+		return new ModelAndView("redirect:/calender");
+	}
+	
+	@GetMapping("/calender/calender_edit")
+	public ModelAndView item_edit(ModelAndView mav) {
+
+		mav.setViewName("item/item_edit");
+
+		return mav;
+	}
+	
+}

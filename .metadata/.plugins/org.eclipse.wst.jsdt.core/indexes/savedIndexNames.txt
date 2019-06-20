@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+C:\Users\nanase.mizoguchi\Documents\closet\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+673812883.index
+3504413645.index
+2495369053.index
+2686746073.index
+3036070934.index

@@ -1,0 +1,43 @@
+body {
+  width: 100%;
+}
+.container {
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+}
+#item {
+  height: 300px;
+  overflow-y: scroll;
+  bottom: 0;
+}
+#calendar {
+  /* height: 100%; */
+  transition: .3s ease-out;
+}
+#calendar .fc-scroller {
+  transition: .3s ease-out;
+}
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+#date {
+  z-index: 100;
+  width: 100%;
+  text-align: center;
+}
+
+.item-img div{
+  position:relative;
+  overflow:hidden;
+  padding-bottom:100%;
+}
+.item-img div div, .item-img div img {
+  position:absolute;
+}
