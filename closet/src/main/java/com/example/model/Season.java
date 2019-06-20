@@ -23,14 +23,17 @@ import lombok.Setter;
 @Table(name = "season")
 public class Season {
 
+	/*SeasonId*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "season_id", length = 11)
 	private Integer season_id;
 	
-	@OneToMany(mappedBy="season",cascade = CascadeType.ALL,orphanRemoval=true)
-	private List<Item> itemlist;
-	
+	/*SeasonName*/
 	@Column(name = "season_name", length = 60, nullable=false)
 	private String seasonName;
+	
+
+	@OneToMany(mappedBy="season",cascade = CascadeType.ALL,orphanRemoval=true)
+	private List<Item> itemlist;
 }
