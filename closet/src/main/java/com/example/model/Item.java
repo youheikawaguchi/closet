@@ -54,9 +54,10 @@ public class Item {
 	private Integer colorId;
 	
 	/*usersのID:双方向にするとき*/
-	//@JsonIgnore
-	//@OneToMany(mappedBy = "user")
-	//private User user;
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "id")
+	private User user;
 	
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@Column(name = "picture")
