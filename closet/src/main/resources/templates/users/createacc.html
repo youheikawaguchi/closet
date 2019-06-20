@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
     <link rel="stylesheet" href="createacc.css" type="text/css">
@@ -14,7 +14,7 @@
                 <p>このアプリでクローゼットの中身を<br>便利に管理しましょう</p>
             </div>
             
-        <form action="#" method="post">
+        <form th:action="@{/users}" action="/users" th:object="${createacc}" method="post">
             <div class="form-group">
                 <label for="useId"></label>
                 <input type="text" class="form-control" id="UserId1" aria-describedby="UserID" placeholder="UserID"  name="user_id">

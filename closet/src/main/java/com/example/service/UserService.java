@@ -5,6 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.model.User;
+import com.example.repository.UserRepository;
 @Service
 public class UserService {
 	@Autowired
