@@ -30,7 +30,7 @@ import lombok.Setter;
 public class Calendar {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "calender_id")
+	@Column(name = "calendar_id")
 	private Integer calendarId;
 	
 	@JsonIgnore
