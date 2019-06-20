@@ -3,54 +3,59 @@
     
 <head>
     <meta charset="UTF-8">
-
+    <link rel="stylesheet" href="code_add1.css" type="text/css">
     <title>コーディネート登録</title>
-    
-    <link href="css/reset.css" rel="stylesheet" type="text/css">
 </head>   
 
 <body>
-    <div>
-        <select name="" onchange="change_select();">
-            <option>------</option>
-            <option>コーディネートのみ登録</option>
-            <option>カレンダーに登録</option>
-        </select>
-    </div>
-    
+    <div class=header></div>
+        
+    <form action="#">
+        <div class=slc>
+            <select id="select1" class="custom-select" name="have_calender">
+                <option selected value="">------</option>
+                <option value="">コーディネートのみ登録</option>
+                <option value="">カレンダーに登録</option>
+            </select>
+        </div>
 
-    <div>
-        <input type="button" value="+">
-        <input type="button" value="+"> 
-        <input type="button" value="+"> 
-        <br>
-        <input type="button" value="+"> 
-        <input type="button" value="+"> 
-        <input type="button" value="+"> 
-        <br>
-        <input type="button" value="+"> 
-        <input type="button" value="+"> 
-        <input type="button" value="+"> 
-    </div>
-    <br>
-    
-    <div>
-        <input type="text" value="Event">
-        <br>
-        <input type="date">
-        <br>
-        <input type="text" value="誰と会いますか？">
-        <br>
-    </div>
-    <div>
-        <input type="text" value="Title">
-    </div>
-    <div>
-        <textarea name="code_memo" cols="50" rows="5">MEMO</textarea>
-    </div>
-    
-    
+
+        <div class="photobtn">
+            <div class="photobtn_add">
+                <button type="button" class="btn1 btn-info1" name="c_item1">＋</button>
+                <button type="button" class="btn1 btn-info1" name="c_item2">＋</button> 
+                <button type="button" class="btn1 btn-info1" name="c_item3">＋</button> 
+                <br>
+                <button type="button" class="btn1 btn-info1" name="c_item4">＋</button>
+                <button type="button" class="btn1 btn-info1" name="c_item5">＋</button> 
+                <button type="button" class="btn1 btn-info1" name="c_item6">＋</button>
+                <br>
+                <button type="button" class="btn1 btn-info1" name="c_item7">＋</button>
+                <button type="button" class="btn1 btn-info1" name="c_item8">＋</button> 
+                <button type="button" class="btn1 btn-info1" name="c_item9">＋</button> 
+                <br>
+            </div>
+        </div>
+
+        <div class="form1">
+
+            <div class="Title1">
+                <label for="Title2"></label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="Title_name" placeholder="Title" name="c_title">
+            </div>
+
+            <div class="Memo1">
+                <label for="Memo2"></label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="Memo_name" placeholder="Memo" name="comment">
+            </div>
+
+            <div class=enterbtn>
+                <button type="button" class="btn btn-success">戻る</button>
+                <button type="button" class="btn btn-warning">登録</button>
+            </div>
+        </div>
+    </form>
+        
 </body>
     
-
 </html>

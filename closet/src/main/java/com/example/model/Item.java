@@ -1,13 +1,19 @@
 package com.example.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -27,33 +33,38 @@ public class Item {
 	@Column(name = "item_id", nullable = false, precision = 11)
 	private Integer itemId;
 	
+	/*CategoryID*/
 	@JsonIgnore
-	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@Column(name = "category_id",nullable = false ,precision = 11)
-	private Integer categoryId;
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	private Category category;
 	
+	/*subCategoryID*/
 	@JsonIgnore
-	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@Column(name = "sub_category_id", precision = 11)
-	private Integer subCategoryId;
+	@ManyToOne
+	@JoinColumn(name = "sub_category_id")
+	private SubCategory subCategory;
 	
+	/*SeasonID*/
 	@JsonIgnore
-	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@Column(name = "season_id", precision = 11)
-	private Integer seasonId;
+	@ManyToOne
+	@JoinColumn(name = "season_id")
+	private Season season;
 	
+	/*ColorID*/
 	@JsonIgnore
-	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@Column(name = "color_id", precision = 11)
-	private Integer colorId;
+	@ManyToOne
+	@JoinColumn(name = "color_id")
+	private Color color;
 	
-	//@JsonIgnore
-	//@OneToMany(mappedBy = "user")
-	//@Column(name = "user_id",nullable = false , precision = 11)
-	//private User user;
+	/*usersのID:双方向にするとき*/
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "id")
+	private User user;
 	
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@Column(name = "picture",nullable = false)
+	@Column(name = "picture")
 	private String picture;
 	
 	@Size(max = 300, message = "300字以下で入力してください")
@@ -63,9 +74,16 @@ public class Item {
 	
 	//@JsonIgnore
 	//@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name = "create_at")
-	private Date createAt;
+	@Column(name = "created_at")
+	private Date createdAt;
 	
-	@Column(name = "update_at")
-	private Date updateAt;
+	@Column(name = "updated_at")
+	private Date updatedAt;
+	
+	/*coordenateとの多対多連携*/
+    @ManyToMany
+    @JoinTable(name="coordinate", 
+    	joinColumns = @JoinColumn( name = "item_id"),
+        inverseJoinColumns = @JoinColumn(name="coordinate_id"))
+    private List<Coordinate> coordinatelist;
 }
