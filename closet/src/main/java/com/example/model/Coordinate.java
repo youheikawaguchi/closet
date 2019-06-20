@@ -43,18 +43,20 @@ public class Coordinate {
 	@Column(name = "comment", length = 300)
 	private String comment;
 	
-	//@JsonIgnore
+	@JsonIgnore
 	//@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "created_at")
 	private Date createdAt;
 	
+	@JsonIgnore
 	@Column(name = "updated_at")
 	private Date updatedAt;
 	
-	@Column(name = "have_calender")
+	@Column(name = "have_calendar")
 	private byte haveCalender;
 	
 	/*カレンダー連携*/
+	@JsonIgnore
 	@OneToMany(mappedBy="coordinate",cascade = CascadeType.ALL,orphanRemoval=true)
 	private List<Calendar> calendarList;
 	

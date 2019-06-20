@@ -44,16 +44,13 @@ public class User {
 	@Column(name = "password", length = 50, nullable=false)
 	private String password;
 	
-	@JsonIgnore
 	@Column(name = "gender", length = 2)
 	private String gender;
 
-	@JsonIgnore
 	@DateTimeFormat(pattern = "yyyy")
 	@Column(name = "born_year", precision = 4)
 	private Date bornYear;
 
-	@JsonIgnore
 	@Column(name = "admin_key")
 	private byte adminKey;
 	
@@ -66,4 +63,7 @@ public class User {
 	@OneToMany(mappedBy="user",cascade = CascadeType.ALL,orphanRemoval=true)
 	private List<Item> itemList;
 
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL,orphanRemoval=true)
+	private List<Calendar> calendarList;
 }
