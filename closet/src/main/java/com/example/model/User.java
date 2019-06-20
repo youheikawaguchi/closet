@@ -40,7 +40,7 @@ public class User {
 	@Column(name = "user_id", length = 30, nullable=false, unique = true)
 	private String userId;
 
-	@Size(min = 8, max = 50, message = "8~50文字で入力してください。")
+	@Size(min = 8, max = 100, message = "8~16文字で入力してください。")
 	@Column(name = "password", length = 50, nullable=false)
 	private String password;
 	
