@@ -49,9 +49,9 @@ public class Item {
 	private Season season;
 	
 	@JsonIgnore
-	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@Column(name = "color_id", precision = 11)
-	private Integer colorId;
+	@ManyToOne
+	@JoinColumn(name = "color_id")
+	private Color color;
 	
 	/*usersのID:双方向にするとき*/
 	@JsonIgnore

@@ -31,13 +31,13 @@ public class Area {
 	
 	/*経度*/
 	@Digits(integer=9, fraction=6)
-	@Column(name = "longitude", length = 60, nullable=false)
-	private double longitude;
+	@Column(name = "latitude", length = 60, nullable=false)
+	private double latitude;
 	
 	/*経度*/
 	@Digits(integer=9, fraction=6)
-	@Column(name = "latitude", length = 60, nullable=false)
-	private double latitude;
+	@Column(name = "longitude", length = 60, nullable=false)
+	private double longitude;
 	
 	@OneToMany(mappedBy="area",cascade = CascadeType.ALL,orphanRemoval=true)
 	private List<User> userlist;
