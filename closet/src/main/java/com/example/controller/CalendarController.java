@@ -16,6 +16,11 @@ public class CalendarController {
 	@Autowired
 	CalendarService calendarService;
 	
+	@GetMapping({"/calender"})
+	public ModelAndView showCalendar() {
+		return new ModelAndView("redirect:/calender/calendar");
+	}
+	
 	@GetMapping("/calender/calendar_test")
 	public ModelAndView showCalendarTest(ModelAndView mav) {
 		List<Calender> calendarlist = calendarService.getAllCalendar();
