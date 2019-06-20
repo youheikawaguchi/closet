@@ -63,22 +63,25 @@ table {
 .category {
     width: 870px;
     margin: auto;
-    font-size: 28px;
 }
 
-.badge {
+.btn {
     height: 80px;
     width: 250px;
     border-radius: 10px;
     float:left;
+}
+
+.btn.btn-info {
     background-color: #C2E9F2;
     border: none;
     margin: 20px;
+    font-size: 28px;
     color: #616161;
 }
 
-.badge:hover {
-    background-color: #A6D0DA;
+.btn.btn-info:hover {
+    background-color: #A9D1DA;
 }
 
 
@@ -95,22 +98,15 @@ table {
     margin: auto;
 }
 
-.btn {
-    height: 80px;
-    width: 250px;
-    border-radius: 10px;
-    float:left;
-}
-
 .btn.btn-primary {
-    background-color: #95B8BF;
+    background-color: #4D919F;
     border: none;
     margin: 60px 40px;
     font-size: 28px;
 }
 
 .btn.btn-primary:hover {
-    background-color: #7CA0A7;
+    background-color: #2F5F69;
 }
 
 .btn.btn-secondary {
@@ -118,9 +114,9 @@ table {
     border: none;
     margin: 60px 40px;
     font-size: 28px;
+    color: black;
 }
 
 .btn.btn-secondary:hover {
-    background-color: #BEA10D;
+    background-color: #BEA215;
 }
-
