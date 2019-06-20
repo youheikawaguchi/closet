@@ -1,12 +1,19 @@
 package com.example.model;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,10 +32,10 @@ public class Coordinate {
 	@Column(name = "coordinate_id")
 	private Integer coordinateId;
 	
-	//@JsonIgnore
-	//@OneToMany(mappedBy = "user")
-	@Column(name = "id",nullable = false , precision = 11)
-	private /*User*/ int user;
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "id")
+	private User user;
 	
 	@Column(name = "coordinate_title", length = 30)
 	private String coordinate_title;
@@ -47,4 +54,13 @@ public class Coordinate {
 	@JsonIgnore
 	@Column(name = "have_calender")
 	private byte haveCalender;
+	
+	/*カレンダー連携*/
+	@JsonIgnore
+	@OneToMany(mappedBy="coordinate",cascade = CascadeType.ALL,orphanRemoval=true)
+	private List<Calender> calenderList;
+	
+	/*Itemとの多対多連携*/
+    @ManyToMany( mappedBy = "coordinatelist")
+    private List<Item> itemlist;  
 }

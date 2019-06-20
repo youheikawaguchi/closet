@@ -1,6 +1,7 @@
 package com.example.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -31,7 +33,7 @@ public class Item {
 	@Column(name = "item_id", nullable = false, precision = 11)
 	private Integer itemId;
 	
-	/*subCategoryID*/
+	/*CategoryID*/
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "category_id")
@@ -43,15 +45,17 @@ public class Item {
 	@JoinColumn(name = "sub_category_id")
 	private SubCategory subCategory;
 	
+	/*SeasonID*/
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "season_id")
 	private Season season;
 	
+	/*ColorID*/
 	@JsonIgnore
-	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-	@Column(name = "color_id", precision = 11)
-	private Integer colorId;
+	@ManyToOne
+	@JoinColumn(name = "color_id")
+	private Color color;
 	
 	/*usersのID:双方向にするとき*/
 	@JsonIgnore
@@ -75,4 +79,11 @@ public class Item {
 	
 	@Column(name = "updated_at")
 	private Date updatedAt;
+	
+	/*coordenateとの多対多連携*/
+    @ManyToMany
+    @JoinTable(name="coordinate", 
+    	joinColumns = @JoinColumn( name = "item_id"),
+        inverseJoinColumns = @JoinColumn(name="coordinate_id"))
+    private List<Coordinate> coordinatelist;
 }
