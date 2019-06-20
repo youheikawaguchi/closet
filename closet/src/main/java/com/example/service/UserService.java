@@ -16,13 +16,10 @@ public class UserService {
 	PasswordEncoder passwordEncoder;
 	
 	public User createUser(User user) {
-//		String encodedPassword = passwordEncoder.encode(rawPassword);
-//		user.setPassword(encodedPassword);
 		
-//		user.setUserId(user.userId);
-//		user.setPassword(password);
+		String encodedPassword = passwordEncoder.encode(user.getPassword());
+		user.setPassword(encodedPassword);
 		
 		return userRepository.saveAndFlush(user);
 	}
-	
 }
