@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -15,12 +16,15 @@ import com.example.service.UserService;
 @Controller
 public class UserController {
 	
+	@Autowired
 	UserService userService;
 	
 	@ModelAttribute
 	public User setupForm() {
 		return new User();
 		}
+	
+	
 	
 	@GetMapping(value="users/createacc")
 	ModelAndView userForm(ModelAndView mav) {
