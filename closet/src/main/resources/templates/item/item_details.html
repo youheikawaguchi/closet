@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <form th:action="@{/item/item_details}"></form>
-    
+   
     <div class="header"></div>
         
         <div class=photo>
@@ -20,11 +19,11 @@
             <div class="badge">カラー</div>
         </div>
         
-        <div class=memo>MEMO</div>
+        <div class=memo>MEMO</div>       
         
-        <div class="button">
-            <button type="button" class="btn btn-primary">削除</button>
-            <button type="button" class="btn btn-secondary">編集</button>
+         <div class=button>
+           <form th:action="@{/item/item_???}"> <button type="submit" class="btn btn-primary">削除</button></form>
+           <form th:action="@{/item/item_details}"> <button type="submit" class="btn btn-secondary">編集</button></form>
         </div>
     
 </body>

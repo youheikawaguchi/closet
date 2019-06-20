@@ -57,9 +57,11 @@
             </div>
         </form>
         
+        
+         
         <div class=button>
-            <button type="button" class="btn btn-success" th:action="@{/item/item_list}">戻る</button>
-            <button type="button" class="btn btn-warning">決定</button>
+           <form th:action="@{/item/item_list}"> <button type="submit" class="btn btn-success">戻る</button></form>
+           <form th:action="@{/item/item_details}"> <button type="submit" class="btn btn-warning">決定</button></form>
         </div>
         
     </div>

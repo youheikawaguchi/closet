@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
         
-    <link rel="stylesheet" href="reset.css" type="text/css">
+    <link rel="stylesheet" href="/css/reset.css" type="text/css">
     <link rel="stylesheet" href="/css/item_list_edit.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    
@@ -87,8 +87,11 @@
             </div>
         </div>
         
-        <form class=button th:action="@{/item/item_edit}">
-            <button type="button" class="btn btn-block">新しいアイテムの登録</button>
+        <form th:action="@{/item/item_edit}">
+        	<div class=button >
+      	      <!-- <button type="button" class="btn btn-block" >新しいアイテムの登録</button> -->
+      	      <button type="submit" class="btn btn-block" >新しいアイテムの登録</button>
+     	    </div>
         </form>
 
         <div class="item_list">
@@ -107,7 +110,7 @@
     </div>
        
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="test.js"></script> 
+    <script type="text/javascript" src="/js/test.js"></script> 
 </body>
 
 </html>
