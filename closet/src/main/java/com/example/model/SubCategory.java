@@ -23,21 +23,23 @@ import lombok.Setter;
 @Entity
 @Table(name = "sub_category")
 public class SubCategory {
-	
+	/*SubCategoryID*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "sub_category_id",length = 11)
 	private Integer subCategoryId;
 	
-	@OneToMany(mappedBy="subCategory",cascade = CascadeType.ALL,orphanRemoval=true)
-	private List<Item> itemlist;
-	
-	/*subCategoryID*/
+	/*CategoryID*/
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category category;
 	
+	/*SubCategoryName*/
 	@Column(name = "subcategory_name", length = 60, nullable=false)
 	private String subCategoryName;
+	
+	
+	@OneToMany(mappedBy="subCategory",cascade = CascadeType.ALL,orphanRemoval=true)
+	private List<Item> itemlist;
 }
