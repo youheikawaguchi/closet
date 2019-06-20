@@ -16,12 +16,12 @@ public class CalendarController {
 	@Autowired
 	CalendarService calendarService;
 	
-	@GetMapping("/calender/calendar_test")
+	@GetMapping("/calender/calendar")
 	public ModelAndView showCalendarTest(ModelAndView mav) {
 		List<Calender> calendarlist = calendarService.getAllCalendar();
 		
 		mav.addObject("calendarlist", calendarlist);
-		mav.setViewName("calender/calendar_test");
+		mav.setViewName("calender/calendar");
 		return mav;
 	}
 }
