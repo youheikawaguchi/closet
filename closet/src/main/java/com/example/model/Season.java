@@ -5,15 +5,14 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -21,23 +20,17 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "sub_category")
-public class SubCategory {
-	
+@Table(name = "season")
+public class Season {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sub_category_id",length = 11)
-	private Integer subCategoryId;
+	@Column(name = "season_id", length = 11)
+	private Integer season_id;
 	
-	@OneToMany(mappedBy="subCategory",cascade = CascadeType.ALL,orphanRemoval=true)
+	@OneToMany(mappedBy="season",cascade = CascadeType.ALL,orphanRemoval=true)
 	private List<Item> itemlist;
 	
-	/*subCategoryID*/
-	@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "category_id")
-	private Category category;
-	
-	@Column(name = "subcategory_name", length = 60, nullable=false)
-	private String subCategoryName;
+	@Column(name = "season_name", length = 60, nullable=false)
+	private String seasonName;
 }
