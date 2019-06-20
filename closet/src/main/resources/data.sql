@@ -21,8 +21,6 @@ VALUES(1,"ホワイト"),(2,"ブラック"),(3,"グレー"),(4,"ブラウン"),(
 --以下Areaデータインサート文
 --VARUES(都道府県、県庁所在地の緯度、県庁所在地の経度);となっています.idは自動連番になっています
 INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("北海道",43.06417,141.34694);
-
---以上Areaデータインサート文
 INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("青森県",40.82444,140.74);
 INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("岩手県",39.70361,141.1525);
 INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("宮城県",38.26889,140.87194);
@@ -69,4 +67,4 @@ INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("大分県",33.238
 INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("宮崎県",31.91111,131.42389);
 INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("鹿児島県",31.56028,130.55806);
 INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("沖縄県",26.2125,127.68111);
-
+--以上Areaデータインサート文
