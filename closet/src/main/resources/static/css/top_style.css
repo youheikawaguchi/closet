@@ -1,4 +1,15 @@
 
+.top_body{
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top{
+  width: 100%;
+  height:auto;
+}
+
 
 /*TOP画像*/
 .top_image{
@@ -76,8 +87,8 @@
 .top_bottom{
 	width: 100%;
   /*height: auto;*/
-  height: 800px;
-  padding-top: 10px;
+  height: 700px;
+  /*padding-top: 10px;*/
   overflow: hidden;
 }
 
@@ -99,12 +110,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 .slide_pic{
   width: 100%;
-  height: auto;
+  height: 100%;
   padding: 10px;
   box-sizing: border-box;
+  object-fit:cover;
+}
+.slick-arrow{
+  border: black;
 }
 
 /*天気*/
