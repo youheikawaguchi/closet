@@ -58,9 +58,31 @@ public class UserController {
 //		return "redirect:/users/profile";
 //	}
 	
-//	プロフィール作成
-	@RequestMapping(value = "users/profile", method = RequestMethod.GET)
-	String createFinish() {
-		return "users/profile";
+//	プロフィールへ遷移
+//	@RequestMapping(value = "users/profile", method = RequestMethod.GET)
+//	String createFinish() {
+//		return "users/profile";
+//	}
+	
+	@GetMapping(value="users/profile")
+	ModelAndView userProfiel(ModelAndView mav) {
+	
+		User user =new User();
+		mav.addObject(user);
+		
+		mav.setViewName("users/profile");
+		return mav;
+	}
+	
+
+//	プロフィール登録処理
+	@PostMapping(value = "/users/profile")
+	public ModelAndView addprofiel(@ModelAttribute("user") @Validated User user, 
+			BindingResult bindingResult,
+			ModelAndView mav) {
+		
+		userService.createProfiel(user);
+		
+		return new ModelAndView ("redirect:/top");
 	}
 }
