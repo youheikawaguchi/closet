@@ -1,14 +1,14 @@
 package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.User;
@@ -65,10 +65,11 @@ public class UserController {
 //	}
 	
 	@GetMapping(value="users/profile")
-	ModelAndView userProfiel(ModelAndView mav) {
+	ModelAndView userProfiel(ModelAndView mav, @AuthenticationPrincipal UserDetails userDetails) {
 	
-		User user =new User();
-		mav.addObject(user);
+		User viewer = userService.getUserByUserId(userDetails.getUsername());
+
+		mav.addObject("viewer", viewer);
 		
 		mav.setViewName("users/profile");
 		return mav;
@@ -79,9 +80,11 @@ public class UserController {
 	@PostMapping(value = "/users/profile")
 	public ModelAndView addprofiel(@ModelAttribute("user") @Validated User user, 
 			BindingResult bindingResult,
-			ModelAndView mav) {
+			ModelAndView mav,  @AuthenticationPrincipal UserDetails userDetails) {
 		
-		userService.createProfiel(user);
+		User viewer = userService.getUserByUserId(userDetails.getUsername());
+		
+		userService.updateUser(user, viewer);
 		
 		return new ModelAndView ("redirect:/top");
 	}
