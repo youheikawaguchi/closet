@@ -1,6 +1,7 @@
 package com.example.model;
 
 import java.time.Year;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -39,20 +40,17 @@ public class User {
 	@Column(name = "user_id", length = 30, nullable=false, unique = true)
 	private String userId;
 
-	@Size(min = 8, max = 50, message = "4~50文字で入力してください。")
+	@Size(min = 8, max = 100, message = "8~16文字で入力してください。")
 	@Column(name = "password", length = 50, nullable=false)
 	private String password;
 	
-	@JsonIgnore
 	@Column(name = "gender", length = 2)
 	private String gender;
 
-	@JsonIgnore
 	@DateTimeFormat(pattern = "yyyy")
 	@Column(name = "born_year", precision = 4)
-	private Year bornYear;
+	private Date bornYear;
 
-	@JsonIgnore
 	@Column(name = "admin_key")
 	private byte adminKey;
 	
@@ -65,4 +63,7 @@ public class User {
 	@OneToMany(mappedBy="user",cascade = CascadeType.ALL,orphanRemoval=true)
 	private List<Item> itemList;
 
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL,orphanRemoval=true)
+	private List<Calendar> calendarList;
 }
