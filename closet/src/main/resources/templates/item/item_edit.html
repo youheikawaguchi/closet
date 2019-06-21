@@ -16,9 +16,10 @@
             </div>
         </div>
         
-        <form>
+        <form th:object =${category} method="post">
             <div class="select">
-                <select id="select" class="custom-select">
+            
+                <select id="select" class="custom-select"  th:field="${category.category_Id}">
                     <option selected>カテゴリを選択してください</option>
                     <option name="category1" value="1">トップス</option>
                     <option name="category2" value="2">アウター</option>
