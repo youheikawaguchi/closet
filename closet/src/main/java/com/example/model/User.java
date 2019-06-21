@@ -47,9 +47,8 @@ public class User {
 	@Column(name = "gender", length = 2)
 	private String gender;
 
-	@DateTimeFormat(pattern = "yyyy")
 	@Column(name = "born_year", precision = 4)
-	private Date bornYear;
+	private String bornYear;
 
 	@Column(name = "admin_key")
 	private byte adminKey;
