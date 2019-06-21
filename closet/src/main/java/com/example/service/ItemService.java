@@ -9,12 +9,10 @@ import com.example.model.Season;
 import com.example.model.SubCategory;
 
 
-
 public interface ItemService {
 	public List<Item> getAllItem();
 	public Item getItemById(int id);
-	
-	public Item ItemCreate(Item item, Category category, SubCategory SubCategory,
-							Season season, Color color );
+	//public Item getItemByName(String name);
+	public Item ItemCreate(Item item, Category category, SubCategory subcategory, Season season, Color color);
 	
 }

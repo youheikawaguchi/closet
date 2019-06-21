@@ -12,7 +12,11 @@ import com.example.model.Color;
 import com.example.model.Item;
 import com.example.model.Season;
 import com.example.model.SubCategory;
+import com.example.service.CategoryService;
+import com.example.service.ColorService;
 import com.example.service.ItemService;
+import com.example.service.SeasonService;
+import com.example.service.SubCategoryService;
 
 
 @Controller
@@ -20,6 +24,14 @@ public class ItemController {
 
 	@Autowired
 	ItemService itemservice;
+	@Autowired
+	CategoryService categoryservice;
+	@Autowired
+	SubCategoryService subcategoryservice;
+	@Autowired
+	SeasonService seasonservice;
+	@Autowired
+	ColorService colorservice;
 	
 	@GetMapping(value= {"/item"})
 	public ModelAndView item() {
@@ -30,32 +42,30 @@ public class ItemController {
 	@GetMapping("/item/item_edit")
 	public ModelAndView ItemEdit(ModelAndView mav) {
 		
-		
+		Item item = new Item();
+		mav.addObject(item);
 		
 		mav.setViewName("item/item_edit");
 
 		return mav;
 	}
 	
-	
 	@PostMapping("/item/item_edit")
 	public ModelAndView postItemEdit(@ModelAttribute("item") @Validated Item item) { 
-		/*
-		Category category = getCategoryById(categoryId);
-		SubCategory subcategory = getSubCategoryById(subcategoryId);
-		Season season = getSeasonById(seasonId);
-		Color color = getColorById(colorId);
+		
+		//String c_name = item.getCategory().getCategoryName();
+		
+		
+		Category category = categoryservice.getCategoryByName(item.getCategory().getCategoryName());
+		SubCategory subcategory = subcategoryservice.getSubCategoryByName(item.getSubCategory().getSubCategoryName());
+		Season season = seasonservice.getSeasonByName(item.getSeason().getSeasonName());
+		Color color = colorservice.getColorByName(item.getColor().getColorName());
+		
 		
 		itemservice.ItemCreate(item, category, subcategory, season, color);
-		*/
+		
 		return new ModelAndView("redirect:/item/item_details");
-	}
-	
-	
-	//ここでITEMとカテゴリと季節の型を作る
-	
-	
-	
+	}	
 	
 	//アイテム一覧
 	@GetMapping("/item/item_list")

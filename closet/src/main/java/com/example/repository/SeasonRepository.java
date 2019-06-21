@@ -1,5 +1,9 @@
 package com.example.repository;
 
-public interface SeasonRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.example.model.Season;
+
+public interface SeasonRepository extends JpaRepository<Season, Integer>{
+	public Season findBySeasonName(String seasonName);
 }

@@ -16,54 +16,51 @@
             </div>
         </div>
         
-        <form th:object =${category} method="post">
-            <div class="select">
-            
-                <select id="select" class="custom-select"  th:field="${category.category_Id}">
+        <form th:object =${Item} method="post" th:action="@{/item/item_edit}">
+            <div class="select" >
+                <select id="select" class="custom-select" name="category.categoryName">
                     <option selected>カテゴリを選択してください</option>
-                    <option name="category1" value="1">トップス</option>
-                    <option name="category2" value="2">アウター</option>
-                    <option name="category3" value="3">ボトムス</option>
-                    <option name="category4" value="4">ワンピース</option>
-                    <option name="category5" value="5">小物</option>
+                    <option name="category1" value="tops">トップス</option>
+                    <option name="category2" value="outer">アウター</option>
+                    <option name="category3" value="bottom">ボトムス</option>
+                    <option name="category4" value="onepiece">ワンピース</option>
+                    <option name="category5" value="litle">小物</option>
                 </select>
                 <br>
-                <select id="select" class="custom-select">
+                <select id="select" class="custom-select" name="subcategory.subcategoryName">
                     <option selected>サブカテゴリーを選択してください</option>
-                    <option name="sub_category1" value="1">One</option>
-                    <option name="sub_category2" value="2">Two</option>
-                    <option name="sub_category3" value="3">Three</option>
+                    <option name="sub_category1" value="One">One</option>
+                    <option name="sub_category2" value="Two">Two</option>
+                    <option name="sub_category3" value="Three">Three</option>
                 </select>
                 <br>
-                <select id="select" class="custom-select">
+                <select id="select" class="custom-select" name="season.seasonName">
                     <option selected>季節を選択してください</option>
-                    <option name="season1" value="1">春</option>
-                    <option name="season2" value="2">夏</option>
-                    <option name="season3" value="3">秋</option>
-                    <option name="season4" value="4">冬</option>
-                    <option name="season5" value="5">春夏</option>
-                    <option name="season6" value="6">秋冬</option>
+                    <option name="season1" value="spring">春</option>
+                    <option name="season2" value="summer">夏</option>
+                    <option name="season3" value="autumn">秋</option>
+                    <option name="season4" value="winter">冬</option>
+                    <option name="season5" value="springsummer">春夏</option>
+                    <option name="season6" value="autumnwinter">秋冬</option>
                 </select>
                 <br>
-                <select id="select" class="custom-select">
+                <select id="select" class="custom-select" name="color.colorName">
                     <option selected>色を選択してください</option>
-                    <option name="color1" value="1">One</option>
-                    <option name="color2" value="2">Two</option>
-                    <option name="color3" value="3">Three</option>
+                    <option name="color1" value="One">One</option>
+                    <option name="color2" value="Two">Two</option>
+                    <option name="color3" value="Three">Three</option>
                 </select>
             </div>
             
             <div class=memo>
                 <textarea name="memo" id="textarea" class="textarea" placeholder="MEMO"></textarea>
             </div>
+            
+            <div class=button>
+            	<button type="submit" class="btn btn-success">戻る</button>
+            	<button type="submit" class="btn btn-warning">決定</button>
+        	</div>
         </form>
-        
-        
-         
-        <div class=button>
-           <form th:action="@{/item/item_list}"> <button type="submit" class="btn btn-success">戻る</button></form>
-           <form th:action="@{/item/item_details}"> <button type="submit" class="btn btn-warning">決定</button></form>
-        </div>
         
     </div>
 </body>
