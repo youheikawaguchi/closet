@@ -1,0 +1,25 @@
+package com.example.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.model.Calender;
+import com.example.repository.CalendarRepository;
+
+@Service
+public class CalendarServicelmpl implements CalendarService{
+	@Autowired
+	CalendarRepository calendarRepository;
+	
+	@Override
+	public List<Calender> getAllCalendar() {
+		return calendarRepository.findAll();
+	}
+	
+	@Override
+	public Calender getCalendarById(int id) {
+		return calendarRepository.findById(id).orElse(null);
+	}
+}
