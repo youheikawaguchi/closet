@@ -5,7 +5,7 @@ VALUES(1,1,"シャツ/ブラウス/カットソー"),(2,1,"ニット"),(3,1,"パ
 INSERT IGNORE INTO users (user_id,password,gender,born_year,admin_key,area_id)
     VALUES('IKEDA','aaaaaaaa','女',19940419,0,3);
 INSERT IGNORE INTO users (id,user_id,password,gender,born_year,admin_key,area_id)
-    VALUES('YAMAMOTO','aaaaa','男',19960806,1,1);
+    VALUES('YAMAMOTO','abbbbaaaaa','男',19960806,1,1);
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
     VALUES(1,1,1,1,1,1, 'picture',"メモ");
 INSERT IGNORE INTO calendar (calendar_id,id,coordinate_id,event,event_date,met_person)
