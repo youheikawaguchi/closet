@@ -27,8 +27,8 @@ input{
     height: 60px;
 }
 
-ul.category1,ul.category2,ul.season{
-    display: none;
+.select{
+	margin-top: 20px;
 }
 
 #menu {
@@ -38,11 +38,33 @@ ul.category1,ul.category2,ul.season{
     font-size: 100%;
 }
 
-.category1 h1{
-    background-color: #C2E9F2;
+#category , #season{
+    font-size: 70px;
+    border-bottom: 3px solid gray;
 }
 
-.categoryY, .seasonP{
-    font-size: 30px;
-    margin: 10px auto;
+span{
+    color: dimgrey;
+    font-size: 50px;
+}
+
+.category1 h1{
+    background-color: #C2E9F2;
+    border-bottom: 2px solid #A6D0DA;
+    font-size: 50px;
+}
+
+.season li{
+    font-size: 50px;
+    border-bottom: 1px solid #C2E9F2;
+    margin: 5px auto;
+}
+
+.category2 li{
+    font-size: 40px;
+    border-bottom: 1px solid #C2E9F2;
+}
+
+ul.category1,ul.category2,ul.season{
+    display: none;
 }
