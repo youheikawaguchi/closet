@@ -1,81 +1,71 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
-<!--  こいつ邪魔
-<head th:replace="common/header :: common_header(~{::title})">-->
-<!-- <meta charset="utf-8"> -->
+<head>
+<meta charset="utf-8">
 <title>TOP画面</title>
-<link rel="stylesheet" type="text/css" href="top_style.css">
+<link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/top_style.css}">
+<link rel="stylesheet" th:href="@{/js/slick0/slick/slick.css}">
+<link rel="stylesheet" th:href="@{/js/slick0/slick/slick-theme.css}">
+        
 </head>
 <body>
   <!-- メインコンテンツ開始 -->
-  <form  th:action="@{/top/top}"></form>
-    <!-- ヘッダー メニューバー開始 -->
-	<!-- メインコンテンツ開始 -->
   <div class="top">
     <!-- ヘッダー メニューバー -->
 
     <!-- ロゴ　-->
     <div class="top_image">
-        <img src="top_picture.jpg" class="top_picture" alt="トップ写真">
-        <img src="logo.png" class="logo" alt="ロゴ">
+        <p class="top_picture">
+        <p class="logo">
     </div>
 
     <!-- アイコン -->
-    <!-- アイテム一覧 -->
-    <div class="row" >
-      <div class="col-sm-2">
-      <button class="item" onclick="items()" id="item"></button>
-      <p>Item</p>
-    </div>
-    </div>
-    <!-- カレンダー -->
-    <div class="row">
-      <div class="col-sm-2">
-      <button class="Calener" onclick="calendar()" id="calender"></button>
-      <p>Calender</p>
-      </div>
-    </div>
-    <!-- アイテム登録 -->
-    <div class="row">
-      <div class="col-sm-2">
-      <button class="Add" onclick="add()" id="add"></button>
-      <p>Add</p>
-      </div>
-    </div>
-    <!-- コーディネート一覧 -->
-    <div class="row">
-      <div class="col-sm-2">
-      <button class="cordinate" onclick="coordinate()" id="coordinate"></button>
-      <p>Coordinate</p>
-      </div>
     <div class="top_button">
         <!-- アイテム一覧 -->
-        <button type="button" class="btn btn-primary"><span class="icon">Item</span></button>
+        <a href="#" class="btn btn-block btn-default btn-blue pt-5 pb-5"><img th:src="@{/images/top/item.png}" class="icon_pic"><br><br><span class="icon_txt">Item</span></a>
         <!-- カレンダー -->
-        <button type="button" class="btn btn-primary"><span class="icon">Calender</span></button>
+        <a href="#" class="btn btn-block btn-default btn-yellow mt-0 pt-5 pb-5"><img th:src="@{/images/top/calender.png}" class="icon_pic"><br><br><span class="icon_txt">Calender</span></a>
         <!-- アイテム登録 -->
-        <button type="button" class="btn btn-primary"><span class="icon">Add</span></button>
+        <a href="#" class="btn btn-block btn-default btn-blue mt-0 pt-5 pb-5"><img th:src="@{/images/top/add.png}" class="icon_pic"><br><br><span class="icon_txt">Add</span></a>
         <!-- コーディネート一覧 -->
-        <button type="button" class="btn btn-primary"><span class="icon">Coordinate</span></button>
+        <a href="#" class="btn btn-block btn-default btn-yellow mt-0 pt-5 pb-5"><img th:src="@{/images/top/coordinate.png}" class="icon_pic"><br><br><span class="icon_txt">Coordinate</span></a>
     </div>
+
 
     <div class="top_bottom">
     <!-- スライドショー -->
-    <img src="image2.jpg" class="slide_show" alt="スライドショー">
+    
+      <div class="slideshow">
+	      <div class="slideshow_js">
+		      <img th:src="@{/images/top/image2.jpg}" class="slide_pic">
+		      <img th:src="@{/images/top/image2.jpg}" class="slide_pic">
+	      </div>
+      </div>
 
-    <!-- 天気 -->
+    <!-- 天気APIから持ってくる -->
       <div class="weather">
-      <img src="snowy.png" class="weather_today" alt="今日の天気"><br>
+        <div class="day">
+          <span class="weather_icon"><img th:src="@{/images/top/weather1.png}" class="icon"></span>
+          <span class="weather_info">Today<br><br>天気:<span class="dayWeather"></span><br>現在の気温:<span class="nowTemp"></span>℃<br>最高気温:<span class="maxTemp"></span>℃/最低気温:<span class="minTemp">℃</span>℃</span>
+        </div>
       <hr size="5">
-      <img src="sunny.png" class="weather_tomorrow" alt="明日の天気">
+        <div class="day">
+          <span class="weather_icon"><img th:src="@{/images/top/weather2.png}" class="icon"></span>
+          <span class="weather_info">Tomorrow<br><br>天気:<span class="tomorrowWeather"></span><br>最高気温:<span class="tomorrowMaxTemp"></span>℃/最低気温:<span class="tomorrowMinTemp"></span>℃</span>
+        </div>
       </div>
 
     </div>
 
 
   </div>
-  </div>
   
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="/js/slick0/slick/slick.min.js"></script>
+  <script type="text/javascript" src="js/weather.js"></script>
+  <script type="text/javascript" src="js/slide.js"></script>
 </body>
 
 </html>
