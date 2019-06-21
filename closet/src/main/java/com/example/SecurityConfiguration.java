@@ -1,7 +1,6 @@
 package com.example;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -31,8 +30,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.formLogin().loginProcessingUrl("/login")
 				.loginPage("/login")
 				.failureUrl("/login?error")
-				.defaultSuccessUrl("/coordinate/add", true)
-				.usernameParameter("username").passwordParameter("password")
+				.defaultSuccessUrl("/top", true)
+				.usernameParameter("userId").passwordParameter("password")
 				.and()
 				.logout()
 				.logoutSuccessUrl("/login");
