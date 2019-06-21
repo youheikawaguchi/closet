@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.model.Item;
 import com.example.repository.ItemRepository;
 
+
 @Service
 public class TopService {
 	@Autowired
@@ -16,15 +17,9 @@ public class TopService {
 	public List<Item> getAllItems() {
 		return itemRepository.findAll();
 	}
-	
-	/*
-	public Item save(Item item) {
-		return itemRepository.save(item);
+	public List<Item> getSlideItems() {
+		List<Item> items = itemRepository.findBySlideImg();
+		return items;
 	}
 	
-	public List<Item> findAll() {
-		return itemRepository.findAll();
-	}
-	*/
-
 }
