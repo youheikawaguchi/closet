@@ -27,17 +27,22 @@ input{
     height: 60px;
 }
 
-h2{
-    background-color: #C2E9F2;
+ul.category1,ul.category2,ul.season{
+    display: none;
 }
 
-.menu {
+#menu {
     width: 100%;
     text-align: center;
     display: block;
     font-size: 100%;
 }
 
-.menu div{
-  display: none;
+.category1 h1{
+    background-color: #C2E9F2;
+}
+
+.categoryY, .seasonP{
+    font-size: 30px;
+    margin: 10px auto;
 }
