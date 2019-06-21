@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.model.Calender;
+import com.example.model.Calendar;
 import com.example.repository.CalendarRepository;
 
 @Service
@@ -14,12 +14,12 @@ public class CalendarServicelmpl implements CalendarService{
 	CalendarRepository calendarRepository;
 	
 	@Override
-	public List<Calender> getAllCalendar() {
+	public List<Calendar> getAllCalendar() {
 		return calendarRepository.findAll();
 	}
 	
 	@Override
-	public Calender getCalendarById(int id) {
+	public Calendar getCalendarById(int id) {
 		return calendarRepository.findById(id).orElse(null);
 	}
 }

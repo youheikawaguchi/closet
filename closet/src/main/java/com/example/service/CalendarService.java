@@ -2,9 +2,9 @@ package com.example.service;
 
 import java.util.List;
 
-import com.example.model.Calender;
+import com.example.model.Calendar;
 
 public interface CalendarService {
-	public List<Calender> getAllCalendar();
-	public Calender getCalendarById(int id);
+	public List<Calendar> getAllCalendar();
+	public Calendar getCalendarById(int id);
 }
