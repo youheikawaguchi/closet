@@ -8,10 +8,6 @@
 </head>
     
     <body>
-    
-    <p th:text="${viewer.userId}"></p>
-    
-    
         <div class="container">
             <div class="regist1">
                 <p id="regist">プロフィール登録</p>
@@ -20,9 +16,9 @@
     <form th:action="@{/users/createacc}" 
     th:object="${user}" method="post">    
         <div class=slc>       
-            <select id="select1" class="custom-select" name="bornYear">
+            <select id="select1" class="custom-select">
             <option selected>生まれた年</option>
-            <option value="1930">1930</option>
+            <option th:field="${user.bornYear}" value="1930">1930</option>
             <option value="1931">1931</option>
             <option value="1932">1932</option>
             <option value="1933">1933</option>
@@ -124,7 +120,7 @@
         </div>
 
         <div class=slc>
-            <select id="select1" class="custom-select" name="area">
+            <select id="select1" class="custom-select">
             <option selected>都道府県</option>
             <option value="1">北海道</option>
             <option value="2">青森県</option>
