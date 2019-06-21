@@ -15,6 +15,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -72,18 +74,32 @@ public class Item {
 	@Column(name = "comment")
 	private String comment;
 	
-	//@JsonIgnore
+	@JsonIgnore
 	//@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "created_at")
 	private Date createdAt;
 	
+	@JsonIgnore
 	@Column(name = "updated_at")
 	private Date updatedAt;
 	
 	/*coordenateとの多対多連携*/
+	@JsonIgnore
     @ManyToMany
     @JoinTable(name="coordinate", 
     	joinColumns = @JoinColumn( name = "item_id"),
         inverseJoinColumns = @JoinColumn(name="coordinate_id"))
     private List<Coordinate> coordinatelist;
+	
+	/*日付更新*/
+    @PrePersist
+    public void onPrePersist() {
+        setCreatedAt(new Date());
+        setUpdatedAt(new Date());
+    }
+
+    @PreUpdate
+    public void onPreUpdate() {
+        setUpdatedAt(new Date());
+    }
 }

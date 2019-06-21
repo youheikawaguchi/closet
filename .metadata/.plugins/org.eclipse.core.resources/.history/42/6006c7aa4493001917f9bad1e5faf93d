@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset='utf-8' />
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <title>Calendar Test</title>
+</head>
+
+<body>
+  <div id="message"></div>
+
+</body>
+
+<script type="text/javascript" th:inline="javascript">
+
+  var calendar_id =[];
+  var event = [];
+  var eventDate = [];
+  var met_person = [];
+  
+  var j = 0;
+  
+  [# th:each="calendar, i : ${calendarlist}"]
+    /*<![CDATA[*/
+    calendar_id[j] = /*[[${calendar.calenderId}]]*/;
+    event[j] = /*[[${calendar.event}]]*/;
+    eventDate[j] = /*[[${calendar.eventDate}]]*/;
+    met_person[j] = /*[[${calendar.metParson}]]*/;
+    /*]]>*/
+    j += 1;
+  [/]
+  
+  function print(msg) {
+	document.getElementById("message").innerHTML += msg + "<br>";
+  }
+		 
+  print(calendar_id[0]);
+  print(event[0]);
+  print(eventDate[0]);
+  print(met_person[0]);
+  
+</script>
+</html>
