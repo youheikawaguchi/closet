@@ -3,7 +3,9 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
-b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
@@ -39,80 +41,82 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-
 /* --------   reset css   ------------ */
 
-.photo {
-    height: 600px;
-    width: 480px;
-    border: solid 3px #B8DDE6;
-    text-align: center;
-    margin: 70px auto 30px auto;
+
+.img_list {
+    margin-top: 70px;
 }
 
-.category {
-    width: 879px;
+ul {
+    width: 536px;
+    height: 600px;
+    border: solid #616161;
+    margin: auto;
+    padding: 40px 10px 40px 10px;
+}
+
+li {
+    float: left;
+    list-style: none;
+    width: 150px;
+    height: 150px;
+    border: solid 2px #616161;
+    margin: 10px;
+    text-align: center;
+    background-color: #E0E0E0;
+}
+
+.c_dsc {
+    width: 766px;
+    margin: 50px auto;
+}
+
+p {
+    width: 766px;
+    font-weight: bold;
+    font-size: 38px;
+    margin-bottom: 50px;
+}
+
+.text {
+    width: 806px;
     margin: auto;
 }
-
-.badge {
-    width: 250px;
-    height: 80px;
-    margin: 40px 20px;
-}
-
-.badge.badge-info {
-    padding-top: 28px;
-    font-size: 28px;
-    background-color: #C2E9F2;
-}
-
-.badge:hover {
-    background-color: #A6D0DA;
-}
-
-
 .memo {
-    height: 200px;
-    width: 700px;
-    border: solid #E0E0E0;
-    text-align: center;
-    margin: 40px auto 40px auto;
+    width: 766px;
+    height:180px;
+    border: solid #616161;
+    margin: 20px;
 }
 
-.button {
-    width: 660px;
+.c_button {
+    width: 665px;
     margin: auto;
 }
 
 .btn {
-    height: 80px;
     width: 250px;
-    border-radius: 10px;
-    float:left;
+    height: 80px;
+    margin: 40px;
 }
 
-.btn.btn-primary {
-    background-color: #95B8BF;
-    border: none;
-    margin: 40px 40px;
+.btn.btn-info {
     font-size: 28px;
+    background-color:#95B8BF;
+    border:none;
 }
 
-.btn.btn-primary:hover {
+.btn.btn-info:hover {
     background-color: #7CA0A7;
 }
 
-.btn.btn-secondary {
-    background-color: #D9B918;
-    border: none;
-    margin: 40px 40px;
+.btn.btn-warning {
     font-size: 28px;
-    color: #616161;
+    background-color: #D9B918;
+    border:none;
 }
 
-.btn.btn-secondary:hover {
-    background-color: #BEA10D;
-    font-size: #616161;
+.btn.btn-warning:hover {
+    background-color:#BEA10D;
 }
-
