@@ -18,6 +18,7 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
@@ -47,7 +48,7 @@ public class Calendar {
 	@Column(name = "event", length = 30)
 	private String event;
 	
-	@JsonIgnore
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "event_date",nullable=false)
 	private Date eventDate;

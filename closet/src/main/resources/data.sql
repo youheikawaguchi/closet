@@ -3,11 +3,9 @@ VALUES(1,"トップス"),(2,"ボトムス"),(3,"トップス"),(4,"ワンピー�
 INSERT IGNORE INTO sub_category (sub_category_id,category_id,subcategory_name)
 VALUES(1,1,"シャツ/ブラウス/カットソー"),(2,1,"ニット"),(3,1,"パーカー/スウェット"),(4,2,"ジャケット"),(5,2,"コート"),(6,2,"ブルゾン"),(7,3,"パンツ"),(8,3,"スカート"),(9,4,"ワンピース"),(10,4,"サロペット"),(11,4,"オールインワン"),(12,5,"帽子"),(13,5,"バッグ"),(14,5,"シューズ");
 INSERT IGNORE INTO users (user_id,password,gender,born_year,admin_key,area_id)
-    VALUES('IKEDA','aaaaaaaa','女',19940419,0,3);
-INSERT IGNORE INTO users (id,user_id,password,gender,born_year,admin_key,area_id)
-    VALUES('YAMAMOTO','bbbbbbbb','男',19960806,1,1);
+    VALUES('IKEDA','aaaaaaaa','女',1994,0,3);
 INSERT IGNORE INTO users (user_id,password,gender,born_year,admin_key,area_id)
-VALUES('closet','closet19','女',1995,10,27);
+    VALUES('YAMAMOTO','abbbbaaaaa','男',1996,1,1);
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
     VALUES(1,1,1,1,1,1, 'picture',"メモ");
 INSERT IGNORE INTO calendar (calendar_id,id,coordinate_id,event,event_date,met_person)

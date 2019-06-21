@@ -6,26 +6,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <form th:action="@{/item/item_details}"></form>
     
-    <div class="header"></div>
-        
-        <div class=photo>
-            <img src="..." class="img-fluid" alt="Responsive image">
-        </div>
-        
-        <div class="category">
-            <div class="badge">カテゴリー</div>
-            <div class="badge">季節</div>
-            <div class="badge">カラー</div>
-        </div>
-        
-        <div class=memo>MEMO</div>
-        
-        <div class="button">
-            <button type="button" class="btn btn-primary">削除</button>
-            <button type="button" class="btn btn-secondary">編集</button>
-        </div>
+    <form th:action="@{/item/item_details}"></form>
+    <div class=photo>
+        <img src="..." class="img-fluid" alt="Responsive image">
+    </div>
+    
+    <div class="category">
+        <span class="badge badge-info">カテゴリー</span>
+        <span class="badge badge-info">季節</span>
+        <span class="badge badge-info">カラー</span>
+    </div>
+    
+    <div class=memo>MEMO</div>
+    
+    <div class="button">
+        <button type="button" class="btn btn-primary">削除</button>         <button type="button" class="btn btn-secondary">編集</button>
+    </div>
     
 </body>
 </html>

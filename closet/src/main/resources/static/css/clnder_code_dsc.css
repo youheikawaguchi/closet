@@ -42,14 +42,16 @@ table {
     border-spacing: 0;
 }
 /* --------   reset css   ------------ */
+
+
 .img_list {
-    margin: 70px;
+    margin-top: 70px;
 }
 
 ul {
     width: 536px;
     height: 600px;
-    border: solid black;
+    border: solid #616161;
     margin: auto;
     padding: 40px 10px 40px 10px;
 }
@@ -59,7 +61,7 @@ li {
     list-style: none;
     width: 150px;
     height: 150px;
-    border: solid 2px black;
+    border: solid 2px #616161;
     margin: 10px;
     text-align: center;
     background-color: #E0E0E0;
@@ -81,11 +83,10 @@ p {
     width: 806px;
     margin: auto;
 }
-
 .memo {
     width: 766px;
     height:180px;
-    border: solid black;
+    border: solid #616161;
     margin: 20px;
 }
 
@@ -97,7 +98,7 @@ p {
 .btn {
     width: 250px;
     height: 80px;
-    margin: 90px 40px;
+    margin: 40px;
 }
 
 .btn.btn-info {
