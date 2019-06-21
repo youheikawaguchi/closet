@@ -34,33 +34,68 @@
     </div>
 
 
+
+
+
     <div class="top_bottom">
-    <!-- スライドショー -->
     
-      <div class="slideshow">
-	      <div class="slideshow_js">
-		      <img th:src="@{/images/top/image2.jpg}" class="slide_pic">
-		      <img th:src="@{/images/top/image2.jpg}" class="slide_pic">
-	      </div>
-      </div>
+    <!-- スライドショー -->
+	      <div class="slide_show">
+		      <div class="slideshow_js slide_flame">
+			      <img th:src="@{/images/top/image2.jpg}" class="slide_pic">
+			      <img th:src="@{/images/top/image2.jpg}" class="slide_pic">
+		      </div>
+	      </div>  <!-- /slide_show -->
+
 
     <!-- 天気APIから持ってくる -->
-      <div class="weather">
-        <div class="day">
-          <span class="weather_icon"><img th:src="@{/images/top/weather1.png}" class="icon"></span>
-          <span class="weather_info">Today<br><br>天気:<span class="dayWeather"></span><br>現在の気温:<span class="nowTemp"></span>℃<br>最高気温:<span class="maxTemp"></span>℃/最低気温:<span class="minTemp">℃</span>℃</span>
-        </div>
-      <hr size="5">
-        <div class="day">
-          <span class="weather_icon"><img th:src="@{/images/top/weather2.png}" class="icon"></span>
-          <span class="weather_info">Tomorrow<br><br>天気:<span class="tomorrowWeather"></span><br>最高気温:<span class="tomorrowMaxTemp"></span>℃/最低気温:<span class="tomorrowMinTemp"></span>℃</span>
-        </div>
-      </div>
+      <div class="weather"><div class="wt_flame">
+      
+      
+	      <!-- 今日の天気 -->
+	      <div class="wt_today">
+	      
+	        <div class="wt_box">
+		        <div class="wticon_flame">
+		        	<span class="wticon_box"><img th:src="@{/images/weather/snow.png}" class="wticon"></span>
+		        </div>
+		        <div class="wtinfo_flame">
+		        	<div class="wtinfo_titlebox"><span class="wtinfo_title">Today</span></div>
+		        	<div class="wtinfo_box"><span class="wtinfo">天気:<span class="dayWeather"></span><br>現在の気温:<span class="nowTemp"></span>℃<br>最高気温:<span class="maxTemp"></span>℃<br>最低気温:<span class="minTemp">℃</span></div>
+		        </div>
+	        </div>  <!-- /wt_box -->
+	        
+	      </div>  <!-- /wt_today -->
+      
+        
+	      <!-- 明日の天気 -->
+	      <div class="wt_tomorrow">
+	        
+	        <div class="wt_box">
+	        	<div class="wticon_flame">
+	          		<span class="wticon_box"><img th:src="@{/images/weather/rain.png}" class="wticon"></span>
+	          	</div>
+	          	<div class="wtinfo_flame">
+	          		<div class="wtinfo_titlebox"><span class="wtinfo_title">Tomorrow</span></div>
+	          		<div class="wtinfo_box"><span class="wtinfo">天気:<span class="tomorrowWeather"></span><br>最高気温:<span class="tomorrowMaxTemp"></span>℃<br>最低気温:<span class="tomorrowMinTemp"></span>℃</span></div>
+	        	</div>
+	        </div>  <!-- /wt_box -->
+	      </div>  <!-- /wt_today -->
+        
+        
+        
+        </div>  <!-- /wt_flame -->
+      </div>  <!-- /weather -->
+      
+      </div>  <!-- top_bottom -->
+      
+      
+      
+      
 
-    </div>
+    </div> <!-- /top -->
 
 
-  </div>
   
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="/js/slick0/slick/slick.min.js"></script>

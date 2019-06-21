@@ -1,108 +1,118 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<html>
     
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
       
-    <link rel="stylesheet" href="reset.css" type="text/css">
-    <link rel="stylesheet" href="/css/item_list_edit.css" type="text/css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="reset.css" type="text/css">
+  <link rel="stylesheet" href="item_list_edit.css" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
     
-<body>      
-    <div class=header>
-    </div>
+<body>
+<form th:action="@{/item/item_select}"></form>
       
-    <div class="container-fluid">
+  <div class=header>
+  </div>
+      
+  <div class="container-fluid">
 
-        <div class=select>
-            <aside class="menu">
-                <h1>Category</h1>
-                    <div class="opened-for-codepen">
-                    <h2>Tops</h2>
-                        <div class="opened-for-codepen">
-                            <h3>All</h3>
-                            <h3>シャツ/ブラウス/カットソー</h3>
-                            <h3>ニット</h3>
-                            <h3>パーカー/スウェット</h3>
-                        </div>
-        
-                    <h2>Outer</h2>
-                        <div class="opened-for-codepen">
-                            <h3>All</h3>
-                            <h3>ジャケット</h3>
-                            <h3>コート</h3>
-                            <h3>ブルゾン</h3>
-                        </div>
-        
-                    <h2>Bottoms</h2>
-                        <div>
-                            <h3>All</h3>
-                            <h3>パンツ</h3>
-                            <h3>スカート</h3>
-                        </div>
-        
-                    <h2>Onepiece</h2>
-                        <div class="opened-for-codepen">
-                            <h3>All</h3>
-                            <h3>ワンピース</h3>
-                            <h3>サロペット</h3>
-                            <h3>オールインワン</h3>
-                        </div>
-        
-                    <h2>Goods</h2>
-                         <div class="opened-for-codepen">
-                             <h3>All</h3>
-                             <h3>帽子</h3>
-                             <h3>バッグ</h3>
-                             <h3>シューズ</h3>
-                        </div>
-                    </div>
-  
-                 <h1>Season</h1>
-                    <div>
-                        <h2>All</h2>
-                        <h2>Spring</h2>
-                        <h2>Summer</h2>
-                        <h2>Autumn</h2>
-                        <h2>Winter</h2>
-                    </div>
-            </aside>
-          
-            <div class="color">
-                <form>
-                <input type="color" value="#ffffff" list="colors" name="color">
-                    <datalist id="colors">
-                        <option value="#F54337"></option>
-                        <option value="#2296F3"></option>
-                        <option value="#689E39"></option>
-                        <option value="#FDD735"></option>
-                        <option value="#9475CC"></option>
-                    </datalist>
-                </form>
-            </div>
-        </div>
-          
-        <div class="item_list">
-            <ul class="list  list-unstyled">
-                <li class="item">item1</li>
-                <li class="item">item2</li>
-                <li class="item">item3</li>
-                <li class="item">item4</li>
-                <li class="item">item5</li>
-                <li class="item">item6</li>
-                <li class="item">item7</li>
-                <li class="item">item8</li>
+    <div class=select>
+      <ul id="menu">
+        <li><h1 id="category">Category
+              <span class="category_spanX"></span>
+              <span class="category_spanY"></span>
+            </h1>
+            <ul class="category1">
+              <li><h1 class="categoryX">Tops</h1>
+                <ul class="category2">
+                  <li class="categoryY"><p>All</p></li>
+                  <li class="categoryY"><p>シャツ/ブラウス/カットソー</p></li>
+                  <li class="categoryY"><p>ニット</p></li>
+                  <li class="categoryY"><p>パーカー/スウェット</p></li>
+                </ul>
+              </li>
+              <li><h1 class="categoryX">Outer</h1>
+                <ul class="category2">
+                  <li class="categoryY"><p>All</p></li>
+                  <li class="categoryY"><p>ジャケット</p></li>
+                  <li class="categoryY"><p>コート</p></li>
+                  <li class="categoryY"><p>ブルゾン</p></li>
+                </ul>
+              </li>
+              <li><h1 class="categoryX">Bottoms</h1>
+                <ul class="category2">
+                  <li class="categoryY"><p>All</p></li>
+                  <li class="categoryY"><p>パンツ</p></li>
+                  <li class="categoryY"><p>スカート</p></li>
+                </ul>
+              </li>
+              <li><h1 class="categoryX">Onepiece</h1>
+                <ul class="category2">
+                  <li class="categoryY"><p>All</p></li>
+                  <li class="categoryY"><p>ワンピース</p></li>
+                  <li class="categoryY"><p>サロペット</p></li>
+                  <li class="categoryY"><p>オールインワン</p></li>
+                </ul>
+              </li>
+              <li><h1 class="categoryX"><p>Goods</p></h1>
+                <ul class="category2">
+                  <li class="categoryY"><p>All</p></li>
+                  <li class="categoryY"><p>帽子</p></li>
+                  <li class="categoryY"><p>バッグ</p></li>
+                  <li class="categoryY"><p>シューズ</p></li>
+                </ul>
+              </li>
             </ul>
-        </div>
+        </li>
+  
+            <li><h1 id="season">Season
+                  <span class="season_span"></span>
+                </h1>
+                  <ul  class="season">
+                    <li><p class="seasonP">All</p></li>
+                    <li><p class="seasonP">春</p></li>
+                    <li><p class="seasonP">夏</p></li>
+                    <li><p class="seasonP">秋</p></li>
+                    <li><p class="seasonP">冬</p></li>
+                  </ul>
+                </li>
+      </ul>
           
+      <div class="color">
+        <form>
+          <input type="color" value="#ffffff" list="colors" name="color">
+            <datalist id="colors">
+              <option value="#F54337"></option>
+              <option value="#2296F3"></option>
+              <option value="#689E39"></option>
+              <option value="#FDD735"></option>
+              <option value="#9475CC"></option>
+            </datalist>
+          </form>
+        </div>
     </div>
+          
+    <div class="item_list">
+      <ul class="list  list-unstyled">
+        <li class="item">item1</li>
+        <li class="item">item2</li>
+        <li class="item">item3</li>
+        <li class="item">item4</li>
+        <li class="item">item5</li>
+        <li class="item">item6</li>
+        <li class="item">item7</li>
+        <li class="item">item8</li>
+      </ul>
+    </div>
+          
+  </div>
        
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="test.js"></script> 
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="item_list.js"></script> 
 </body>
 </html>

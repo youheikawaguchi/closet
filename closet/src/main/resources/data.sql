@@ -3,9 +3,9 @@ VALUES(1,"トップス"),(2,"ボトムス"),(3,"トップス"),(4,"ワンピー�
 INSERT IGNORE INTO sub_category (sub_category_id,category_id,subcategory_name)
 VALUES(1,1,"シャツ/ブラウス/カットソー"),(2,1,"ニット"),(3,1,"パーカー/スウェット"),(4,2,"ジャケット"),(5,2,"コート"),(6,2,"ブルゾン"),(7,3,"パンツ"),(8,3,"スカート"),(9,4,"ワンピース"),(10,4,"サロペット"),(11,4,"オールインワン"),(12,5,"帽子"),(13,5,"バッグ"),(14,5,"シューズ");
 INSERT IGNORE INTO users (user_id,password,gender,born_year,admin_key,area_id)
-    VALUES('IKEDA','aaaaaaaa','女',19940419,0,3);
-INSERT IGNORE INTO users (id,user_id,password,gender,born_year,admin_key,area_id)
-    VALUES('YAMAMOTO','aaaaa','男',19960806,1,1);
+    VALUES('IKEDA','4bd854ce541bb5c459f10a1a107d27eeee9d59354021b294b1d81dddb6440966277fde101a6d9ee6','女',1994,0,3);
+INSERT IGNORE INTO users (user_id,password,gender,born_year,admin_key,area_id)
+    VALUES('YAMAMOTO','4bd854ce541bb5c459f10a1a107d27eeee9d59354021b294b1d81dddb6440966277fde101a6d9ee6','男',1996,1,1);
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
     VALUES(1,1,1,1,1,1, 'picture',"メモ");
 INSERT IGNORE INTO calendar (calendar_id,id,coordinate_id,event,event_date,met_person)
@@ -16,8 +16,7 @@ INSERT IGNORE INTO season (season_id,season_name) VALUES(1,"春"),(2,"夏"),(3,"
 INSERT IGNORE INTO color (color_id,color_name)
 VALUES(1,"ホワイト"),(2,"ブラック"),(3,"グレー"),(4,"ブラウン"),(5,"ベージュ"),(6,"グリーン"),(7,"ブルー"),(8,"パープル"),(9,"イエロー"),(10,"ピンク"),(11,"レッド"),(12,"オレンジ"),(13,"シルバー"),(14,"ゴールド"),(15,"その他");
 
---以下Areaデータインサート文
---VARUES(都道府県、県庁所在地の緯度、県庁所在地の経度);となっています.idは自動連番になっています
+-- 以下Areaデータインサート文
 INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("北海道",43.06417,141.34694);
 INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("青森県",40.82444,140.74);
 INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("岩手県",39.70361,141.1525);
@@ -65,4 +64,4 @@ INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("大分県",33.238
 INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("宮崎県",31.91111,131.42389);
 INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("鹿児島県",31.56028,130.55806);
 INSERT IGNORE INTO areas (area_name,latitude,longitude)VALUES("沖縄県",26.2125,127.68111);
---以上Areaデータインサート文
+-- 以上Areaデータインサート文
