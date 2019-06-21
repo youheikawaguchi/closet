@@ -1,6 +1,5 @@
 $(function() {
     $('#menu h1').on('click', function() {
-        console.log(0);
         $(this).next('ul').slideToggle();
         $(this).closest('li').siblings().find('ul').slideUp();
         
