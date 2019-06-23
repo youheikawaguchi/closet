@@ -46,7 +46,7 @@ table {
     width: 480px;
     background-color: #E0E0E0;
     text-align: center;
-    margin: 40px auto; 
+    margin: 40px auto;
 }
  
 .add_btn {
@@ -61,12 +61,12 @@ table {
     font-size: 40px;
 }
 
-.select {
+#select_list {
     width: 760px;
     margin: auto;
 }
 
-#select {
+.select {
     height: 60px;
     width: 720px;
     font-size: 28px;
