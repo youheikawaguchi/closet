@@ -39,7 +39,22 @@ $(document).ready(function () {
 
     },
     eventClick: function(calEvent, jsEvent, view) {
-       $('#cordinate-title').text(calEvent.title);
+    	$('#cordinate-title').text(calEvent.title);
+    	var date = new Date(calEvent['start']['_i']);
+    	$.ajax({
+			url: "/calendar/getdatecoorde",
+			dataType: "json",
+			type:"GET",
+			data: {
+				"date": date
+			},
+		success: function(cal) {
+			console.log(cal);
+	    },
+	    error: function(data) {
+	        alert("登録コーデが取得できませんでした。");
+	    }
+	  });
     },
     viewRender: function(view) {
 	  var date = $("#calendar").fullCalendar("getDate");

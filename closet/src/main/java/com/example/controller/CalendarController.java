@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,4 +44,15 @@ public class CalendarController {
  
 		return ResponseEntity.ok(calendarlist);
 	}
+	
+	@ResponseBody
+	@GetMapping("/calendar/getdatecoorde")
+	public ResponseEntity<Calendar> dateCoorde(@RequestParam("date") Date date){
+ 
+		Calendar calendar = null;
+		calendar = calendarService.getCalendarByDate(date);
+ 
+		return ResponseEntity.ok(calendar);
+	}	
+	
 }

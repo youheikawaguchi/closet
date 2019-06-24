@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,10 @@ public class CalendarServicelmpl implements CalendarService{
 	@Override
 	public Calendar getCalendarById(int id) {
 		return calendarRepository.findById(id).orElse(null);
+	}
+
+	@Override
+	public Calendar getCalendarByDate(Date date) {
+		return calendarRepository.findByDate(date);
 	}
 }
