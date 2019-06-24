@@ -45,12 +45,13 @@ public class CalendarController {
 		return ResponseEntity.ok(calendarlist);
 	}
 	
+	//あとでget→postにする
 	@ResponseBody
 	@GetMapping("/calendar/getdatecoorde")
-	public ResponseEntity<Calendar> dateCoorde(@RequestParam("date") Date date){
+	public ResponseEntity<Calendar> dateCoorde(@RequestParam("userid") int userid, @RequestParam("date") Date date){
  
 		Calendar calendar = null;
-		calendar = calendarService.getCalendarByDate(date);
+		calendar = calendarService.getCalendarByDate(userid, date);
  
 		return ResponseEntity.ok(calendar);
 	}	

@@ -25,7 +25,7 @@ public class CalendarServicelmpl implements CalendarService{
 	}
 
 	@Override
-	public Calendar getCalendarByDate(Date date) {
-		return calendarRepository.findByDate(date);
+	public Calendar getCalendarByDate(int userid, Date date) {
+		return calendarRepository.findByDate(userid, date);
 	}
 }

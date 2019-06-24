@@ -46,13 +46,16 @@ $(document).ready(function () {
 			dataType: "json",
 			type:"GET",
 			data: {
-				"date": date
+				"date": date,
+				"userid" : 1
 			},
 		success: function(cal) {
-			console.log(cal);
+			console.log(cal.metPerson);
+			console.log(cal.coordinate);
+			
 	    },
 	    error: function(data) {
-	        alert("登録コーデが取得できませんでした。");
+	        alert("コーデ情報が取得できませんでした。");
 	    }
 	  });
     },

@@ -11,7 +11,7 @@ import com.example.model.Calendar;
 @Repository
 public interface CalendarRepository extends JpaRepository<Calendar, Integer>{
 
-	@Query("select x from Calendar x where x.eventDate = :date ")
-	public Calendar findByDate(Date date);
+	@Query("select x from Calendar x where x.id = :userid and x.eventDate = :date")
+	public Calendar findByDate(int userid, Date date);
 
 }
