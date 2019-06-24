@@ -5,15 +5,17 @@ import java.util.List;
 
 import javax.persistence.LockModeType;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.example.controller.TopController;
 import com.example.model.Item;
 
 public interface ItemRepository extends JpaRepository<Item, Integer>{
-	
+
 	
     //@Query(value = "SELECT ")
 	//public List<Item> findSlideImg(int season_id);

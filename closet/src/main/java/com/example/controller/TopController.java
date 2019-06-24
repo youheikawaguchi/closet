@@ -12,20 +12,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.Item;
 import com.example.service.TopService;
 
 
-@Controller
+@RestController
 public class TopController {
 	
 	@Autowired
 	TopService topService;
 	
 	
-	public static int[] getSeason() {
+	public int[] getSeason() {
 		LocalDate date = LocalDate.now();
 		int month = date.getMonthValue();
 //		List<Integer> month_list1 = new ArrayList<>();
