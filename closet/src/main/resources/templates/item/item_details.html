@@ -2,12 +2,11 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../static/css/item_details.css" th:href="@{/css/item_datails.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/css/item_details.css" th:href="@{/css/item_details.css}" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    
-    <form th:action="@{/item/item_details}"></form>
+
     <div class=photo>
         <img src="..." class="img-fluid" alt="Responsive image">
     </div>
@@ -21,8 +20,20 @@
     <div class=memo>MEMO</div>
     
     <div class="button">
-        <button type="button" class="btn btn-primary">削除</button>         <button type="button" class="btn btn-secondary">編集</button>
+        <button id="open" type="button" class="btn btn-primary">削除</button>
+        <button type="button" class="btn btn-secondary">編集</button>
     </div>
-    
+
+<!--    削除確認(モーダル表示)-->
+    <div id="overlay"></div>
+    <div id="modalWindow">
+        <p>本当に削除しますか？</p>
+        <a th:href="@{/item/item_delete/}"></a>
+        <button id="close">いいえ</button>
+    </div>
+<!--    ここまでモーダル-->
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../../static/js/modalWarning.js" th:src="@{/js/modalWarning.js}"></script>
 </body>
 </html>

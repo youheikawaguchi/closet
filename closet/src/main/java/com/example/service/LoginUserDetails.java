@@ -4,7 +4,7 @@ import com.example.model.User;
 import lombok.Data;
 import org.springframework.security.core.authority.AuthorityUtils;
 
-@Data
+
 public class LoginUserDetails extends org.springframework.security.core.userdetails.User {
     private final User user;
 
