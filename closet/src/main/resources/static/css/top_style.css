@@ -119,8 +119,8 @@
   box-sizing: border-box;
   object-fit:cover;
 }
-.slick-arrow{
-  border: black;
+.slick-prev:before, .slick-next:before{
+	color: #D9B918;
 }
 
 /*天気*/
