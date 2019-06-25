@@ -2,17 +2,16 @@ package com.example.service;
 
 import java.util.List;
 
-import com.example.model.Category;
-import com.example.model.Color;
-import com.example.model.Item;
-import com.example.model.Season;
-import com.example.model.SubCategory;
+import com.example.model.*;
+import org.springframework.security.core.userdetails.UserDetails;
 
 
 public interface ItemService {
 	public List<Item> getAllItem();
 	public Item getItemById(int id);
+
+	ItemSelect itemCreateForm();
+
 	//public Item getItemByName(String name);
-	public Item ItemCreate(Item item, Category category, SubCategory subcategory, Season season, Color color);
-	
+	public Item ItemCreate(ItemForm itemForm, UserDetails userDetails);
 }
