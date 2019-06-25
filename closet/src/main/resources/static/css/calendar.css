@@ -2,7 +2,7 @@ body {
   width: 100%;
 }
 .container {
-  height: 500px;
+  height: 600px;
   width: 100%;
   overflow: hidden;
 }
@@ -40,4 +40,14 @@ body {
 }
 .item-img div div, .item-img div img {
   position:absolute;
+}
+
+#date-wrap {
+	position: relative;
+}
+#close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 20px;
 }

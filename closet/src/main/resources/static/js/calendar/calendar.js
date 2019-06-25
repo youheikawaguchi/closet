@@ -24,7 +24,6 @@ $(document).ready(function () {
       var i = $(".fc-row").index(select) - 1;
       $("#calendar .fc-scroller").height(h);
       $("#calendar .fc-scroller").animate({scrollTop:h*i});
-      console.log(date.format());
       $("#item p").text(date.format());
       
       // イベントの有無を判定
@@ -39,7 +38,42 @@ $(document).ready(function () {
 
     },
     eventClick: function(calEvent, jsEvent, view) {
-       $('#cordinate-title').text(calEvent.title);
+    	
+    	//スライドイン
+        var select = $(".fc-highlight-skeleton").parent();
+        var h = select.height();
+        var i = $(".fc-row").index(select) - 1;
+        $("#calendar .fc-scroller").height(h);
+        $("#calendar .fc-scroller").animate({scrollTop:h*i});
+
+    	var date = new Date(calEvent['start']['_i']);
+    	var date_str = 'YYYY-MM-DD';
+    	date_str = date_str.replace(/YYYY/g, date.getFullYear());
+    	date_str = date_str.replace(/MM/g, date.getMonth());
+    	date_str = date_str.replace(/DD/g, date.getDate());
+    	  
+    	  
+        $("#item p").text(date_str);
+        
+    	$('#cordinate-title').text(calEvent.title);
+    	
+    	$.ajax({
+			url: "/calendar/getdatecoorde",
+			dataType: "json",
+			type:"GET",
+			data: {
+				"date": date,
+				"userid" : 1
+			},
+		success: function(cal) {
+			console.log(cal.metPerson);
+			console.log(cal.coordinate);
+			
+	    },
+	    error: function(data) {
+	        alert("コーデ情報が取得できませんでした。");
+	    }
+	  });
     },
     viewRender: function(view) {
 	  var date = $("#calendar").fullCalendar("getDate");
@@ -59,11 +93,14 @@ $(document).ready(function () {
 	      $("#calendar").fullCalendar("addEventSource", result);
 	    },
 	    error: function(data) {
-	      alert("登録コーデが取得できませんでした。");
+	      alert("登録イベントが取得できませんでした。");
 	    }
 	  });
     }
   });
   
-//console.log($('#calendar').fullCalendar('getView').start);
+  //console.log($('#calendar').fullCalendar('getView').start);
+  $('#close').on('click', function() {
+      $("#calendar .fc-scroller").height(600);
+  });
 });
