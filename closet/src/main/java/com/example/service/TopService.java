@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +22,38 @@ public class TopService {
 		return itemRepository.findAll();
 	}
 	
-	public List<Item> getSlideItems(int[] getSeason.seasonId) {
-		int[] getSeason = topController.getSeason();
-		for(int i = 0; i <= getSeason.length ; i++) {
-			List<Item> items = itemRepository.findBySlideImg(getSeason.seasonId[i]);
+	//getSeasonメソッドの季節IDをfindSlideImgに渡す
+	public List<Item> getSlideItems() {
+		int[] getSeason = getSeason();
+		List<Item> items = itemRepository.findSlideImg(getSeason[0], getSeason[1]);
 		return items;
+	}
+	
+	/*　まいまいくそー　*/
+	
+	//今日の月から季節IDの判定
+	public int[] getSeason() {
+		LocalDate date = LocalDate.now();
+		int month = date.getMonthValue();
+		int seasonId[] = new int[2];
+		
+		if(month >= 3 && month <= 5) {
+			seasonId[0] = 1;
+		}else if(month >= 6 && month <= 8) {
+			seasonId[0] = 2;
+		}else if(month >= 9 && month <= 10) {
+			seasonId[0] = 3;
+		}else if(month >= 11 && month <= 12 || month <= 2 ) {
+			seasonId[0] = 4;
 		}
+		
+		if(month >=5 && month <= 8) {
+			seasonId[1] = 5;
+		}else if(month >= 9 && month <= 12 || month <= 4) {
+			seasonId[1] = 6;
+		}
+	
+		return seasonId;
 		
 	}
 	
