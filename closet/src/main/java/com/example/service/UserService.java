@@ -15,11 +15,24 @@ public class UserService {
 	@Autowired
 	PasswordEncoder passwordEncoder;
 	
+	
+//	ユーザー登録
 	public User createUser(User user) {
 		
-//		String encodedPassword = passwordEncoder.encode(user.getPassword());
-//		user.setPassword(encodedPassword);
+		String encodedPassword = passwordEncoder.encode(user.getPassword());
+		user.setPassword(encodedPassword);
 		
 		return userRepository.saveAndFlush(user);
 	}
+	
+//	プロフィール登録
+	public User updateUser(User user, User viewer) {
+		viewer.setBornYear(user.getBornYear());
+		return userRepository.saveAndFlush(user);
+	}
+	
+	public User getUserByUserId(String userId) {
+		return userRepository.findByUserId(userId);
+	}
+	
 }

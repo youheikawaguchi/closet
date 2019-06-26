@@ -27,17 +27,44 @@ input{
     height: 60px;
 }
 
-h2{
-    background-color: #C2E9F2;
+.select{
+	margin-top: 20px;
 }
 
-.menu {
+#menu {
     width: 100%;
     text-align: center;
     display: block;
     font-size: 100%;
 }
 
-.menu div{
-  display: none;
+#category , #season{
+    font-size: 70px;
+    border-bottom: 3px solid gray;
+}
+
+span{
+    color: dimgrey;
+    font-size: 50px;
+}
+
+.category1 h1{
+    background-color: #C2E9F2;
+    border-bottom: 2px solid #A6D0DA;
+    font-size: 50px;
+}
+
+.season li{
+    font-size: 50px;
+    border-bottom: 1px solid #C2E9F2;
+    margin: 5px auto;
+}
+
+.category2 li{
+    font-size: 40px;
+    border-bottom: 1px solid #C2E9F2;
+}
+
+ul.category1,ul.category2,ul.season{
+    display: none;
 }

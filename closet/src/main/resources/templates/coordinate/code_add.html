@@ -3,23 +3,62 @@
     
 <head>
     <meta charset="UTF-8">
+   
     <link rel="stylesheet" href="code_add1.css" type="text/css">
     <title>コーディネート登録</title>
+    
 </head>   
 
-<body>
+<body> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="code_add.js"></script>
     <div class=header></div>
-        
-    <form action="#">
         <div class=slc>
-            <select id="select1" class="custom-select" name="have_calender">
-                <option selected value="">------</option>
-                <option value="">コーディネートのみ登録</option>
-                <option value="">カレンダーに登録</option>
+            <select id="select1" class="custom-select" name="have_calender" onchange="c_Code()">
+                <option selected value="0">------</option>
+                <option value="1">コーディネートのみ登録</option>
+                <option value="2">カレンダーに登録</option>
             </select>
         </div>
+    
+<!-----------------------------コーディネート登録----------------------------------------------------->
+    
+	<form action="#">
+        <div id="c_code">
+        <div class="photobtn">
+            <div class="photobtn_add">
+                <button type="button" class="btn1 btn-info1" name="c_item1">＋</button>
+                <button type="button" class="btn1 btn-info1" name="c_item2">＋</button> 
+                <button type="button" class="btn1 btn-info1" name="c_item3">＋</button> 
+                <br>
+                <button type="button" class="btn1 btn-info1" name="c_item4">＋</button>
+                <button type="button" class="btn1 btn-info1" name="c_item5">＋</button> 
+                <button type="button" class="btn1 btn-info1" name="c_item6">＋</button>
+                <br>
+                <button type="button" class="btn1 btn-info1" name="c_item7">＋</button>
+                <button type="button" class="btn1 btn-info1" name="c_item8">＋</button> 
+                <button type="button" class="btn1 btn-info1" name="c_item9">＋</button> 
+                <br>
+            </div>
+        </div>
+        <div class="form1">
+            <div class="Title1">
+                <label for="Title2"></label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="Title_name" placeholder="Title" name="c_title">
+            </div>
 
-
+            <div class="Memo1">
+                <label for="Memo2"></label>
+                <textarea class="form-control" id="exampleInputEmail1" aria-describedby="Memo_name" placeholder="Memo" name="comment"></textarea>
+            </div>
+        </div>
+        </div>
+    </form>
+    
+<!--------------------------------カレンダー登録--------------------------------------->  
+    
+    <form action="#">
+        <div  id="calender">
         <div class="photobtn">
             <div class="photobtn_add">
                 <button type="button" class="btn1 btn-info1" name="c_item1">＋</button>
@@ -37,25 +76,39 @@
             </div>
         </div>
 
-        <div class="form1">
-
+        <div class="selectbox">
             <div class="Title1">
                 <label for="Title2"></label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="Title_name" placeholder="Title" name="c_title">
+                <input type="text" class="form-control" id="titleid" aria-describedby="Title_name" placeholder="Event">
             </div>
-
+            
+            <div class="c_date">
+            <div class="Date1">
+                <label for="date2" id="c_label"></label>
+                <input type="date" class="fron-control" id="Dateid" placeholder="Date">
+            </div>
+            
+            <div class="calender_photo"></div>
+            </div>
+            
+            <div class="Person1">
+                <label for="Person2"></label>
+                <input type="text" class="form-control" id="Personid" aria-describedby="person_name" placeholder="Person">
+            </div>
+            
             <div class="Memo1">
                 <label for="Memo2"></label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="Memo_name" placeholder="Memo" name="comment">
+                <textarea class="form-control" id="Memoid" aria-describedby="Memo_name" placeholder="Memo"></textarea>
             </div>
-
+        </div>
+        </div>
+        
             <div class=enterbtn>
                 <button type="button" class="btn btn-success">戻る</button>
                 <button type="button" class="btn btn-warning">登録</button>
             </div>
-        </div>
     </form>
-        
 </body>
+        
     
 </html>

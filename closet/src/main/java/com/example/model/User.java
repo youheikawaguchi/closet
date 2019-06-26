@@ -41,15 +41,14 @@ public class User {
 	private String userId;
 
 	@Size(min = 8, max = 100, message = "8~16文字で入力してください。")
-	@Column(name = "password", length = 50, nullable=false)
+	@Column(name = "password", length = 100, nullable=false)
 	private String password;
 	
 	@Column(name = "gender", length = 2)
 	private String gender;
 
-	@DateTimeFormat(pattern = "yyyy")
 	@Column(name = "born_year", precision = 4)
-	private Date bornYear;
+	private String bornYear;
 
 	@Column(name = "admin_key")
 	private byte adminKey;
