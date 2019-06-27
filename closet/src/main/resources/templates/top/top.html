@@ -27,11 +27,9 @@
         <!-- アイテム一覧 -->
         <a href="#" class="btn btn-block btn-default btn-blue pt-5 pb-5"><img th:src="@{/images/top/item.png}" class="icon_pic"><br><br><span class="icon_txt">Item</span></a>
         <!-- カレンダー -->
-        <a href="#" class="btn btn-block btn-default btn-yellow mt-0 pt-5 pb-5"><img th:src="@{/images/top/calender.png}" class="icon_pic"><br><br><span class="icon_txt">Calender</span></a>
         <a href="#" class="btn btn-block btn-default btn-yellow mt-0 pt-5 pb-5"><img th:src="@{/images/top/calender.png}" class="icon_pic"><br><br><span class="icon_txt">Calendar</span></a>
         <!-- アイテム登録 -->
         <a href="#" class="btn btn-block btn-default btn-blue mt-0 pt-5 pb-5"><img th:src="@{/images/top/add.png}" class="icon_pic"><br><br><span class="icon_txt">Add</span></a>
-        <a href="/item/item_edit" class="btn btn-block btn-default btn-blue mt-0 pt-5 pb-5"><img th:src="@{/images/top/add.png}" class="icon_pic"><br><br><span class="icon_txt">Add</span></a>
         <!-- コーディネート一覧 -->
         <a href="#" class="btn btn-block btn-default btn-yellow mt-0 pt-5 pb-5"><img th:src="@{/images/top/coordinate.png}" class="icon_pic"><br><br><span class="icon_txt">Coordinate</span></a>
     </div>
@@ -45,7 +43,7 @@
 	      <div class="slide_show">
 		      <div class="slideshow_js slide_flame">
 		      <!-- if文入れる　+${items[0].picture}}がNULLの時の処理 -->
-			      <img th:src="@{'/images/top/'+${items[0].picture}}" class="slide_pic">
+			      <img th:each="item, i : ${items}" th:src="@{'/images/top/'+${items[__${i.index}__].picture}}" class="slide_pic">
 		      </div>
 	      </div>  <!-- /slide_show -->
 
