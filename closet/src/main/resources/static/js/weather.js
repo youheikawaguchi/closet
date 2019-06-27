@@ -12,13 +12,13 @@ $(document).ready(function () {
         $('.nowTemp').text(data.currently.temperature);
         $('.maxTemp').text(data.daily.data[0].temperatureHigh);
         $('.minTemp').text(data.daily.data[0].temperatureLow);
-        $('.dayWeatherIcon').attr('src', data.currently.icon + '.png');
+        $('.dayWeatherIcon').attr('src', "/images/weather/" + data.currently.icon + ".png");
 
         //翌日の天気
         $('.tomorrowWeather').text(data.daily.data[1].summary);
         $('.tomorrowMaxTemp').text(data.daily.data[1].temperatureHigh);
         $('.tomorrowMinTemp').text(data.daily.data[1].temperatureLow);
-        $('.tomorrowWeatherIcon').attr('src', data.daily.data[1].icon + '.png');
+        $('.tomorrowWeatherIcon').attr('src', "/images/weather/" + data.daily.data[1].icon + '.png');
       }
   });
 });
