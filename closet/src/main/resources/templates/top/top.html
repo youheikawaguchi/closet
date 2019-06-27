@@ -42,19 +42,10 @@
 
     <div class="top_bottom">
     <!-- スライドショー -->
-    
-      <div class="slideshow">
-	      <div class="slideshow_js">
-	      <!-- if文入れる　+${items[0].picture}}がNULLの時の処理 -->
-		      <img th:src="@{'/images/top/'+${items[0].picture}}" class="slide_pic">
-	      </div>
-      </div>
-
-    <!-- スライドショー -->
 	      <div class="slide_show">
 		      <div class="slideshow_js slide_flame">
-			      <img th:src="@{/images/top/image2.jpg}" class="slide_pic">
-			      <img th:src="@{/images/top/image2.jpg}" class="slide_pic">
+		      <!-- if文入れる　+${items[0].picture}}がNULLの時の処理 -->
+			      <img th:src="@{'/images/top/'+${items[0].picture}}" class="slide_pic">
 		      </div>
 	      </div>  <!-- /slide_show -->
 
@@ -112,16 +103,8 @@
       
       </div>  <!-- top_bottom -->
       
-      
-      
-      
-
-    </div>
     </div> <!-- /top -->
   </div>  <!-- /top_body -->
-
-
-  </div>
   
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="/js/slick0/slick/slick.min.js"></script>
