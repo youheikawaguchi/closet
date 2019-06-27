@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <title>TOP画面</title>
 <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
-<link rel="stylesheet" type="text/css" th:href="@{/css/top_style.css}">
 <link rel="stylesheet" th:href="@{/js/slick0/slick/slick.css}">
 <link rel="stylesheet" th:href="@{/js/slick0/slick/slick-theme.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/top_style.css}">
+
         
 </head>
 <body>
@@ -58,7 +59,7 @@
 	      
 	        <div class="wt_box">
 		        <div class="wticon_flame">
-		        	<span class="wticon_box"><img th:src="@{/images/weather/snow.png}" class="wticon"></span>
+		        	<span class="wticon_box"><img class="dayWeatherIcon wticon"></span>
 		        </div>
 		        <div class="wtinfo_flame">
 		        	<div class="wtinfo_titlebox"><span class="wtinfo_title">Today</span></div>
@@ -74,7 +75,7 @@
 	        
 	        <div class="wt_box">
 	        	<div class="wticon_flame">
-	          		<span class="wticon_box"><img th:src="@{/images/weather/rain.png}" class="wticon"></span>
+	          		<span class="wticon_box"><img class="tomorrowWeatherIcon wticon"></span>
 	          	</div>
 	          	<div class="wtinfo_flame">
 	          		<div class="wtinfo_titlebox"><span class="wtinfo_title">Tomorrow</span></div>
