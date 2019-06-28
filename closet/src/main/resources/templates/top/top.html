@@ -26,13 +26,13 @@
     <!-- アイコン -->
     <div class="top_button">
         <!-- アイテム一覧 -->
-        <a href="#" class="btn btn-block btn-default btn-blue pt-5 pb-5"><img th:src="@{/images/top/item.png}" class="icon_pic"><br><br><span class="icon_txt">Item</span></a>
+        <a href="item/item_list" class="btn btn-block btn-default btn-blue pt-5 pb-5"><img th:src="@{/images/top/item.png}" class="icon_pic"><br><br><span class="icon_txt">Item</span></a>
         <!-- カレンダー -->
-        <a href="#" class="btn btn-block btn-default btn-yellow mt-0 pt-5 pb-5"><img th:src="@{/images/top/calender.png}" class="icon_pic"><br><br><span class="icon_txt">Calendar</span></a>
+        <a href="calendar" class="btn btn-block btn-default btn-yellow mt-0 pt-5 pb-5"><img th:src="@{/images/top/calender.png}" class="icon_pic"><br><br><span class="icon_txt">Calendar</span></a>
         <!-- アイテム登録 -->
-        <a href="#" class="btn btn-block btn-default btn-blue mt-0 pt-5 pb-5"><img th:src="@{/images/top/add.png}" class="icon_pic"><br><br><span class="icon_txt">Add</span></a>
+        <a href="item/item_edit" class="btn btn-block btn-default btn-blue mt-0 pt-5 pb-5"><img th:src="@{/images/top/add.png}" class="icon_pic"><br><br><span class="icon_txt">Add</span></a>
         <!-- コーディネート一覧 -->
-        <a href="#" class="btn btn-block btn-default btn-yellow mt-0 pt-5 pb-5"><img th:src="@{/images/top/coordinate.png}" class="icon_pic"><br><br><span class="icon_txt">Coordinate</span></a>
+        <a href="/coordinate/add" class="btn btn-block btn-default btn-yellow mt-0 pt-5 pb-5"><img th:src="@{/images/top/coordinate.png}" class="icon_pic"><br><br><span class="icon_txt">Coordinate</span></a>
     </div>
 
 
@@ -52,18 +52,7 @@
 
 
 
-    <!-- 天気APIから持ってくる -->
-      <div class="weather">
-        <div class="day">
-          <span class="weather_icon"><img th:src="@{/images/top/weather1.png}" class="icon"></span>
-          <span class="weather_info">Today<br><br>天気:<span class="dayWeather"></span><br>現在の気温:<span class="nowTemp"></span>℃<br>最高気温:<span class="maxTemp"></span>℃/最低気温:<span class="minTemp">℃</span>℃</span>
-        </div>
-      <hr size="5">
-        <div class="day">
-          <span class="weather_icon"><img th:src="@{/images/top/weather2.png}" class="icon"></span>
-          <span class="weather_info">Tomorrow<br><br>天気:<span class="tomorrowWeather"></span><br>最高気温:<span class="tomorrowMaxTemp"></span>℃/最低気温:<span class="tomorrowMinTemp"></span>℃</span>
-        </div>
-      </div>
+
       <div class="weather"><div class="wt_flame">
       
       
