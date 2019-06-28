@@ -42,8 +42,10 @@
     <!-- スライドショー -->
 	      <div class="slide_show">
 		      <div class="slideshow_js slide_flame">
-		      <!-- if文入れる　+${items[0].picture}}がNULLの時の処理 -->
-			      <img th:each="item, i : ${items}" th:src="@{'/images/top/'+${items[__${i.index}__].picture}}" class="slide_pic">
+		      <!-- if文　${items}が空の時の処理 -->
+		      <img th:if="${#lists.isEmpty(items)}" th:src="@{/images/top/noImage.jpg}" class="slide_pic">
+		      <!-- if文　${items}が空じゃない時の処理 -->
+		      <img th:if="!${#lists.isEmpty(items)}" th:each="item, i : ${items}" th:src="@{'/images/top/'+${items[__${i.index}__].picture}}" class="slide_pic">
 		      </div>
 	      </div>  <!-- /slide_show -->
 
