@@ -26,13 +26,8 @@ public class UserService {
 	}
 	
 //	プロフィール登録
-	public User updateUser(User user, User viewer) {
-		viewer.setBornYear(user.getBornYear());
+	public User createProfiel(User user) {
+		
 		return userRepository.saveAndFlush(user);
 	}
-	
-	public User getUserByUserId(String userId) {
-		return userRepository.findByUserId(userId);
-	}
-	
 }
