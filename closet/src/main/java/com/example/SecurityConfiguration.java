@@ -15,7 +15,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {//特定のリクエストだけセキュリティ設定を無視する条件をかける
-		web.ignoring().antMatchers("/webjars/**", "/css/**", "/images/**");//webjarsやcssへのアクセスに対して、上記の機能が働く
+		web.ignoring().antMatchers("/webjars/**", "/css/**","/js/**");//webjarsやcssへのアクセスに対して、上記の機能が働く
 	}
 
 	@Override
