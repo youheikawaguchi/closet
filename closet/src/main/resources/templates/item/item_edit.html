@@ -2,8 +2,8 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../../static/css/item_edit.css" th:href="@{/css/item_edit.css}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">      
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+    <link rel="stylesheet" type="text/css" th:href="@{/css/item_edit.css}">
 </head>
 <body>  
     <div class=header>
@@ -22,7 +22,7 @@
             <div id="select_list" >
                 <div>
                     <select class="select custom-select category" th:field="*{categoryId}" required>
-                        <option value="">サブカテゴリーを選択してください</option>
+                        <option value="">カテゴリーを選択してください</option>
                         <option th:each="category : ${itemSelect.categoryList}" th:value="${category.getCategoryId()}"
                                 th:text="${category.getCategoryName()}"></option>
                     </select>

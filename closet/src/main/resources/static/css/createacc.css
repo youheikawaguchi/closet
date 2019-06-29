@@ -1,0 +1,49 @@
+body{
+    background-image: url("../images/login/top1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;    
+}
+
+
+#hello{
+    font-size: 90px;
+    color: #D9B918;
+}
+
+.start2{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 45px;
+}
+
+.form-group{
+    width: 750px;
+    margin: auto;
+}
+
+.form-group
+.form-control{
+    width: 750px;
+    height: 100px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    background-color: #E0F4F8;
+    font-size: 30px;
+}
+
+.button_wrapper{
+    display: block;
+    width: 750px;
+    margin: auto;
+    
+}
+
+
+.btn.btn-primary{
+    width: 750px;
+    height: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color:#95B8BF;
+    font-size: 30px;
+}
