@@ -40,7 +40,7 @@ public class Calendar {
 	private User user;
 	
 	/*coordinate：一対多*/
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "coordinate_id")
 	private Coordinate coordinate;

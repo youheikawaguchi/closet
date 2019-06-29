@@ -1,66 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="item_edit.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">      
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+    <link rel="stylesheet" type="text/css" th:href="@{/css/item_edit.css}">
 </head>
 <body>  
-    <form th:action="@{/item/item_edit}"></form>
+    <div class=header>
+    </div>
     
     <div class="container-fluid">
-        <div class=photo>
-            <div class=add_btn>
-                <button type="button" class="btn btn-info">＋</button>
+        <form th:object="${itemForm}" method="post" th:action="@{/item/item_edit}" enctype="multipart/form-data">
+            <div class="photo">
+                <div class="add_btn">
+                    <label class="btn btn-info" for="select_photo">＋
+                        <input id="select_photo" type="file" th:field="*{picture}" accept="image/png, image/jpeg, image/jpg" style="display:none;">
+                    </label>
+                </div>
             </div>
-        </div>
-        
-        <form>
-            <div class="select">
-                <select id="select" class="custom-select">
-                    <option selected>カテゴリを選択してください</option>
-                    <option name="category1" value="1">トップス</option>
-                    <option name="category2" value="2">アウター</option>
-                    <option name="category3" value="3">ボトムス</option>
-                    <option name="category4" value="4">ワンピース</option>
-                    <option name="category5" value="5">小物</option>
-                </select>
-                <br>
-                <select id="select" class="custom-select">
-                    <option selected>サブカテゴリーを選択してください</option>
-                    <option name="sub_category1" value="1">One</option>
-                    <option name="sub_category2" value="2">Two</option>
-                    <option name="sub_category3" value="3">Three</option>
-                </select>
-                <br>
-                <select id="select" class="custom-select">
-                    <option selected>季節を選択してください</option>
-                    <option name="season1" value="1">春</option>
-                    <option name="season2" value="2">夏</option>
-                    <option name="season3" value="3">秋</option>
-                    <option name="season4" value="4">冬</option>
-                    <option name="season5" value="5">春夏</option>
-                    <option name="season6" value="6">秋冬</option>
-                </select>
-                <br>
-                <select id="select" class="custom-select">
-                    <option selected>色を選択してください</option>
-                    <option name="color1" value="1">One</option>
-                    <option name="color2" value="2">Two</option>
-                    <option name="color3" value="3">Three</option>
-                </select>
+
+            <div id="select_list" >
+                <div>
+                    <select class="select custom-select category" th:field="*{categoryId}" required>
+                        <option value="">カテゴリーを選択してください</option>
+                        <option th:each="category : ${itemSelect.categoryList}" th:value="${category.getCategoryId()}"
+                                th:text="${category.getCategoryName()}"></option>
+                    </select>
+                </div>
+                <div>
+                    <select class="select custom-select subCategory" th:field="*{subCategoryId}" disabled>
+                        <option value="" data-th-data-val="0">サブカテゴリーを選択してください</option>
+                        <option th:each="subCategory : ${itemSelect.subCategoryList}" th:value="${subCategory.getSubCategoryId()}"
+                                th:text="${subCategory.getSubCategoryName()}" data-th-data-val="${subCategory.getCategory().getCategoryId()}"></option>
+                    </select>
+                </div>
+                <div>
+                    <select class="select custom-select" th:field="*{seasonId}">
+                        <option value="">季節を選択してください</option>
+                        <option th:each="season : ${itemSelect.seasonList}" th:value="${season.getSeason_id()}"
+                                th:text="${season.getSeasonName()}"}></option>
+                    </select>
+                </div>
+                <div>
+                    <select class="select custom-select" th:field="*{colorId}">
+                        <option value="">色を選択してください</option>
+                        <option th:each="color : ${itemSelect.colorList}" th:value="${color.getColorId()}"
+                                th:text="${color.getColorName()}"></option>
+                    </select>
+                </div>
             </div>
             
-            <div class=memo>
-                <textarea name="memo" id="textarea" class="textarea" placeholder="MEMO"></textarea>
+            <div class="memo">
+                <textarea name="memo" class="textarea" placeholder="MEMO" th:field="*{memo}"></textarea>
             </div>
+            
+            <div class=button>
+            	<button type="button" class="btn btn-success" onclick="history.back()">戻る</button>
+            	<button type="submit" class="btn btn-warning">決定</button>
+        	</div>
         </form>
         
-        <div class=button>
-            <button type="button" class="btn btn-success">戻る</button>
-            <button type="button" class="btn btn-warning">決定</button>
-        </div>
-        
     </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../../static/js/subCategory.js" th:src="@{/js/subCategory.js}" type="text/javascript"></script>
 </body>
 </html>
