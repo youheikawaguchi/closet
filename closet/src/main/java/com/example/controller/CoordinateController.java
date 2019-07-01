@@ -40,6 +40,12 @@ public class CoordinateController {
         //}
     }
 
+    @GetMapping(value = {"/list"})
+    public ModelAndView coordinateList(ModelAndView mav){
+        mav.setViewName("/coordinate/code_list");
+        return mav;
+    }
+
     @GetMapping(value = {"/details/{coordinateId}"})
     public ModelAndView coordinateDetails(@PathVariable Integer coordinateId){
         ModelAndView mav = new ModelAndView();
