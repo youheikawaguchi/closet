@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.model.Area;
 import com.example.model.Item;
 import com.example.service.TopService;
 
@@ -21,6 +22,8 @@ public class TopController {
 	public ModelAndView top(ModelAndView mav) {	
 		List<Item> items = topService.getSlideItems();
 		mav.addObject("items", items);
+		List<Area> area = topService.getArea();
+		mav.addObject("area", area);
 		mav.setViewName("top/top");
 		return mav;
 	}

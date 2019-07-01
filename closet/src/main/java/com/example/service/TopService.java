@@ -6,8 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.controller.TopController;
+import com.example.model.Area;
 import com.example.model.Item;
+import com.example.repository.AreaRepository;
 import com.example.repository.ItemRepository;
 
 
@@ -16,17 +17,22 @@ public class TopService {
 	@Autowired
 	ItemRepository itemRepository;
 	@Autowired
-	TopController topController;
+	AreaRepository areaRepository;
 
-	public List<Item> getAllItems() {
-		return itemRepository.findAll();
-	}
+	//public List<Item> getAllItems() {
+	//	return itemRepository.findAll();
+	//}
 	
 	//getSeasonメソッドの季節IDをfindSlideImgに渡す
 	public List<Item> getSlideItems() {
 		int[] getSeason = getSeason();
 		List<Item> items = itemRepository.findSlideImg(getSeason[0], getSeason[1]);
 		return items;
+	}
+	//area取得
+	int area = 13;
+	public List<Area> getArea() {
+		return areaRepository.findArea(area);
 	}
 	
 	/*　まいまいくそー　*/
