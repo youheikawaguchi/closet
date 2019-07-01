@@ -1,8 +1,8 @@
 
 
 jQuery.validator.addMethod("alphanum", function(value, element) {
-	 return this.optional(element) || /^([a-zA-Z0-9_]+)$/.test(value);
-	 }, "※半角英数字、「_」で入力してください"
+	 return this.optional(element) || /^([a-zA-Z0-9_@-]+)$/.test(value);
+	 }, "※使用できる文字は半角英数字、「_」、「-」、「@」です"
 	);
 
 
