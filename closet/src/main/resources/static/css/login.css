@@ -64,7 +64,7 @@ body{
 }
 
 .photo{
-    background-image: url(top.jpg);
+    background-image: url("../images/login/top.jpg");
     background-position: center;
     background-repeat: no-repeat;
     height:300px;
