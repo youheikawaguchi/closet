@@ -3,9 +3,6 @@
 <head>
 	<meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css">
     <title>ログイン画面</title>
 </head>
@@ -16,12 +13,12 @@
 	        <form th:action="@{/login}" method="POST" id="login_form">
 	            <div class="form-group">
 	                <label for="userId"></label>
-	                <span id="UserId1_error" class="error_message"></span>
+	                <span id="UserId1_error" class="error_message text-danger"></span>
 	                <input type="text" class="form-control" id="UserId1" aria-describedby="UserID" placeholder="UserID" name="userId">   
 	            </div> 
 	            <div class="form-group">
 	                <label for="passWord"></label>
-	                <span id="Password1_error" class="error_message"></span>
+	                <span id="Password1_error" class="error_message text-danger"></span>
 	                <input type="password" class="form-control" id="Password1" placeholder="Password" name="password">  
 	            </div>
 	            
@@ -37,7 +34,7 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="/js/login.js"></script>
     </body>
     
 </html>
