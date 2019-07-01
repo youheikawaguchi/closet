@@ -14,4 +14,6 @@ public interface ItemService {
 
 	//public Item getItemByName(String name);
 	public Item ItemCreate(ItemForm itemForm, UserDetails userDetails);
+
+	public List<Item> userItemList(UserDetails userDetails);
 }
