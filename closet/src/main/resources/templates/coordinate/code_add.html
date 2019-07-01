@@ -3,15 +3,18 @@
     
 <head>
     <meta charset="UTF-8">
-   
-    <link rel="stylesheet" href="code_add2.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel="stylesheet" type="text/css" th:href="@{/css/code_add1.css}">
     <title>コーディネート登録</title>
     
 </head>   
 
 <body> 
+
+<!-- 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="add.js"></script>
+-->
     <div class=header></div>
         <div class=slc>
             <select id="select1" class="custom-select" name="have_calender" onchange="c_Code()">
@@ -108,6 +111,11 @@
                 <button type="button" class="btn btn-warning">登録</button>
             </div>
     </form>
+    
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="/js/slick0/slick/slick.min.js"></script>
+	<script type="text/javascript" src="js/code_add.js"></script>
+  
 </body>
         
     
