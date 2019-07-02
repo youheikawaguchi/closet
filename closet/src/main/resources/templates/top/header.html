@@ -1,19 +1,19 @@
-<!doctype html>
+<!--  !doctype html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="header.css" type="text/css">
+<link rel="stylesheet" th:href="@{/css/header.css}" type="text/css" media="all">
 <title>ヘッダー</title>
 </head>
-<body>
+<body-->
 
     
-<div class="header">
+<div class="header" th:fragment="header">
     
-<img class="logo" src="logo.png" alt="ロゴ">
+<img class="header_logo" src="/images/header/header_logo.png" alt="ロゴ">
    
 <dl id="menu">
-    <dt><img class="hamburger" src="hamburger.png" alt="ハンバーガーボタン"></dt>
+    <dt><img class="hamburger" src="/images/header/hamburger.png" alt="ハンバーガーボタン"></dt>
     <dd id=name>ユーザー名さん</dd>
     <dd>TOPページ</dd>
     <dd>クローゼット</dd>
@@ -22,16 +22,14 @@
 </dl> 
     
 </div>
-    
-  
 
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="header.js"></script> 
+<!-- script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="/js/header.js"></script> 
 
 </body>
 </html>
 
-<!--
+<
 <img class="animal" src="animal_185.png" alt="アニマル"> 
 <img class="hamburger" src="hamburger.png" alt="ハンバーガーボタン">
 -->
