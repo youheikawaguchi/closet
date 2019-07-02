@@ -15,7 +15,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {//特定のリクエストだけセキュリティ設定を無視する条件をかける
-		web.ignoring().antMatchers("/webjars/**", "/css/**","/js/**");//webjarsやcssへのアクセスに対して、上記の機能が働く
+		web.ignoring().antMatchers("/webjars/**", "/css/**","/js/**", "/images/**");//webjarsやcssへのアクセスに対して、上記の機能が働く
 	}
 
 	@Override
@@ -24,8 +24,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http
 				.authorizeRequests()
 				.antMatchers("/login").permitAll()
-				.antMatchers("/coordinate/add").permitAll()
 				.antMatchers("/users/createacc").permitAll()
+				.antMatchers("/coordinate/add").permitAll()
+				.antMatchers("/css/**","/js/**","/images/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				.formLogin().loginProcessingUrl("/login")
