@@ -1,21 +1,22 @@
 package com.example.service;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.file.*;
+import com.example.model.*;
+import com.example.repository.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
-
-import com.example.model.*;
-import com.example.repository.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class ItemServiceImpl implements ItemService{
@@ -32,6 +33,8 @@ public class ItemServiceImpl implements ItemService{
 	ColorRepository colorRepository;
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	ResourceLoader resourceLoader;
 
 	@Autowired
 	
@@ -64,58 +67,75 @@ public class ItemServiceImpl implements ItemService{
 	public Item ItemCreate(ItemForm itemForm, UserDetails userDetails) {
 		//item.setItem(item, category, subcategory, season, color);
 		Item item = new Item();
-		String uploadFilePath = photoConverter(itemForm);
-		item.setPicture(uploadFilePath);
 
 		//null判定が必要
 		Optional<Category> category = categoryRepository.findById(itemForm.getCategoryId());
 		Optional<SubCategory> subCategory = subCategoryRepository.findById(itemForm.getSubCategoryId());
 		Optional<Season> season = seasonRepository.findById(itemForm.getSeasonId());
 		Optional<Color> color = colorRepository.findById(itemForm.getColorId());
+		User user = userRepository.findByUserId(userDetails.getUsername());
 
-		//Optionalと仲良くしてもらう
 		item.setCategory(category.get());
 		item.setSubCategory(subCategory.get());
 		item.setSeason(season.get());
 		item.setColor(color.get());
 		item.setCreatedAt(new Date());
 		item.setComment(itemForm.getMemo());
-		User user = userRepository.findByUserId(userDetails.getUsername());
 		item.setUser(user);
+		String uploadFilePath = imageSave(itemForm, item.getUser().getUserId());
+		item.setPicture(uploadFilePath);
 
-		//itemRepository.saveAndFlush(itemForm);
 		return itemRepository.saveAndFlush(item);
 	}
 
-	private String photoConverter(ItemForm itemForm){
-		Path path = Paths.get("/static/images/item");
-		if (!Files.exists(path)) {
-			try {
-				Files.createDirectory(path);
-			} catch (IOException ex) {
-				System.err.println(ex);
-			}
-		}
-
-		int dot = itemForm.getPicture().getOriginalFilename().lastIndexOf(".");
-		String extension = "";
-		if (dot > 0) {
-			extension = itemForm.getPicture().getOriginalFilename().substring(dot).toLowerCase();
-		}
-		String filename = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS").format(LocalDateTime.now());
-		Path uploadFilePath = Paths
-				.get("/static/images/item/" + filename + extension);
-
-		try (OutputStream os = Files.newOutputStream(uploadFilePath, StandardOpenOption.CREATE)) {
-			byte[] bytes = itemForm.getPicture().getBytes();
-			os.write(bytes);
-		} catch (IOException ex) {
-			System.err.println(ex);
-		}
-
-		return uploadFilePath.toString();
-
+	@Override
+	public List<Item> userItemList(UserDetails userDetails){
+		User user = userRepository.findByUserId(userDetails.getUsername());
+		return itemRepository.findUserItem(user.getId());
 	}
-	
-	
+
+	private String imageSave(ItemForm itemForm, String userId){
+
+		String extension = "";
+		String imageName = itemForm.getPicture().getOriginalFilename();
+
+		if(itemForm.getPicture().isEmpty()){
+			// 異常終了時の処理
+			System.out.println("画像の取得ができなかったよ");
+		}
+
+		//パスの指定
+		Resource resource = resourceLoader.getResource( "classpath:"+"/static/images/item");
+
+		try {
+			// /static/images/item/userId の状態になる
+			File uploadDir = new File(Objects.requireNonNull(resource.getFile()) + File.separator + userId);
+
+			// アップロードファイルを格納するディレクトリがなければ作成する
+			if(!uploadDir.exists())	uploadDir.mkdirs();
+
+			assert imageName != null;
+			int dot = imageName.lastIndexOf(".");
+
+			if (dot > 0) extension = imageName.substring(dot).toLowerCase();
+
+			String filename = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS").format(LocalDateTime.now());
+
+			// アップロードファイルを置く
+			File uploadFile =
+					new File(uploadDir.getPath() + "/" + filename + extension);
+			byte[] bytes = itemForm.getPicture().getBytes();
+			BufferedOutputStream uploadFileStream =
+					new BufferedOutputStream(new FileOutputStream(uploadFile));
+			uploadFileStream.write(bytes);
+			uploadFileStream.close();
+
+			return uploadFile.getPath();
+		} catch (Throwable e) {
+			// 異常終了時の処理
+			System.out.println("画像置くのに失敗したよ");
+			System.out.println(e);
+		}
+		return null;
+	}
 }

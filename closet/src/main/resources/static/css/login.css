@@ -50,6 +50,7 @@ table {
 	border-spacing: 0;
 }
 
+
 /* --------   reset css   ------------ */
 
 body{
@@ -63,7 +64,7 @@ body{
 }
 
 .photo{
-    background-image: url(top.jpg);
+    background-image: url("../images/login/top.jpg");
     background-position: center;
     background-repeat: no-repeat;
     height:300px;
@@ -112,3 +113,5 @@ body{
     color: #D9B918;
     font-size: 35px;
 }
+
+

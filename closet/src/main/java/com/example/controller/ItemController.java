@@ -1,20 +1,19 @@
 package com.example.controller;
-import com.example.model.*;
+
+import com.example.model.Item;
+import com.example.model.ItemForm;
+import com.example.model.ItemSelect;
+import com.example.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.service.CategoryService;
-import com.example.service.ColorService;
-import com.example.service.ItemService;
-import com.example.service.SeasonService;
-import com.example.service.SubCategoryService;
+import java.util.List;
 
 
 @Controller
@@ -70,8 +69,13 @@ public class ItemController {
 	
 	//アイテム一覧
 	@GetMapping("/item/item_list")
-	public ModelAndView ItemList(ModelAndView mav) {
+	public ModelAndView ItemList(ModelAndView mav, @AuthenticationPrincipal UserDetails userDetails) {
 		//mav.addObject("user", user);
+		ItemSelect itemSelect = itemservice.itemCreateForm();
+		List<Item> itemList = itemservice.userItemList(userDetails);
+
+		mav.addObject("itemSelect", itemSelect);
+		mav.addObject("itemList", itemList);
 		mav.setViewName("item/item_list");
 
 		return mav;

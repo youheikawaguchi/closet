@@ -68,3 +68,50 @@ span{
 ul.category1,ul.category2,ul.season{
     display: none;
 }
+
+
+
+/* 川口 作 */
+.pe{
+    float: left;
+    width: calc(100% / 3);
+    overflow: hidden;
+    padding: 40px 0;
+    transition: 0.4s;
+}
+.pe:hover{
+    background: #ddd;
+}
+.pe img{
+    width: 120px;
+    height: 120px;
+}
+.p-name{
+    margin: 16px 0;
+}
+.p-des{
+    font-style: italic;
+    color: #3498db;
+}
+.p-sm{
+    margin-top: 12px;
+}
+.p-sm a{
+    margin: 0 4px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    transition: 0.4s;
+}
+.p-sm a:hover{
+    transform: scale(1.3);
+}
+.p-sm a i{
+    color: #333;
+    line-height: 30px;
+}
+@media screen and (max-width:600px) {
+    .pe{
+        width: 100%;
+    }
+}
