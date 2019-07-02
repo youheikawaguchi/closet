@@ -42,11 +42,17 @@ table {
 /* --------   reset css   ------------ */
 
 .photo {
+	width: 480px;
+	margin: auto;
+}
+
+#canvas {
     height: 600px;
     width: 480px;
     background-color: #E0E0E0;
     text-align: center;
     margin: 40px auto;
+    border: solid 1px black;
 }
  
 .add_btn {
@@ -57,7 +63,6 @@ table {
 .btn.btn-info {
     width: 100px;
     height: 100px;
-    margin-top: 250px;
     font-size: 55px;
 }
 
