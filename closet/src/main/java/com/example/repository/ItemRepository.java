@@ -11,7 +11,7 @@ import com.example.model.Item;
 public interface ItemRepository extends JpaRepository<Item, Integer>{
 	
 	//TopServiceのfindSlideImgから受け取った値をバインドし、クエリーにいれる
-	//
+	//スライドショーのやつ
     @Query(value = "SELECT * FROM items WHERE season_id = :fourSeasons OR season_Id = :twoSeasons ORDER BY RAND() LIMIT 10", nativeQuery = true)
     public List<Item> findSlideImg(@Param("fourSeasons") int fourSeasonId, @Param("twoSeasons") int twoSeasonId);
     //あとuserID
