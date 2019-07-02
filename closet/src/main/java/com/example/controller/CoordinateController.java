@@ -56,10 +56,16 @@ public class CoordinateController {
     }
 
     @GetMapping(value = {"/details{coordinateId}"})
-    public ModelAndView coordinateDetails(@PathVariable Integer coordinateId){
+    public ModelAndView coordinateDetails(@PathVariable Integer coordinateId) {
         ModelAndView mav = new ModelAndView();
         Coordinate coordinate = coordinateService.coordinateDetails(coordinateId);
         mav.addObject(coordinate);
+        return mav;
+    }
+
+    @GetMapping(value = {"/details"})
+    public ModelAndView coordinateDetails(){
+        ModelAndView mav = new ModelAndView();
         mav.setViewName("/coordinate/only_code_dsc");
         return mav;
     }

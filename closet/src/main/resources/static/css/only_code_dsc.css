@@ -65,6 +65,11 @@ li {
     background-color: #E0E0E0;
 }
 
+img {
+	width: 146px;
+	height: 146px;
+}
+
 .c_dsc {
     width: 766px;
     margin: 50px auto;
