@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,7 +34,7 @@ public class CoordinateServiceImpl implements CoordinateService {
         coordinate.setCreatedAt(new Date());
         User user = userRepository.findByUserId(userDetails.getUsername());
         coordinate.setUser(user);
-        coordinate.setHaveCalender((byte)0);
+        coordinate.setHaveCalender(0);
         coordinate = coordinateRepository.saveAndFlush(coordinate);
         return coordinate.getCoordinateId();
     }
@@ -50,6 +51,12 @@ public class CoordinateServiceImpl implements CoordinateService {
 
         return coordinate.get();
     }
+
+	@Override
+	public List<Coordinate> getCoordinateList(UserDetails userDetails) {
+		User user = userRepository.findByUserId(userDetails.getUsername());
+		return coordinateRepository.findByUserId(user.getId());
+	}
 
 
 

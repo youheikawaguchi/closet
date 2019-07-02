@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.model.Coordinate;
 import com.example.model.CoordinateForm;
+import com.example.model.Item;
 import com.example.service.CoordinateServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -21,7 +23,30 @@ public class CoordinateController {
 
     @Autowired
     CoordinateServiceImpl coordinateServiceImpl;
+    
 
+	@GetMapping(value= {"/", "/list"})
+	public ModelAndView showAllCoordinateList() {
+		return new ModelAndView("redirect:list/code_list");
+	}
+    
+	@GetMapping(value= {"/list"})
+	public ModelAndView showCoordinateList(ModelAndView mav,
+			 @AuthenticationPrincipal UserDetails userDetails
+			){
+		List<Coordinate> coordinateList = coordinateServiceImpl.getCoordinateList(userDetails);
+		mav.addObject("coordinateList", coordinateList);
+		mav.setViewName("/coordinate/code_list");
+		
+		return mav;
+	}
+	
+    /*@GetMapping(value = {"/list"})
+    public ModelAndView coordinateList(ModelAndView mav){
+        mav.setViewName("/coordinate/code_list");
+        return mav;
+    }*/
+    
     @GetMapping(value = {"/add"})
     public ModelAndView showCoordinateAdd(){
         ModelAndView mav = new ModelAndView();
@@ -38,12 +63,6 @@ public class CoordinateController {
         mav.setViewName("/coordinate/only_code_dsc/" + coordinateId);
         return mav;
         //}
-    }
-
-    @GetMapping(value = {"/list"})
-    public ModelAndView coordinateList(ModelAndView mav){
-        mav.setViewName("/coordinate/code_list");
-        return mav;
     }
 
     @GetMapping(value = {"/details/{coordinateId}"})
