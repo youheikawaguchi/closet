@@ -46,11 +46,9 @@ public class CoordinateController {
         return mav;
     }
 
-    @GetMapping(value = {"/details/{coordinateId}"})
-    public ModelAndView coordinateDetails(@PathVariable Integer coordinateId){
+    @GetMapping(value = {"/details"})
+    public ModelAndView coordinateDetails(){
         ModelAndView mav = new ModelAndView();
-        Coordinate coordinate = coordinateServiceImpl.coordinateGet(coordinateId);
-        mav.addObject(coordinate);
         mav.setViewName("/coordinate/only_code_dsc");
         return mav;
     }

@@ -104,12 +104,15 @@ public class ItemServiceImpl implements ItemService{
 			System.out.println("画像の取得ができなかったよ");
 		}
 
-		//パスの指定
-		Resource resource = resourceLoader.getResource( "classpath:"+"/static/images/item");
+		//パスの指定								
+		//Resource resource = resourceLoader.getResource( "static/images/item");
+		Resource resource = resourceLoader.getResource( "//file/Users/s.yamamoto/Documents/closet");
+		String path = resource.toString();
 
 		try {
-			// /static/images/item/userId の状態になる
-			File uploadDir = new File(Objects.requireNonNull(resource.getFile()) + File.separator + userId);
+			// /static/images/item/userId の状態になる  fileクラスpathクラスたぶんfile
+			//File uploadDir = new File(Objects.requireNonNull(resource.getFile()) + File.separator + userId);
+			File uploadDir = new File(path);
 
 			// アップロードファイルを格納するディレクトリがなければ作成する
 			if(!uploadDir.exists())	uploadDir.mkdirs();

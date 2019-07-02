@@ -1,3 +1,4 @@
+/* アイテム登録ボタン */
 .btn.btn-block{
     margin: 10px 0;
     background: #D9B918;
@@ -6,10 +7,12 @@
     font-weight: bolder;
 }
 
+/* アイテム登録ボタン押下 */
 .btn.btn-block:hover{
     background-color: #BEA10D;
     color: white;
 }
+
 
 .item{
     width: 25%;
@@ -22,15 +25,24 @@
     font-size: 30px;
 }
 
+/* カラーパレット */
 input{
     width: 100%;
     height: 60px;
 }
 
+/* 検索条件 */
 .select{
 	margin-top: 20px;
 }
 
+ul , li{
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+/* カテゴリ､季節選択 */
 #menu {
     width: 100%;
     text-align: center;
@@ -38,53 +50,60 @@ input{
     font-size: 100%;
 }
 
+
 #category , #season{
     font-size: 70px;
     border-bottom: 3px solid gray;
 }
 
+/* 選択中のカテゴリ､季節 */
 span{
     color: dimgrey;
     font-size: 50px;
 }
 
+/* カテゴリ1 */
 .category1 h1{
     background-color: #C2E9F2;
     border-bottom: 2px solid #A6D0DA;
     font-size: 50px;
 }
 
+/* 季節 */
 .season li{
     font-size: 50px;
     border-bottom: 1px solid #C2E9F2;
     margin: 5px auto;
 }
 
+/* カテゴリ2 */
 .category2 li{
     font-size: 40px;
     border-bottom: 1px solid #C2E9F2;
 }
 
+/* カテゴリ1,カテゴリ2,季節の項目非表示 */
 ul.category1,ul.category2,ul.season{
     display: none;
 }
 
 
 
-/* 川口 作 */
+/* 蟾晏哨 菴� */
 .pe{
     float: left;
-    width: calc(100% / 3);
+    width: 25%;
     overflow: hidden;
-    padding: 40px 0;
+    padding: 10px 0;
     transition: 0.4s;
 }
 .pe:hover{
     background: #ddd;
 }
 .pe img{
-    width: 120px;
-    height: 120px;
+    width: 237px;
+    height: 237px;
+    margin: 0 20px;
 }
 .p-name{
     margin: 16px 0;
