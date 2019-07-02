@@ -54,7 +54,7 @@ public class Coordinate {
 	
 	@JsonIgnore
 	@Column(name = "have_calendar")
-	private byte haveCalender;
+	private boolean haveCalender;
 	
 	/*カレンダー連携*/
 	@JsonIgnore
