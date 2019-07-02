@@ -3,86 +3,136 @@
 <head>
 <meta charset="utf-8">
 <title>TOP画面</title>
-<link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet"
+	th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
 <link rel="stylesheet" th:href="@{/js/slick0/slick/slick.css}">
 <link rel="stylesheet" th:href="@{/js/slick0/slick/slick-theme.css}">
 <link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
 <link rel="stylesheet" type="text/css" th:href="@{/css/top_style.css}">
-        
+
 </head>
 <body>
-  <div class="top_body">
-  <!-- メインコンテンツ開始 -->
-  <div class="top">
-    <!-- ヘッダー メニューバー -->
+	<div class="top_body">
+		<!-- メインコンテンツ開始 -->
+		<div class="top">
+			<!-- ヘッダー メニューバー -->
 
-    <!-- ロゴ　-->
-    <div class="top_image">
-        <p class="top_picture">
-        <p class="logo">
-    </div>
+			<!-- ロゴ　-->
+			<div class="top_image">
+				<p class="top_picture">
+				<p class="logo">
+			</div>
 
-    <!-- アイコン -->
-    <div class="top_button">
-        <!-- アイテム一覧 -->
-        <a href="item/item_list" class="btn btn-block btn-default btn-blue pt-5 pb-5"><img th:src="@{/images/top/item.png}" class="icon_pic"><br><br><span class="icon_txt">Item</span></a>
-        <!-- カレンダー -->
-        <a href="calendar" class="btn btn-block btn-default btn-yellow mt-0 pt-5 pb-5"><img th:src="@{/images/top/calender.png}" class="icon_pic"><br><br><span class="icon_txt">Calendar</span></a>
-        <!-- アイテム登録 -->
-        <a href="item/item_edit" class="btn btn-block btn-default btn-blue mt-0 pt-5 pb-5"><img th:src="@{/images/top/add.png}" class="icon_pic"><br><br><span class="icon_txt">Add</span></a>
-        <!-- コーディネート一覧 -->
-        <a href="/coordinate/add" class="btn btn-block btn-default btn-yellow mt-0 pt-5 pb-5"><img th:src="@{/images/top/coordinate.png}" class="icon_pic"><br><br><span class="icon_txt">Coordinate</span></a>
-    </div>
+			<!-- アイコン -->
+			<div class="top_button">
+				<!-- アイテム一覧 -->
+				<a href="item/item_list"
+					class="btn btn-block btn-default btn-blue pt-5 pb-5"><img
+					th:src="@{/images/top/item.png}" class="icon_pic"><br>
+				<br>
+				<span class="icon_txt">Item</span></a>
+				<!-- カレンダー -->
+				<a href="calendar"
+					class="btn btn-block btn-default btn-yellow mt-0 pt-5 pb-5"><img
+					th:src="@{/images/top/calender.png}" class="icon_pic"><br>
+				<br>
+				<span class="icon_txt">Calendar</span></a>
+				<!-- アイテム登録 -->
+				<a href="item/item_edit"
+					class="btn btn-block btn-default btn-blue mt-0 pt-5 pb-5"><img
+					th:src="@{/images/top/add.png}" class="icon_pic"><br>
+				<br>
+				<span class="icon_txt">Add</span></a>
+				<!-- コーディネート一覧 -->
+				<a href="/coordinate/add"
+					class="btn btn-block btn-default btn-yellow mt-0 pt-5 pb-5"><img
+					th:src="@{/images/top/coordinate.png}" class="icon_pic"><br>
+				<br>
+				<span class="icon_txt">Coordinate</span></a>
+			</div>
 
-    <div class="top_bottom">
-    <!-- スライドショー -->
-	      <div class="slide_show">
-		      <div class="slideshow_js slide_flame">
-		      <!-- if文 itemsが空の時の処理 -->
-		      <img th:if="${#lists.isEmpty(items)}" th:src="@{/images/top/noImage.jpg}" class="slide_pic">
-		      <!-- if文 itemsが空じゃない時の処理 -->
-		      <img th:if="!${#lists.isEmpty(items)}" th:each="item, i : ${items}" th:src="@{'/images/top/'+${items[__${i.index}__].picture}}" class="slide_pic">
-		      </div>
-	      </div>  <!-- /slide_show -->
+			<div class="top_bottom">
+				<!-- スライドショー -->
+				<div class="slide_show">
+					<div class="slideshow_js slide_flame">
+						<!-- if文 itemsが空の時の処理 -->
+						<img th:if="${#lists.isEmpty(items)}"
+							th:src="@{/images/top/noImage.jpg}" class="slide_pic">
+						<!-- if文 itemsが空じゃない時の処理 -->
+						<img th:if="!${#lists.isEmpty(items)}"
+							th:each="item, i : ${items}"
+							th:src="@{'/images/top/'+${items[__${i.index}__].picture}}"
+							class="slide_pic">
+					</div>
+				</div>
+				<!-- /slide_show -->
 
-      <div class="weather"><div class="wt_flame">
-	      <!-- 今日の天気 -->
-	      <div class="wt_today">    
-	        <div class="wt_box">
-		        <div class="wticon_flame">
-		        	<span class="wticon_box"><img class="dayWeatherIcon wticon"></span>
-		        </div>
-		        <div class="wtinfo_flame">
-		        	<div class="wtinfo_titlebox"><span class="wtinfo_title">Today</span></div>
-		        	<div class="wtinfo_box"><span class="wtinfo">天気:<span class="dayWeather"></span><br>現在の気温:<span class="nowTemp"></span>℃<br>最高気温:<span class="maxTemp"></span>℃<br>最低気温:<span class="minTemp">℃</span></div>
-		        </div>
-	        </div>  <!-- /wt_box -->        
-	      </div>  <!-- /wt_today -->
-           
-	      <!-- 明日の天気 -->
-	      <div class="wt_tomorrow">	        
-	        <div class="wt_box">
-	        	<div class="wticon_flame">
-	          		<span class="wticon_box"><img class="tomorrowWeatherIcon wticon"></span>
-	          	</div>
-	          	<div class="wtinfo_flame">
-	          		<div class="wtinfo_titlebox"><span class="wtinfo_title">Tomorrow</span></div>
-	          		<div class="wtinfo_box"><span class="wtinfo">天気:<span class="tomorrowWeather"></span><br>最高気温:<span class="tomorrowMaxTemp"></span>℃<br>最低気温:<span class="tomorrowMinTemp"></span>℃</span></div>
-	        	</div>
-	        </div>  <!-- /wt_box -->
-	      </div>  <!-- /wt_today -->
+				<div class="weather">
+					<div class="wt_flame">
+						<!-- 今日の天気 -->
+						<div class="wt_today">
+							<div class="wt_box">
+								<div class="wticon_flame">
+									<span class="wticon_box"><img
+										class="dayWeatherIcon wticon"></span>
+								</div>
+								<div class="wtinfo_flame">
+									<div class="wtinfo_titlebox">
+										<span class="wtinfo_title">Today</span>
+									</div>
+									<div class="wtinfo_box">
+										<span class="wtinfo">天気:<span class="dayWeather"></span><br>現在の気温:<span
+											class="nowTemp"></span>℃<br>最高気温:<span class="maxTemp"></span>℃<br>最低気温:<span
+											class="minTemp">℃</span>
+									</div>
+								</div>
+							</div>
+							<!-- /wt_box -->
+						</div>
+						<!-- /wt_today -->
 
-        </div>  <!-- /wt_flame -->
-      </div>  <!-- /weather -->
-      
-      </div>  <!-- top_bottom -->
-      
-    </div> <!-- /top -->
-  </div>  <!-- /top_body -->
-  
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="/js/slick0/slick/slick.min.js"></script>
-  <script th:inline="javascript" type="text/javascript">
+						<!-- 明日の天気 -->
+						<div class="wt_tomorrow">
+							<div class="wt_box">
+								<div class="wticon_flame">
+									<span class="wticon_box"><img
+										class="tomorrowWeatherIcon wticon"></span>
+								</div>
+								<div class="wtinfo_flame">
+									<div class="wtinfo_titlebox">
+										<span class="wtinfo_title">Tomorrow</span>
+									</div>
+									<div class="wtinfo_box">
+										<span class="wtinfo">天気:<span class="tomorrowWeather"></span><br>最高気温:<span
+											class="tomorrowMaxTemp"></span>℃<br>最低気温:<span
+											class="tomorrowMinTemp"></span>℃
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- /wt_box -->
+						</div>
+						<!-- /wt_today -->
+
+					</div>
+					<!-- /wt_flame -->
+				</div>
+				<!-- /weather -->
+
+			</div>
+			<!-- top_bottom -->
+
+		</div>
+		<!-- /top -->
+	</div>
+	<!-- /top_body -->
+
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="/js/slick0/slick/slick.min.js"></script>
+	<script th:inline="javascript" type="text/javascript">
 	  /*<![CDATA[*/
 	  $(document).ready(function () {
 	  	
@@ -114,6 +164,6 @@
 	  });
 	  /*]]>*/
   </script>
-  <script type="text/javascript" src="js/slide.js"></script>
+	<script type="text/javascript" src="js/slide.js"></script>
 </body>
 </html>

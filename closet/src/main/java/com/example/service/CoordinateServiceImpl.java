@@ -33,7 +33,7 @@ public class CoordinateServiceImpl implements CoordinateService {
         coordinate.setCreatedAt(new Date());
         User user = userRepository.findByUserId(userDetails.getUsername());
         coordinate.setUser(user);
-        coordinate.setHaveCalender((byte)0);
+        coordinate.setHaveCalender(0);
         coordinate = coordinateRepository.saveAndFlush(coordinate);
         return coordinate.getCoordinateId();
     }
