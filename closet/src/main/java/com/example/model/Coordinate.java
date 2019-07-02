@@ -23,6 +23,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+//@Dataとか使ってみてや
 @Entity
 @Table(name = "coordinate")
 public class Coordinate {
@@ -62,6 +63,7 @@ public class Coordinate {
 	private List<Calendar> calendarList;
 	
 	/*Itemとの多対多連携*/
+	@JsonIgnore
     @ManyToMany( mappedBy = "coordinatelist")
     private List<Item> itemlist;  
 }
