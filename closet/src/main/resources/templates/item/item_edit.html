@@ -6,9 +6,7 @@
         <link rel="stylesheet" type="text/css" th:href="@{/css/item_edit.css}">
     </head>
     <body>
-        <div class=header>
-        </div>
-
+       
         <div class="container-fluid">
             <form th:object="${itemForm}" method="post" th:action="@{/item/item_edit}" enctype="multipart/form-data">
                 <div class="photo">
