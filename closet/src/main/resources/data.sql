@@ -1,11 +1,13 @@
 INSERT IGNORE INTO category (category_id,category_name)
-VALUES(1,"トップス"),(2,"ボトムス"),(3,"トップス"),(4,"ワンピース"),(5,"小物");
+VALUES(1,"トップス"),(2,"アウター"),(3,"ボトムス"),(4,"ワンピース"),(5,"小物");
 INSERT IGNORE INTO sub_category (sub_category_id,category_id,subcategory_name)
 VALUES(1,1,"シャツ/ブラウス/カットソー"),(2,1,"ニット"),(3,1,"パーカー/スウェット"),(4,2,"ジャケット"),(5,2,"コート"),(6,2,"ブルゾン"),(7,3,"パンツ"),(8,3,"スカート"),(9,4,"ワンピース"),(10,4,"サロペット"),(11,4,"オールインワン"),(12,5,"帽子"),(13,5,"バッグ"),(14,5,"シューズ");
 INSERT IGNORE INTO users (user_id,password,gender,born_year,admin_key,area_id)
     VALUES('IKEDA','4bd854ce541bb5c459f10a1a107d27eeee9d59354021b294b1d81dddb6440966277fde101a6d9ee6','女',1994,0,3);
 INSERT IGNORE INTO users (user_id,password,gender,born_year,admin_key,area_id)
     VALUES('YAMAMOTO','4bd854ce541bb5c459f10a1a107d27eeee9d59354021b294b1d81dddb6440966277fde101a6d9ee6','男',1996,1,1);
+    INSERT IGNORE INTO users (user_id,password,gender,born_year,admin_key,area_id)
+        VALUES('testid','7579e8efa01e16c0370163b62af00864817adc4b3a76eb67444fb9dd6034ef9f8cc16d43106fc5a3','男',1996,12,15);
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
     VALUES(1,1,1,1,1,1, 'picture',"メモ");
 INSERT IGNORE INTO calendar (calendar_id,id,coordinate_id,event,event_date,met_person)
