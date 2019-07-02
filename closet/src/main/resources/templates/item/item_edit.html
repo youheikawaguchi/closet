@@ -11,12 +11,7 @@
             <form th:object="${itemForm}" method="post" th:action="@{/item/item_edit}" enctype="multipart/form-data">
                 <div class="photo">
                 	<canvas id="canvas" width="0" height="0"></canvas>
-                    <div class="add_btn">
-                        <label class="btn btn-info" for="select_photo">＋
-                            <!-- <input id="select_photo" type="file" th:field="*{picture}" accept="image/png, image/jpeg, image/jpg" style="display:none;"> -->
-                            <input id="select_photo" type="file" th:field="*{picture}" accept="image/png, image/jpeg, image/jpg" style="display:none;">
-                        </label>
-                    </div>
+                	<input id="select_photo" type="file" th:field="*{picture}" accept="image/png, image/jpeg, image/jpg">
                 </div>
 
                 <div id="select_list" >

@@ -76,6 +76,7 @@ $(function() {
     var name, fd = new FormData();
     fd.append('file', blob); // ファイルを添付する
 
+    /*
     $.ajax({
       url: "http://exapmle.com", // 送信先 //？どこにですか？
       type: 'POST',
@@ -90,7 +91,7 @@ $(function() {
     .fail(function( jqXHR, textStatus, errorThrown ) {
       // 送信失敗
     });  
-
+*/
   });
 
 });
