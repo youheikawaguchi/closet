@@ -19,10 +19,6 @@ public class TopService {
 	@Autowired
 	AreaRepository areaRepository;
 
-	//public List<Item> getAllItems() {
-	//	return itemRepository.findAll();
-	//}
-	
 	//getSeasonメソッドの季節IDをfindSlideImgに渡す
 	public List<Item> getSlideItems() {
 		int[] getSeason = getSeason();
@@ -30,7 +26,7 @@ public class TopService {
 		return items;
 	}
 	//area取得
-	int area = 13;
+	int area = 13; //とりあえず東京
 	public List<Area> getArea() {
 		return areaRepository.findArea(area);
 	}
