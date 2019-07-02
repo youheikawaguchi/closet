@@ -4,12 +4,15 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.example.model.Area;
 import com.example.model.Item;
+import com.example.model.User;
 import com.example.repository.AreaRepository;
 import com.example.repository.ItemRepository;
+import com.example.repository.UserRepository;
 
 
 @Service
@@ -18,17 +21,21 @@ public class TopService {
 	ItemRepository itemRepository;
 	@Autowired
 	AreaRepository areaRepository;
+	@Autowired
+	UserRepository userRepository;
 
 	//getSeasonメソッドの季節IDをfindSlideImgに渡す
-	public List<Item> getSlideItems() {
+	public List<Item> getSlideItems(UserDetails userDetails) {
+		User user = userRepository.findByUserId(userDetails.getUsername());
 		int[] getSeason = getSeason();
-		List<Item> items = itemRepository.findSlideImg(getSeason[0], getSeason[1]);
+		List<Item> items = itemRepository.findSlideImg(user.getId(), getSeason[0], getSeason[1]);
 		return items;
 	}
 	//area取得
-	int area = 13; //とりあえず東京
-	public List<Area> getArea() {
-		return areaRepository.findArea(area);
+	//int area = 13; //とりあえず東京 area[0].areaid
+	public List<Area> getArea(UserDetails userDetails) {
+		User user = userRepository.findByUserId(userDetails.getUsername());
+		return areaRepository.findArea(user.getId());
 	}
 	
 	/*　まいまいくそー　*/

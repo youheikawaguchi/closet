@@ -1,30 +1,32 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
     
 <head>
     <meta charset="UTF-8">
     <title>コーデ詳細(カレンダー登録有)</title>
     
-    <link href="only_code_dsc.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/only_code_dsc.css" th:href="@{/css/only_code_dsc.css}"  rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
 </head>
 <body>
-    <div class="img_list">
-        <ul>
-            <li id="i1"></li>
-            <li id="i1"></li>
-            <li id="i1"></li>
-            <br>
-            <li id="i1"></li>
-            <li id="i1"></li>
-            <li id="i1"></li>
-            <br>
-            <li id="i1"></li>
-            <li id="i1"></li>
-            <li id="i1"></li>
-        </ul>
-    </div>
+
+<div class="img_list">
+<ul>
+<li class="i1"><img src="/images/item/Tshirt.jpg"></li>
+<li class="i1"><img src="/images/item/bottoms.jpg"></li>
+<li class="i1"><img src="/images/item/bag.jpg"></li>
+<br>
+<li class="i1"><img src="/images/item/shoes.jpg"></li>
+<li class="i1"><img src=""></li>
+<li class="i1"><img src=""></li>
+<br>
+<li class="i1"><img src=""></li>
+<li class="i1"><img src=""></li>
+<li class="i1"><img src=""></li>
+</ul>
+</div>
+
     <div class="c_dsc">
         <p>Title：</p>
     </div>
