@@ -23,7 +23,7 @@
                         </select>
                     </div>
                     <div>
-                        <select class="select custom-select subCategory" th:field="*{subCategoryId}" disabled>
+                        <select class="select custom-select subCategory" th:field="*{subCategoryId}" >
                             <option value="" data-th-data-val="0">サブカテゴリーを選択してください</option>
                             <option th:each="subCategory : ${itemSelect.subCategoryList}" th:value="${subCategory.getSubCategoryId()}"
                                     th:text="${subCategory.getSubCategoryName()}" data-th-data-val="${subCategory.getCategory().getCategoryId()}"></option>

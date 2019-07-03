@@ -87,6 +87,17 @@ public class ItemServiceImpl implements ItemService{
 
 		return itemRepository.saveAndFlush(item);
 	}
+	/*
+	@Override
+    public int itemUpdate(int id, ItemForm itemForm, UserDetails userDetails){
+        Item item = new Item();
+        item.setItemId(id);
+        item.setUpdatedAt(new Date());
+        User user = userRepository.findByUserId(userDetails.getUsername());
+        item.setUser(user);
+        return itemSet(item, itemForm);
+    }
+    */
 
 	@Override
 	public List<Item> userItemList(UserDetails userDetails){

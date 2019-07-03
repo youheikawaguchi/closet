@@ -16,4 +16,6 @@ public interface ItemService {
 	public Item ItemCreate(ItemForm itemForm, UserDetails userDetails);
 
 	public List<Item> userItemList(UserDetails userDetails);
+	
+	//public int itemUpdate(int id, ItemForm itemForm, UserDetails userDetails);
 }

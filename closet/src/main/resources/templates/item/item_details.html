@@ -6,33 +6,35 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-
+<div th:object="${item}">
     <div class=photo>
-        <img src="..." class="img-fluid" alt="Responsive image">
+        <img th:src="*{picture}" class="img-fluid" alt="Responsive image">
     </div>
     
     <div class="category">
-        <span class="badge badge-info">カテゴリー</span>
-        <span class="badge badge-info">季節</span>
-        <span class="badge badge-info">カラー</span>
+        <span class="badge badge-info" th:text="*{category.categoryName}">カテゴリー</span>
+        <span class="badge badge-info" th:text="*{season.seasonName}">季節</span>
+        <span class="badge badge-info" th:text="*{color.colorName}">カラー</span>
     </div>
     
-    <div class=memo>MEMO</div>
+    <div class=memo th:text="*{comment}">MEMO</div>
     
-    <div class="button">
-        <button id="open" type="button" class="btn btn-primary">削除</button>
-        <button type="button" class="btn btn-secondary">編集</button>
-    </div>
+    <form method="get" th:action="@{/item/item_edit}+(__*{itemId}__)" enctype="multipart/form-data">
+    	<div class="button">
+        	<button id="open" type="button" class="btn btn-primary">削除</button>
+        	<button type="submit" class="btn btn-secondary">編集</button>
+    	</div>
+    </form>
 
 <!--    削除確認(モーダル表示)-->
     <div id="overlay"></div>
     <div id="modalWindow">
         <p>本当に削除しますか？</p>
-        <a th:href="@{/item/item_delete/}"></a>
+        <a th:href="@{/item/item_delete/}">削除</a>
         <button id="close">いいえ</button>
     </div>
 <!--    ここまでモーダル-->
-
+</div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="../../static/js/modalWarning.js" th:src="@{/js/modalWarning.js}"></script>
 </body>

@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -48,6 +49,26 @@ public class ItemController {
 		return mav;
 	}
 	
+	//アイテム登録/編集
+		@GetMapping("/item/item_edit{id}")
+		public ModelAndView ItemCompilation(ModelAndView mav, @PathVariable("id") String id) {
+			System.out.println(id);
+			
+			ItemSelect itemSelect = itemservice.itemCreateForm();
+			ItemForm EditItemForm = new ItemForm();
+			Item item = itemservice.getItemById(Integer.parseInt(id));
+			EditItemForm.setCategoryId(item.getCategory().getCategoryId());
+			EditItemForm.setSubCategoryId(item.getSubCategory().getSubCategoryId());
+			EditItemForm.setSeasonId(item.getSeason().getSeason_id());
+			EditItemForm.setColorId(item.getColor().getColorId());
+			EditItemForm.setMemo(item.getComment());
+			System.out.println(EditItemForm);
+			mav.addObject("itemForm",EditItemForm);
+			mav.addObject("itemSelect", itemSelect);
+			mav.setViewName("item/item_edit");
+			return mav;
+		}
+	
 	@PostMapping("/item/item_edit")
 	public ModelAndView postItemEdit(@ModelAttribute ItemForm itemForm, ModelAndView mav, @AuthenticationPrincipal UserDetails userDetails) {
 		
@@ -62,9 +83,8 @@ public class ItemController {
 			mav.setViewName("redirect:/item/item_edit");
 			return mav;
 		}
-		itemservice.ItemCreate(itemForm, userDetails);
-		
-		return new ModelAndView("redirect:/item/item_details");
+		Item i = itemservice.ItemCreate(itemForm, userDetails);
+		return new ModelAndView("redirect:/item/item_details" + i.getItemId().toString());
 	}	
 	
 	//アイテム一覧
@@ -82,11 +102,11 @@ public class ItemController {
 	}
 	
 	//アイテム詳細
-	@GetMapping("/item/item_details")
-	public ModelAndView ItemDetails(ModelAndView mav) {
-
+	@GetMapping("/item/item_details{id}")
+	public ModelAndView ItemDetails(ModelAndView mav, @PathVariable("id") String id) {
+		Item item = itemservice.getItemById(Integer.parseInt(id));
+		mav.addObject("item",item);
 		mav.setViewName("item/item_details");
-
 		return mav;
 	}
 	
