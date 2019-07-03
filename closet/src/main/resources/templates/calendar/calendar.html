@@ -9,10 +9,18 @@
   <link rel='stylesheet' th:href="@{/webjars/fullcalendar/3.10.0/dist/fullcalendar.css}" />
   <link rel="stylesheet" href="../css/calendar.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" th:href="@{/css/header.css}" type="text/css" media="all">  
+  
   <title>Calendar Test</title>
+  
 </head>
 
 <body>
+	
+	<!-- ヘッダー開始 -->
+	<div th:replace="common/header::header"></div>
+	<!-- ヘッダー終了 -->
+	
   <div class="container">
       <div id='calendar'></div>
       <div id='item'>
@@ -36,6 +44,8 @@
       <div class="overlay"></div>
     </div>
 </body>
+
+<script type="text/javascript" src="/js/header.js"></script> 
 <script src="js/calendar/calendar.js"></script>
 <script type="text/javascript" th:inline="javascript">
 

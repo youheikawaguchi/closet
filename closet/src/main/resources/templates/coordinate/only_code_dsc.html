@@ -7,10 +7,16 @@
     
     <link href="../../static/css/only_code_dsc.css" th:href="@{/css/only_code_dsc.css}"  rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/header.css}" type="text/css" media="all">  
     
 </head>
 <body>
 
+<!-- ヘッダー開始 -->
+<div th:replace="common/header::header"></div>
+<!-- ヘッダー終了 -->
+
+<div class="code_info_screen">
 <div class="img_list">
 <ul>
 <li class="i1"><img src="/images/item/Tshirt.jpg"></li>
@@ -37,5 +43,8 @@
         <button type="button" class="btn btn-info">削除</button>
         <button type="button" class="btn btn-warning">編集</button>
     </div>
+</div> <!-- /code_info_screen -->
+<script type="text/javascript" src="/js/header.js"></script> 
+
 </body>
 </html>

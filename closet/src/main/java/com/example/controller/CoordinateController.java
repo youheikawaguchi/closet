@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.model.Coordinate;
 import com.example.model.CoordinateForm;
+import com.example.model.SessionForm;
 import com.example.service.CoordinateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -73,4 +74,14 @@ public class CoordinateController {
         mav.setViewName("/coordinate/only_code_dsc");
         return mav;
     }
+
+    @PostMapping(value = {"/session"})
+    public ModelAndView coordinateSession(ModelAndView mav, CoordinateForm coordinateForm){
+        SessionForm sessionForm = new SessionForm();
+        sessionForm.coordinateForm = coordinateForm;
+        mav.setViewName("item/item_list");
+        mav.addObject("flg", true);
+        return mav;
+    }
+
 }

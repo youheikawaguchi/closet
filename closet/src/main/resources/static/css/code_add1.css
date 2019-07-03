@@ -1,7 +1,37 @@
+
+ul {
+    width: 480px;
+    height: 600px;
+    border: solid black;
+    margin: auto;
+    padding: 40px 10px 40px 10px;
+}
+
+.i1 {
+    float: left;
+    list-style: none;
+    width: 132px;
+    height: 132px;
+    //border: solid 2px black;
+    margin: 20px 10px;
+    text-align: center;
+    background-image: url("/images/item/code_add_button.png");
+    background-size: 132px;
+}
+
+img {
+   width: 132px;
+   height: 132px;
+  ｝
+.code_add_screen{
+	padding-top: 120px;
+}
+
 .header {
     width: 100%;
     height:120px;
     background-color: #4D919F;
+
 }
 
 .slc{
@@ -162,6 +192,6 @@ background-color: #D9B918;
 }
 
 .hide {
-  /* 表示の切り替えに使用する */
+  /* 陦ｨ遉ｺ縺ｮ蛻�繧頑崛縺医↓菴ｿ逕ｨ縺吶ｋ */
   display: none;
 }
