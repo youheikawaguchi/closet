@@ -32,14 +32,21 @@ public class TopService {
 		return items;
 	}
 	//area取得
-	//int area = 13; //とりあえず東京 area[0].areaid
-	public List<Area> getArea(UserDetails userDetails) {
+	public Area getArea(UserDetails userDetails) {
 		User user = userRepository.findByUserId(userDetails.getUsername());
-		return areaRepository.findArea(user.getId());
+		Area area = areaRepository.findArea(user.getId());
+		if(area == null) {
+			//area.setAreaName("東京");
+			Area defaultArea = new Area();
+			defaultArea.setLatitude(35.68944);
+			defaultArea.setLongitude(139.69167);
+			return defaultArea;
+		}else {
+			return area;
+		}
+		
 	}
-	
-	/*　まいまいくそー　*/
-	
+
 	//今日の月から季節IDの判定
 	public int[] getSeason() {
 		LocalDate date = LocalDate.now();

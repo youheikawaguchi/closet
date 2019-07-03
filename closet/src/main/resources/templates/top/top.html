@@ -3,15 +3,12 @@
 <head>
 <meta charset="utf-8">
 <title>TOP画面</title>
-<link rel="stylesheet"
-	th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-<link rel="stylesheet" th:href="@{/js/slick0/slick/slick.css}">
-<link rel="stylesheet" th:href="@{/js/slick0/slick/slick-theme.css}">
-<link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
-<link rel="stylesheet" type="text/css" th:href="@{/css/top_style.css}">
-
+<link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/js/slick0/slick/slick.css}" href="../../static/js/slick0/slick/slick.css">
+<link rel="stylesheet" th:href="@{/js/slick0/slick/slick-theme.css}" href="../../static/js/slick0/slick/slick-theme.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}" href="../../static/css/reset.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/top_style.css}" href="../../static/css/top_style.css">
+        
 </head>
 <body>
 	<div class="top_body">
@@ -63,7 +60,7 @@
 						<!-- if文 itemsが空じゃない時の処理 -->
 						<img th:if="!${#lists.isEmpty(items)}"
 							th:each="item, i : ${items}"
-							th:src="@{'/images/top/'+${items[__${i.index}__].picture}}"
+							th:src="@{${items[__${i.index}__].picture}}"
 							class="slide_pic">
 					</div>
 				</div>
@@ -123,24 +120,22 @@
 
 			</div>
 			<!-- top_bottom -->
+      
+    </div> <!-- /top -->
+  </div>  <!-- /top_body -->
+  
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="../../static/js/slick0/slick/slick.min.js" th:src="@{/js/slick0/slick/slick.min.js}"></script>
+  <script th:inline="javascript" type="text/javascript">
+ 
 
-		</div>
-		<!-- /top -->
-	</div>
-	<!-- /top_body -->
-
-	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="/js/slick0/slick/slick.min.js"></script>
-	<script th:inline="javascript" type="text/javascript">
 	  /*<![CDATA[*/
 	  $(document).ready(function () {
-	  	
-	  	var latitude = /*[[${area[0].latitude}]]*/;
-	  	var longitude = /*[[${area[0].longitude}]]*/;
-	  	
+		var latitude = [[${area.latitude}]];
+		var longitude = [[${area.longitude}]]; 
+
 	    var AREA = '/' + latitude + ',' + longitude + '/' ;
-	
+	  	
 	    $.ajax({
 	        url: "https://api.darksky.net/forecast/0b74630dcb7c17c9bf28b8ae0cf00db2" + AREA,
 	        dataType: "jsonp",
@@ -164,6 +159,8 @@
 	  });
 	  /*]]>*/
   </script>
-	<script type="text/javascript" src="js/slide.js"></script>
+
+  <script type="text/javascript" src="../../static/js/slide.js" th:src="@{/js/slide.js}"></script>
+
 </body>
 </html>

@@ -24,7 +24,7 @@ public class TopController {
 	public ModelAndView top(ModelAndView mav, @AuthenticationPrincipal UserDetails userDetails) {	
 		List<Item> items = topService.getSlideItems(userDetails);
 		mav.addObject("items", items);
-		List<Area> area = topService.getArea(userDetails);
+		Area area = topService.getArea(userDetails);
 		mav.addObject("area", area);
 		mav.setViewName("top/top");
 		return mav;
