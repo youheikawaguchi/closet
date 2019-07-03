@@ -20,51 +20,28 @@
 	<div th:replace="common/header::header"></div>
 	<!-- ヘッダー終了 -->
         
-  <div class="container-fluid">
+  <div class="container-fluid" th:each="code : ${codeList}">
 
     <div class="code_list" id="add_calender">
       <a  href="/calendar/Clnder_code_dsc" class="btn btn-block code">
       <div>
-        <ul class="list  list-unstyled">
-          <li class="item"><img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}"></li>
-          <li class="item"><img src="../../static/images/item/bottoms.jpg" th:src="@{/images/item/bottoms.jpg}"></li>
-          <li class="item"><img src="../../static/images/item/shoes.jpg" th:src="@{/images/item/shoes.jpg}"></li>
-          <li class="item"><img src="../../static/images/item/bag.jpg" th:src="@{/images/item/bag.jpg}"></li>
-          <li class="item">item5</li>
-          <li class="item">item6</li>
-          <li class="item">item7</li>
-          <li class="item">item8</li>
-          <li class="item">item9</li>
+        <ul class="list  list-unstyled" >
+          <li class="item" th:each="item : ${code.itemlist}"><img th:text="${item.picture}"  th:src="@{/images/item/Tshirt.jpg}"></li>
+
         </ul>
       </div>
-      <div class="dsc">
-        <p class="event"> EVENT </p>
-        <p class="date"> DATE </p>
-      </div>
-      </a> 
-    </div>
-      
-    <div class="code_list" id="only_code">
-      <a  href="/coordinate/only_code_dsc" class="btn btn-block code">
-      <div>
-        <ul class="list  list-unstyled">
-          <li class="item">item1</li>
-          <li class="item">item2</li>
-          <li class="item">item3</li>
-          <li class="item">item4</li>
-          <li class="item">item5</li>
-          <li class="item">item6</li>
-          <li class="item">item7</li>
-          <li class="item">item8</li>
-          <li class="item">item9</li>
-        </ul>
-      </div>
-      <div class="dsc">
-        <p class="event"> TITLE </p>
-        <p></p>
+       <div th:switch="${code.haveCalender}">
+      <div class="dsc" th:case="1" th:each="calendar : ${code.calendarList}">
+        <p class="event" th:text="${calendar.event}"> EVENT </p>
+        <p class="date" th:text="${calendar.eventDate}"> DATE </p>
       </div> 
-      </a>
+      <div class="dsc" th:case="0 or null">
+      	<p class="event" th:text="${code.coordinate_title}"> TITLE </p>
+      </div>
+      </div>
+
     </div>
+    </a>
         
     <div class="button">
       <a href="/coordinate/code_add">

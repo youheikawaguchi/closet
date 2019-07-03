@@ -2,7 +2,13 @@ package com.example.controller;
 
 import com.example.model.Coordinate;
 import com.example.model.CoordinateForm;
+import com.example.model.Item;
+import com.example.model.SessionForm;
 import com.example.service.CoordinateService;
+import com.example.service.ItemService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -54,8 +60,11 @@ public class CoordinateController {
     }
 
     @GetMapping(value = {"/list"})
-    public ModelAndView coordinateList(ModelAndView mav){
-        mav.setViewName("/coordinate/code_list");
+    public ModelAndView coordinateList(ModelAndView mav,@AuthenticationPrincipal UserDetails userDetails){
+    	List<Coordinate> codeList = coordinateService.userCoordinateList(userDetails);
+
+    	mav.addObject("codeList", codeList);
+        mav.setViewName("coordinate/code_list");
         return mav;
     }
 
@@ -73,4 +82,14 @@ public class CoordinateController {
         mav.setViewName("/coordinate/only_code_dsc");
         return mav;
     }
+
+    @PostMapping(value = {"/session"})
+    public ModelAndView coordinateSession(ModelAndView mav, CoordinateForm coordinateForm){
+        SessionForm sessionForm = new SessionForm();
+        sessionForm.coordinateForm = coordinateForm;
+        mav.setViewName("item/item_list");
+        mav.addObject("flg", true);
+        return mav;
+    }
+
 }

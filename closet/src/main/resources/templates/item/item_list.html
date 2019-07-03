@@ -70,90 +70,89 @@
         <button type="button" class="btn btn-block add">新しいアイテムの登録</button>
       </div>
 
-<!--      <div class="item_list">-->
-<!--        <ul class="list list-unstyled">-->
-<!--          <li class="item" th:each=" item : ${itemList}" th:value="${item.getItemId()}">-->
-<!--        </ul>-->
+  <div class="flex">
+  	<div class="pe" th:each=" item, i : ${itemList}">
+   	 <a th:href="@{/item/item_details}+(__${item.itemId}__)" class="btn btn-block item_list">
+   	   <div>
+   	     <img th:src="@{${itemList[__${i.index}__].picture}}" >
+   	   </div>
+    	  <div class="p-name" th:text="${item.getCategory()}+${item.getSubCategory()}+${item.getSeason()}+${item.getColor()}"></div>
+  	 </a>
+  	</div>
+
+<!--      <div class="pe">-->
+<!--      <a  href="/item/item_details" class="btn btn-block item_list">-->
+<!--        <div>-->
+<!--          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">-->
+<!--        </div>-->
+<!--        <div class="p-name">TOPS Tshirt/blouse Summer Black</div>-->
+<!--      </a>-->
 <!--      </div>-->
-
-      <!-- <div class="pe" th:each=" item : ${itemList}">
-        <img th:src="${item.getPicture()}" alt="" src="">
-        
-        <div class="p-name" th:text="${item.getComment()}"></div>
-      </div> -->
-
-      <div class="pe">
-      <a  href="/item/item_details" class="btn btn-block item_list">
-        <div>
-          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">
-        </div>
-        <div class="p-name">TOPS Tshirt/blouse Summer Black</div>
-      </a>
-      </div>
+<!--      -->
+<!--      <div class="pe">-->
+<!--      <a  href="/item/item_details" class="btn btn-block item_list">-->
+<!--        <div>-->
+<!--          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">-->
+<!--        </div>-->
+<!--        <div class="p-name">item01</div>-->
+<!--      </a>-->
+<!--      </div>-->
+<!--      -->
+<!--      <div class="pe">-->
+<!--      <a  href="/item/item_details" class="btn btn-block item_list">-->
+<!--        <div>-->
+<!--          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">-->
+<!--        </div>-->
+<!--        <div class="p-name">item01</div>-->
+<!--      </a>-->
+<!--      </div>-->
+<!--      -->
+<!--      <div class="pe">-->
+<!--      <a  href="/item/item_details" class="btn btn-block item_list">-->
+<!--        <div>-->
+<!--          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">-->
+<!--        </div>-->
+<!--        <div class="p-name">item01</div>-->
+<!--      </a>-->
+<!--      </div>-->
+<!--      -->
+<!--      <div class="pe">-->
+<!--      <a  href="/item/item_details" class="btn btn-block item_list">-->
+<!--        <div>-->
+<!--          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">-->
+<!--        </div>-->
+<!--        <div class="p-name">item01</div>-->
+<!--      </a>-->
+<!--      </div>-->
+<!--      -->
+<!--      <div class="pe">-->
+<!--      <a  href="/item/item_details" class="btn btn-block item_list">-->
+<!--        <div>-->
+<!--          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">-->
+<!--        </div>-->
+<!--        <div class="p-name">item01</div>-->
+<!--      </a>-->
+<!--      </div>-->
+<!--      -->
+<!--      <div class="pe">-->
+<!--      <a  href="/item/item_details" class="btn btn-block item_list">-->
+<!--        <div>-->
+<!--          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">-->
+<!--        </div>-->
+<!--        <div class="p-name">item01</div>-->
+<!--      </a>-->
+<!--      </div>-->
+<!--      -->
+<!--      <div class="pe">-->
+<!--      <a  href="/item/item_details" class="btn btn-block item_list">-->
+<!--        <div>-->
+<!--          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">-->
+<!--        </div>-->
+<!--        <div class="p-name">item01</div>-->
+<!--      </a>-->
+<!--      </div>-->
       
-      <div class="pe">
-      <a  href="/item/item_details" class="btn btn-block item_list">
-        <div>
-          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">
-        </div>
-        <div class="p-name">item01</div>
-      </a>
-      </div>
-      
-      <div class="pe">
-      <a  href="/item/item_details" class="btn btn-block item_list">
-        <div>
-          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">
-        </div>
-        <div class="p-name">item01</div>
-      </a>
-      </div>
-      
-      <div class="pe">
-      <a  href="/item/item_details" class="btn btn-block item_list">
-        <div>
-          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">
-        </div>
-        <div class="p-name">item01</div>
-      </a>
-      </div>
-      
-      <div class="pe">
-      <a  href="/item/item_details" class="btn btn-block item_list">
-        <div>
-          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">
-        </div>
-        <div class="p-name">item01</div>
-      </a>
-      </div>
-      
-      <div class="pe">
-      <a  href="/item/item_details" class="btn btn-block item_list">
-        <div>
-          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">
-        </div>
-        <div class="p-name">item01</div>
-      </a>
-      </div>
-      
-      <div class="pe">
-      <a  href="/item/item_details" class="btn btn-block item_list">
-        <div>
-          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">
-        </div>
-        <div class="p-name">item01</div>
-      </a>
-      </div>
-      
-      <div class="pe">
-      <a  href="/item/item_details" class="btn btn-block item_list">
-        <div>
-          <img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}">
-        </div>
-        <div class="p-name">item01</div>
-      </a>
-      </div>
-      
+    </div>
     </div>
 
 	<script type="text/javascript" src="/js/header.js"></script> 

@@ -1,11 +1,15 @@
 package com.example.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.model.Area;
 import com.example.model.User;
+import com.example.repository.AreaRepository;
 import com.example.repository.UserRepository;
 @Service
 @Transactional
@@ -14,6 +18,8 @@ public class UserService {
 	UserRepository userRepository;
 	@Autowired
 	PasswordEncoder passwordEncoder;
+	@Autowired
+	AreaRepository areaRepository;
 //	ユーザー登録
 	public boolean createUser(User user) {
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
@@ -40,5 +46,9 @@ public class UserService {
 		viewer.setBornYear(user.getBornYear());
 		viewer.setGender(user.getGender());
 		return userRepository.saveAndFlush(viewer);
+	}
+//	エリアの取得
+	public List<Area> getAllArea() {
+		return areaRepository.findAll();
 	}
 }
