@@ -56,4 +56,10 @@ public class CoordinateServiceImpl implements CoordinateService {
 
         return coordinate.get();
     }
+
+	@Override
+	public List<Coordinate> userCoordinateList(UserDetails userDetails) {
+		User user = userRepository.findByUserId(userDetails.getUsername());
+		return coordinateRepository.findByUserId(user.getId());
+	}
 }
