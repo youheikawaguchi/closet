@@ -18,13 +18,14 @@
         
   <div class="container-fluid">
 
+	<a  href="/coordinate/only_code_dsc">
     <div class="code_list" id="add_calender">
       <div>
         <ul class="list  list-unstyled">
-          <li class="item"><img src="Tshirt.jpg"></li>
-          <li class="item"><img src="bottoms.jpg"></li>
-          <li class="item"><img src="shoes.jpg"></li>
-          <li class="item"><img src="bag.jpg"></li>
+          <li class="item"><img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}"></li>
+          <li class="item"><img src="../../static/images/item/bottoms.jpg" th:src="@{/images/item/bottoms.jpg}"></li>
+          <li class="item"><img src="../../static/images/item/shoes.jpg" th:src="@{/images/item/shoes.jpg}"></li>
+          <li class="item"><img src="../../static/images/item/bag.jpg" th:src="@{/images/item/bag.jpg}"></li>
           <li class="item">item5</li>
           <li class="item">item6</li>
           <li class="item">item7</li>
@@ -37,6 +38,7 @@
         <p class="date"> DATE </p>
       </div> 
     </div>
+    </a>
       
     <div class="code_list" id="only_code">
       <div>
@@ -59,7 +61,9 @@
     </div>
         
     <div class="button">
+      <a href="/coordinate/code_add">
       <button type="button" class="add_button" name="add"> + </button>
+      </a>
     </div>
   </div>
     

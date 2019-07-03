@@ -10,7 +10,7 @@ public interface CoordinateService {
 
     public Integer coordinateSave(CoordinateForm coordinateForm, UserDetails userDetails);
 
-    public Optional<Coordinate> coordinateUpdate(Coordinate coordinate);
+    public CoordinateForm coordinateUpdate(Integer id);
 
-    public Coordinate coordinateGet(Integer coordinateId);
+    public Coordinate coordinateDetails(Integer coordinateId);
 }
