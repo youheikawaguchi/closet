@@ -75,16 +75,26 @@ ul.category1,ul.category2,ul.season{
     display: none;
 }
 
+.flex{
+/* 	width: 100%; */
+	display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;	
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
 /* アイテム写真＋情報のボックス */
 .pe{
 	width: 25%;
-    display: inline-block;
-    vertical-align: top; 
-    font-size: 0;
+    max-width: 241px;	
 }
 
 .pe img{
     width: 100%;
+    max-width: 237px;
     height: 237px;
 }
 
