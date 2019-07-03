@@ -4,9 +4,18 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../static/css/item_details.css" th:href="@{/css/item_details.css}" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/header.css}" type="text/css" media="all"> 
 </head>
 <body>
+
 <div th:object="${item}">
+	
+	<!-- ヘッダー開始 -->
+	<div th:replace="common/header::header"></div>
+	<!-- ヘッダー終了 -->
+	
+	<div class="item_detail_screen">
+	
     <div class=photo>
         <img th:src="*{picture}" class="img-fluid" alt="Responsive image">
     </div>
@@ -35,6 +44,9 @@
     </div>
 <!--    ここまでモーダル-->
 </div>
+</div>
+
+	<script type="text/javascript" src="/js/header.js"></script> 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="../../static/js/modalWarning.js" th:src="@{/js/modalWarning.js}"></script>
 </body>

@@ -6,20 +6,23 @@
   <link rel="stylesheet" href="../../static/css/reset.css" th:href="@{/css/rest.css}" type="text/css">
   <link rel="stylesheet" href="../../static/css/code_list.css" th:href="@{/css/code_list.css}" type="text/css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   
+  <link rel="stylesheet" th:href="@{/css/header.css}" type="text/css" media="all">  
+  
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
     
 <body>
-  <div class=header>
-  </div>
+
+	<!-- ヘッダー開始 -->
+	<div th:replace="common/header::header"></div>
+	<!-- ヘッダー終了 -->
         
   <div class="container-fluid">
 
-	<a  href="/coordinate/only_code_dsc">
     <div class="code_list" id="add_calender">
+      <a  href="/calendar/Clnder_code_dsc" class="btn btn-block code">
       <div>
         <ul class="list  list-unstyled">
           <li class="item"><img src="../../static/images/item/Tshirt.jpg" th:src="@{/images/item/Tshirt.jpg}"></li>
@@ -36,11 +39,12 @@
       <div class="dsc">
         <p class="event"> EVENT </p>
         <p class="date"> DATE </p>
-      </div> 
+      </div>
+      </a> 
     </div>
-    </a>
       
     <div class="code_list" id="only_code">
+      <a  href="/coordinate/only_code_dsc" class="btn btn-block code">
       <div>
         <ul class="list  list-unstyled">
           <li class="item">item1</li>
@@ -58,6 +62,7 @@
         <p class="event"> TITLE </p>
         <p></p>
       </div> 
+      </a>
     </div>
         
     <div class="button">
@@ -66,6 +71,8 @@
       </a>
     </div>
   </div>
+  
+  <script type="text/javascript" src="/js/header.js"></script> 
     
 </body>
 </html>
