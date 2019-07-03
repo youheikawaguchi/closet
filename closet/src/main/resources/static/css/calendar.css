@@ -5,6 +5,7 @@ body {
   height: 600px;
   width: 100%;
   overflow: hidden;
+  padding-top: 140px;
 }
 #item {
   bottom: 0;
