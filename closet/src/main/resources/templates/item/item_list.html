@@ -71,14 +71,14 @@
       </div>
 
   <div class="flex">
-      <div class="pe" th:each=" item : ${itemList}">
-        <a th:href="@{/item/item_details}+(__${item.itemId}__)" class="btn btn-block item_list">
-          <div>
-            <img th:src="@{${item.getPicture()}}">
-          </div>
-          <div class="p-name" th:text="${item.getCategory()}+${item.getSubCategory()}+${item.getSeason()}+${item.getColor()}"></div>
-        </a>
-      </div>
+  	<div class="pe" th:each=" item, i : ${itemList}">
+   	 <a th:href="@{/item/item_details}+(__${item.itemId}__)" class="btn btn-block item_list">
+   	   <div>
+   	     <img th:src="@{${itemList[__${i.index}__].picture}}" >
+   	   </div>
+    	  <div class="p-name" th:text="${item.getCategory()}+${item.getSubCategory()}+${item.getSeason()}+${item.getColor()}"></div>
+  	 </a>
+  	</div>
 
 <!--      <div class="pe">-->
 <!--      <a  href="/item/item_details" class="btn btn-block item_list">-->
