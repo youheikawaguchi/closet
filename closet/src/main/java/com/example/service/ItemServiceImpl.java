@@ -105,34 +105,42 @@ public class ItemServiceImpl implements ItemService{
 		}
 
 		//パスの指定
-		Resource resource = resourceLoader.getResource( "classpath:"+"/static/images/item");
-
+//		Resource resource = resourceLoader.getResource( "uploads");
+		StringBuffer filePath = new StringBuffer("./app/uploads")
+                .append(File.separator); 
 		try {
 			// /static/images/item/userId の状態になる
-			File uploadDir = new File(Objects.requireNonNull(resource.getFile()) + File.separator + userId);
-
+//			File uploadDir = new File(Objects.requireNonNull(resource.getFile()) + File.separator + userId);
+			
+			File uploadDir = new File(Objects.requireNonNull(filePath + userId));
+			
 			// アップロードファイルを格納するディレクトリがなければ作成する
 			if(!uploadDir.exists())	uploadDir.mkdirs();
-
+//			File uploadFile = new File(uploadDir.getPath() + "/" + userId);
+			
 			assert imageName != null;
 			int dot = imageName.lastIndexOf(".");
-
 			if (dot > 0) extension = imageName.substring(dot).toLowerCase();
 
 			String filename = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS").format(LocalDateTime.now());
 
 			// アップロードファイルを置く
-			File uploadFile =
-					new File(uploadDir.getPath() + "/" + filename + extension);
+			File uploadFile = new File(uploadDir.getPath() + File.separator + filename + extension);
+			File accessFile = new File(File.separator + "uploads" + File.separator + filename + extension);
+
+			System.out.println(uploadFile.getPath());
+			System.out.println(accessFile.getPath());
+			
 			byte[] bytes = itemForm.getPicture().getBytes();
 			BufferedOutputStream uploadFileStream =
 					new BufferedOutputStream(new FileOutputStream(uploadFile));
 			uploadFileStream.write(bytes);
 			uploadFileStream.close();
 
-			return uploadFile.getPath();
+			return accessFile.getPath();
 		} catch (Throwable e) {
 			// 異常終了時の処理
+			
 			System.out.println("画像置くのに失敗したよ");
 			System.out.println(e);
 		}
