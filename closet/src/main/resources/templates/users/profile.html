@@ -8,17 +8,22 @@
 </head>
     
     <body>
+
+
+
         <div class="container">
             <div class="regist1">
                 <p id="regist">プロフィール登録</p>
                 <p id="tell">あなたのことを教えてください！</p> 
             </div>
-    <form th:action="@{/users/createacc}" 
+    <form th:action="@{/users/profile}" 
     th:object="${user}" method="post">    
+    
+    
         <div class=slc>       
-            <select id="select1" class="custom-select">
-            <option selected>生まれた年</option>
-            <option th:field="${user.bornYear}" value="1930">1930</option>
+            <select id="select1" class="custom-select" th:field="${user.bornYear}">
+            <option value="">生まれた年</option>
+            <option value="1930">1930</option>
             <option value="1931">1931</option>
             <option value="1932">1932</option>
             <option value="1933">1933</option>
@@ -113,15 +118,15 @@
         </div>
 
         <div class="cp_ipradio">
-            <input type="radio" name="cpipr03" id="a_rb1" />
+            <input type="radio" name="cpipr03" id="a_rb1" value="男"/ th:field="${user.gender}">
             <label for="a_rb1">男性</label>
-            <input type="radio" name="cpipr03" id="a_rb2" />
+            <input type="radio" name="cpipr03" id="a_rb2" value="女"/ th:field="${user.gender}">
             <label for="a_rb2">女性</label>
         </div>
 
         <div class=slc>
-            <select id="select1" class="custom-select">
-            <option selected>都道府県</option>
+            <select id="select1" class="custom-select" th:field="${user.area.areaId}">
+            <option value="">都道府県</option>
             <option value="1">北海道</option>
             <option value="2">青森県</option>
             <option value="3">岩手県</option>
