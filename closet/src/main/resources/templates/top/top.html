@@ -60,7 +60,7 @@
 						<!-- if文 itemsが空じゃない時の処理 -->
 						<img th:if="!${#lists.isEmpty(items)}"
 							th:each="item, i : ${items}"
-							th:src="@{'/images/top/'+${items[__${i.index}__].picture}}"
+							th:src="@{${items[__${i.index}__].picture}}"
 							class="slide_pic">
 					</div>
 				</div>

@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.Area;
 import com.example.model.Item;
-import com.example.model.User;
 import com.example.service.TopService;
 
 
