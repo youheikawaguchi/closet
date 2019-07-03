@@ -31,7 +31,7 @@ public class CalendarController {
 	CalendarService calendarService;
 	
 	@GetMapping("/calendar")
-	public ModelAndView showCalendarTest(ModelAndView mav) {
+	public ModelAndView showCalendar(ModelAndView mav) {
 		List<Calendar> calendarlist = calendarService.getAllCalendar();
 		
 		mav.addObject("calendarlist", calendarlist);
@@ -63,15 +63,21 @@ public class CalendarController {
 		return ResponseEntity.ok(calendar);
 	}	
 	
-    @PostMapping(value = {"/add"})
+	@GetMapping("/calendar/Clnder_code_dsc")
+	public ModelAndView showCalendarCode(ModelAndView mav) {
+
+		mav.setViewName("calendar/Clnder_code_dsc");
+		return mav;
+	}
+	
+    @PostMapping(value = {"/add_calendar"})
     public ModelAndView AddCalendar(ModelAndView mav, 
     		@ModelAttribute("calendar") @Validated Calendar calendar, 
     		@AuthenticationPrincipal UserDetails userDetails,
     		BindingResult bindingResult){
     	
     	Integer calendarId = calendarService.createCalendar(calendar, userDetails);
-        mav.setViewName("/calendar/clnder_code_dsc/" + calendarId);
-        
+        mav.setViewName("/calendar/calendar");
         return mav;
     }
 	
