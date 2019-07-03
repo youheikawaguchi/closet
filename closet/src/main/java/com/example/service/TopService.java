@@ -47,9 +47,6 @@ public class TopService {
 		
 	}
 
-
-	/*　まいまい　*/
-	
 	//今日の月から季節IDの判定
 	public int[] getSeason() {
 		LocalDate date = LocalDate.now();

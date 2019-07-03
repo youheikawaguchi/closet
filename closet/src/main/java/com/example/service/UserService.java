@@ -14,20 +14,31 @@ public class UserService {
 	UserRepository userRepository;
 	@Autowired
 	PasswordEncoder passwordEncoder;
-	
-	
 //	ユーザー登録
-	public User createUser(User user) {
-		
+	public boolean createUser(User user) {
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
 		user.setPassword(encodedPassword);
-		
-		return userRepository.saveAndFlush(user);
+		try {
+			User result = userRepository.findByUserId(user.getUserId());
+			if(result == null) {
+				userRepository.saveAndFlush(user);
+				return true;
+			}else {
+				return false;
+			}
+		}catch(Exception e){
+			return false;
+		}
 	}
-	
+
+	public User getUserByUserId(String userId) {
+		return userRepository.findByUserId(userId);
+	}
 //	プロフィール登録
-	public User createProfiel(User user) {
-		
-		return userRepository.saveAndFlush(user);
+	public User createProfile(User user, User viewer) {
+		viewer.setArea(user.getArea());
+		viewer.setBornYear(user.getBornYear());
+		viewer.setGender(user.getGender());
+		return userRepository.saveAndFlush(viewer);
 	}
 }
