@@ -28,20 +28,28 @@ public class CoordinateController {
         return mav;
     }
 
-    @PostMapping(value = {"/add", "/edit"})
+    @PostMapping(value = {"/add"})
     public ModelAndView coordinateAdd(ModelAndView mav, CoordinateForm coordinateForm, @AuthenticationPrincipal UserDetails userDetails){
         //登録の処理を書く
         Integer coordinateId = coordinateService.coordinateSave(coordinateForm, userDetails);
-        mav.setViewName("/coordinate/only_code_dsc/" + coordinateId);
+        mav.setViewName("/coordinate/only_code_dsc" + coordinateId);
         return mav;
     }
 
     @GetMapping(value = {"/edit{id}"})
-    public ModelAndView coordinateEdit(@PathVariable Integer id){
+    public ModelAndView coordinateEdit(@PathVariable String id){
         ModelAndView mav = new ModelAndView();
-        CoordinateForm form = coordinateService.coordinateUpdate(id);
+        CoordinateForm form = coordinateService.coordinateUpdateForm(Integer.parseInt(id));
         mav.addObject("form", form);
         mav.setViewName("/coordinate/code_add");
+        return mav;
+    }
+
+    @PostMapping(value = {"/edit{id}"})
+    public ModelAndView coordinateEdit(ModelAndView mav, @PathVariable String id,
+                                       CoordinateForm coordinateForm, @AuthenticationPrincipal UserDetails userDetails){
+        int coordinateId = coordinateService.coordinateUpdate(Integer.parseInt(id), coordinateForm, userDetails);
+        mav.setViewName("/coordinate/only_code_dsc" + coordinateId);
         return mav;
     }
 
