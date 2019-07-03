@@ -14,7 +14,6 @@ import javax.validation.constraints.Digits;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
