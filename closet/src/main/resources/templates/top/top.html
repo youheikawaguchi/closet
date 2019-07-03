@@ -8,13 +8,17 @@
 <link rel="stylesheet" th:href="@{/js/slick0/slick/slick-theme.css}" href="../../static/js/slick0/slick/slick-theme.css">
 <link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}" href="../../static/css/reset.css">
 <link rel="stylesheet" type="text/css" th:href="@{/css/top_style.css}" href="../../static/css/top_style.css">
-        
+<link rel="stylesheet" th:href="@{/css/header.css}" type="text/css" media="all">  
 </head>
 <body>
-	<div class="top_body">
-		<!-- メインコンテンツ開始 -->
-		<div class="top">
-			<!-- ヘッダー メニューバー -->
+
+	 <div th:replace="common/header::header"></div>
+
+  <div class="top_body">
+  <!-- メインコンテンツ開始 -->
+  <div class="top">
+    <!-- ヘッダー メニューバー -->
+
 
 			<!-- ロゴ　-->
 			<div class="top_image">
@@ -82,7 +86,7 @@
 									<div class="wtinfo_box">
 										<span class="wtinfo">天気:<span class="dayWeather"></span><br>現在の気温:<span
 											class="nowTemp"></span>℃<br>最高気温:<span class="maxTemp"></span>℃<br>最低気温:<span
-											class="minTemp">℃</span>
+											class="minTemp">℃</span></span>
 									</div>
 								</div>
 							</div>
@@ -160,7 +164,8 @@
 	  /*]]>*/
   </script>
 
+  <script type="text/javascript" src="/js/header.js"></script> 
   <script type="text/javascript" src="../../static/js/slide.js" th:src="@{/js/slide.js}"></script>
-
+  
 </body>
 </html>
