@@ -95,9 +95,6 @@ margin: auto;
     width: 300px;
     border: solid 3px #4D919F;
     float: right;
-    /*position:fixed;
-    z-index: 1000000;
-    right: 0;*/
 }
 
 #menu dd {
@@ -106,7 +103,6 @@ margin: auto;
     text-align: center;
     display: none;
     height: 40px;
-    /*padding-top: 10px;*/
     font-size: 16px;
     float: right;
     background: white;
@@ -131,4 +127,7 @@ margin: auto;
 }
 .usr{
 	border-bottom: solid 2px #4D919F; 
+}
+.logout{
+	border-top: solid 2px #4D919F; 
 }
