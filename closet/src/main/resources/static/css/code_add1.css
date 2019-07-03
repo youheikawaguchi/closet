@@ -11,14 +11,15 @@ ul {
     list-style: none;
     width: 132px;
     height: 132px;
-    //border: solid 2px black;
+    /* border: solid 2px black; */
     margin: 20px 10px;
     text-align: center;
+    /*
     background-image: url("/images/item/code_add_button.png");
-    background-size: 132px;
+    background-size: 132px; */
 }
 
-img {
+.img {
    width: 132px;
    height: 132px;
 }
