@@ -65,4 +65,8 @@ public class User {
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL,orphanRemoval=true)
 	private List<Calendar> calendarList;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="user")
+	private List<Coordinate> coordinateList;
 }

@@ -31,7 +31,7 @@ public class Area {
 	@Column(name = "area_name", length = 60, nullable=false)
 	private String areaName;
 	
-	/*経度*/
+	/*緯度*/
 	@Digits(integer=9, fraction=6)
 	@Column(name = "latitude", length = 60, nullable=false)
 	private double latitude;

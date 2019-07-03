@@ -42,23 +42,29 @@ table {
 /* --------   reset css   ------------ */
 
 .photo {
+	width: 480px;
+	margin: auto;
+}
+
+#canvas {
+	position: relative;
     height: 600px;
     width: 480px;
     background-color: #E0E0E0;
     text-align: center;
     margin: 40px auto;
-}
- 
-.add_btn {
-    width: 100px;
-    margin: auto;
+    border: solid 1px black;
+    background-image: url("/images/item/plus.png");
+    background-position: center center; 
 }
 
-.btn.btn-info {
-    width: 100px;
-    height: 100px;
-    margin-top: 250px;
-    font-size: 40px;
+#select_photo {
+	position: absolute;
+	width: 480px;
+	height: 600px;	
+	top:40px;
+	opacity:0.0;
+	/* display:none; */
 }
 
 #select_list {
