@@ -104,16 +104,14 @@ public class ItemServiceImpl implements ItemService{
 			System.out.println("画像の取得ができなかったよ");
 		}
 
-		//パスの指定								
-		//Resource resource = resourceLoader.getResource( "static/images/item");
-		Resource resource = resourceLoader.getResource( "//file/Users/s.yamamoto/Documents/closet");
-		String path = resource.toString();
-
+		//パスの指定
+		//Resource resource = resourceLoader.getResource( "/file/Users/s.yamamoto/Documents/closet");
+		String filepath = "/var/closet/app/uploads/" + userId;
+		
 		try {
-			// /static/images/item/userId の状態になる  fileクラスpathクラスたぶんfile
 			//File uploadDir = new File(Objects.requireNonNull(resource.getFile()) + File.separator + userId);
-			File uploadDir = new File(path);
-
+			File uploadDir = new File(filepath);
+	
 			// アップロードファイルを格納するディレクトリがなければ作成する
 			if(!uploadDir.exists())	uploadDir.mkdirs();
 
@@ -123,17 +121,21 @@ public class ItemServiceImpl implements ItemService{
 			if (dot > 0) extension = imageName.substring(dot).toLowerCase();
 
 			String filename = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS").format(LocalDateTime.now());
-
+			
 			// アップロードファイルを置く
 			File uploadFile =
 					new File(uploadDir.getPath() + "/" + filename + extension);
+			
+			String strpath = uploadFile.getPath();
+			strpath = strpath.replaceAll("\\\\" , "/");
+			
 			byte[] bytes = itemForm.getPicture().getBytes();
 			BufferedOutputStream uploadFileStream =
-					new BufferedOutputStream(new FileOutputStream(uploadFile));
+					new BufferedOutputStream(new FileOutputStream(strpath));
 			uploadFileStream.write(bytes);
 			uploadFileStream.close();
 
-			return uploadFile.getPath();
+			return strpath;
 		} catch (Throwable e) {
 			// 異常終了時の処理
 			System.out.println("画像置くのに失敗したよ");
