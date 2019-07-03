@@ -29,6 +29,7 @@ public class CoordinateServiceImpl implements CoordinateService {
     public Integer coordinateSave(CoordinateForm coordinateForm, UserDetails userDetails){
         Coordinate coordinate = new Coordinate();
         User user = userRepository.findByUserId(userDetails.getUsername());
+        coordinate.setCreatedAt(new Date());
         coordinate.setUser(user);
         return coordinateSet(coordinate, coordinateForm);
     }
