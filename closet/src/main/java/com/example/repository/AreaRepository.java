@@ -10,7 +10,5 @@ public interface AreaRepository extends JpaRepository<Area, Integer> {
 	//ユーザIDから経度緯度の取得
     @Query(value = "SELECT * FROM areas JOIN users ON areas.area_id = users.area_id WHERE id = :userId", nativeQuery = true)
     public Area findArea(@Param("userId") int userId);
-    
-    //ユーザIDから都道府県名の取得
-    public Area findByAreaName(String areaName);
+
 }
