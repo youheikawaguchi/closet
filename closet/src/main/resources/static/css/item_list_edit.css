@@ -1,3 +1,8 @@
+.container-fluid{
+	padding-top: 120px;
+}
+
+
 /* アイテム登録ボタン */
 .btn.btn-block.add{
     margin: 10px 0;
@@ -43,7 +48,7 @@ ul , li{
 }
 
 /* カテゴリ､季節選択 */
-#menu {
+#item_menu {
     width: 100%;
     text-align: center;
     display: block;

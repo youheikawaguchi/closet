@@ -1,3 +1,8 @@
+
+.container-fluid{
+	padding-top: 120px;
+}
+
 .code_list{
     width: 46%;
     height: 600px;
@@ -7,7 +12,7 @@
     border: solid 1px black;
 }
 
-/* ƒŠƒ“ƒN”ÍˆÍ—v‘f */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ÍˆÍ—vï¿½f */
 .btn.btn-block.code{
 	width: 100%;
 	padding: 2%;
@@ -15,7 +20,7 @@
 	text-align: left;
 }
 
-/* ƒR[ƒfg—pƒAƒCƒeƒ€ */
+/* ï¿½Rï¿½[ï¿½fï¿½gï¿½pï¿½Aï¿½Cï¿½eï¿½ï¿½ */
 .item{
     width: 31%;
     height: 125px;
@@ -26,7 +31,7 @@
     font-size: 30px;
 }
 
-/* ƒR[ƒf“o˜^ƒ{ƒ^ƒ“ */
+/* ï¿½Rï¿½[ï¿½fï¿½oï¿½^ï¿½{ï¿½^ï¿½ï¿½ */
 .add_button{
     width: 150px;
     height: 150px;
@@ -40,14 +45,14 @@
     right: 5%;
 }
 
-/* ƒ^ƒCƒgƒ‹AƒCƒxƒ“ƒg–¼A“ú•t‚È‚Ç */
+/* ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½Aï¿½Cï¿½xï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½tï¿½È‚ï¿½ */
 p{
     font-size: 30px;
     font-weight: bold;
     padding: 5px;
 }
 
-/* ƒAƒCƒeƒ€Ê^ */
+/* ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Ê^ */
 img{
     width: 100%;
     height: 100%;
