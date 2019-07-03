@@ -1,5 +1,5 @@
 /* アイテム登録ボタン */
-.btn.btn-block{
+.btn.btn-block.add{
     margin: 10px 0;
     background: #D9B918;
     color: white;
@@ -7,12 +7,12 @@
     font-weight: bolder;
 }
 
-/* アイテム登録ボタン押下 */
-.btn.btn-block:hover{
-    background-color: #BEA10D;
-    color: white;
+.btn.btn-block.item_list{
+	width: 100%;
+	padding: 2%;
+	font-size: 30px;
+	text-align: left;
 }
-
 
 .item{
     width: 25%;
@@ -87,50 +87,27 @@ ul.category1,ul.category2,ul.season{
     display: none;
 }
 
-
-
-/* 蟾晏哨 菴� */
+/* アイテム写真＋情報のボックス */
 .pe{
     float: left;
     width: 25%;
-    overflow: hidden;
-    padding: 10px 0;
-    transition: 0.4s;
 }
-.pe:hover{
-    background: #ddd;
-}
+
 .pe img{
-    width: 237px;
+    width: 100%;
     height: 237px;
-    margin: 0 20px;
 }
 .p-name{
-    margin: 16px 0;
+	width: 100%;
+	font-size: 30px;
+    margin-bottom: 16px;
 }
-.p-des{
-    font-style: italic;
-    color: #3498db;
-}
-.p-sm{
-    margin-top: 12px;
-}
-.p-sm a{
-    margin: 0 4px;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    transition: 0.4s;
-}
-.p-sm a:hover{
-    transform: scale(1.3);
-}
-.p-sm a i{
-    color: #333;
-    line-height: 30px;
-}
+
 @media screen and (max-width:600px) {
     .pe{
         width: 100%;
     }
 }
+
+/* リンクの文字色を黒に統一 */
+/* a:link, a:visited, a:hover, a:active { color:black; } */

@@ -7,6 +7,15 @@
     border: solid 1px black;
 }
 
+/* リンク範囲要素 */
+.btn.btn-block.code{
+	width: 100%;
+	padding: 2%;
+	font-size: 30px;
+	text-align: left;
+}
+
+/* コーデ使用アイテム */
 .item{
     width: 31%;
     height: 125px;
@@ -17,6 +26,7 @@
     font-size: 30px;
 }
 
+/* コーデ登録ボタン */
 .add_button{
     width: 150px;
     height: 150px;
@@ -30,17 +40,14 @@
     right: 5%;
 }
 
-.add_button:hover {
-    background-color: #BEA10D;
-    
-    }
-
+/* タイトル、イベント名、日付など */
 p{
     font-size: 30px;
     font-weight: bold;
     padding: 5px;
 }
 
+/* アイテム写真 */
 img{
     width: 100%;
     height: 100%;
