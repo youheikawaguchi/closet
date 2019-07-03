@@ -1,9 +1,6 @@
 package com.example.service;
 
-import com.example.model.Coordinate;
-import com.example.model.CoordinateForm;
-import com.example.model.Item;
-import com.example.model.User;
+import com.example.model.*;
 import com.example.repository.CoordinateRepository;
 import com.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

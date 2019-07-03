@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -83,8 +84,10 @@ public class CoordinateController {
         return mav;
     }
 
-    @PostMapping(value = {"/session"})
-    public ModelAndView coordinateSession(ModelAndView mav, CoordinateForm coordinateForm){
+
+    // コーデ登録時のアイテム一覧画面への遷移
+    @PostMapping(value = {"/addSave"})
+    public ModelAndView coordinateAddSave(ModelAndView mav, CoordinateForm coordinateForm){
         SessionForm sessionForm = new SessionForm();
         sessionForm.coordinateForm = coordinateForm;
         mav.setViewName("item/item_list");
@@ -92,4 +95,13 @@ public class CoordinateController {
         return mav;
     }
 
+    // コーデ登録時のアイテム一覧画面からの遷移
+    @PostMapping(value = {"/responseItem{id}"})
+    public ModelAndView coordinateResponseItem(ModelAndView mav, @PathVariable String id){
+        SessionForm sessionForm = new SessionForm();
+        CoordinateForm coordinateForm = sessionForm.getCoordinateForm();
+        mav.addObject(coordinateForm);
+        mav.setViewName("/coordinate/only_code_dsc");
+        return mav;
+    }
 }
