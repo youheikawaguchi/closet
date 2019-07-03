@@ -28,19 +28,24 @@ public class CoordinateServiceImpl implements CoordinateService {
     @Override
     public Integer coordinateSave(CoordinateForm coordinateForm, UserDetails userDetails){
         Coordinate coordinate = new Coordinate();
-        coordinate.setItemlist(coordinateForm.getItemList());
-        coordinate.setCoordinate_title(coordinateForm.getTitle());
-        coordinate.setComment(coordinateForm.getMemo());
-        coordinate.setCreatedAt(new Date());
         User user = userRepository.findByUserId(userDetails.getUsername());
+        coordinate.setCreatedAt(new Date());
         coordinate.setUser(user);
-        coordinate.setHaveCalender(0);
-        coordinate = coordinateRepository.saveAndFlush(coordinate);
-        return coordinate.getCoordinateId();
+        return coordinateSet(coordinate, coordinateForm);
     }
 
     @Override
-    public CoordinateForm coordinateUpdate(Integer id) {
+    public int coordinateUpdate(int id, CoordinateForm coordinateForm, UserDetails userDetails){
+        Coordinate coordinate = new Coordinate();
+        coordinate.setCoordinateId(id);
+        coordinate.setUpdatedAt(new Date());
+        User user = userRepository.findByUserId(userDetails.getUsername());
+        coordinate.setUser(user);
+        return coordinateSet(coordinate, coordinateForm);
+    }
+
+    @Override
+    public CoordinateForm coordinateUpdateForm(Integer id) {
 
         Coordinate coordinate = coordinateRepository.findById(id).get();
         CoordinateForm coordinateForm = new CoordinateForm();
@@ -57,9 +62,19 @@ public class CoordinateServiceImpl implements CoordinateService {
         return coordinate.get();
     }
 
+
 	@Override
 	public List<Coordinate> userCoordinateList(UserDetails userDetails) {
 		User user = userRepository.findByUserId(userDetails.getUsername());
 		return coordinateRepository.findByUserId(user.getId());
 	}
+
+    private int coordinateSet(Coordinate coordinate, CoordinateForm coordinateForm){
+        coordinate.setItemlist(coordinateForm.getItemList());
+        coordinate.setCoordinate_title(coordinateForm.getTitle());
+        coordinate.setComment(coordinateForm.getMemo());
+        coordinate.setHaveCalender(0);
+        coordinate = coordinateRepository.saveAndFlush(coordinate);
+        return coordinate.getCoordinateId();
+    }
 }

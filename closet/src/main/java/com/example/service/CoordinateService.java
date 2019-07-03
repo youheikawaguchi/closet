@@ -13,7 +13,9 @@ public interface CoordinateService {
 
     public Integer coordinateSave(CoordinateForm coordinateForm, UserDetails userDetails);
 
-    public CoordinateForm coordinateUpdate(Integer id);
+    public CoordinateForm coordinateUpdateForm(Integer id);
+
+    public int coordinateUpdate(int id, CoordinateForm coordinateForm, UserDetails userDetails);
 
     public Coordinate coordinateDetails(Integer coordinateId);
     

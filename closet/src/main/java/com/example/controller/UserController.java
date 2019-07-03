@@ -1,5 +1,8 @@
 package com.example.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.model.Area;
 import com.example.model.User;
 import com.example.service.UserService;
 
@@ -19,6 +23,7 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+
 	
 //	ユーザー登録
 	@GetMapping(value="users/createacc")
@@ -37,7 +42,7 @@ public class UserController {
 			ModelAndView mav) {
 		
 		if(userService.createUser(user)) {
-			mav.setViewName("/users/profile");
+			mav.setViewName("/login/login");
 			return mav;
 		}else {
 			mav.setViewName("/users/createacc");
@@ -57,6 +62,9 @@ public class UserController {
 	
 		User user = userService.getUserByUserId(userDetails.getUsername());
 		mav.addObject("user",user);
+		
+		List<Area> areaList = userService.getAllArea();
+		mav.addObject("areaList", areaList);
 		
 //		User user =new User();
 //		mav.addObject(user);
