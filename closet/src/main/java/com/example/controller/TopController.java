@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.Area;
 import com.example.model.Item;
+import com.example.model.User;
 import com.example.service.TopService;
 
 
@@ -24,7 +25,7 @@ public class TopController {
 	public ModelAndView top(ModelAndView mav, @AuthenticationPrincipal UserDetails userDetails) {	
 		List<Item> items = topService.getSlideItems(userDetails);
 		mav.addObject("items", items);
-		List<Area> area = topService.getArea(userDetails);
+		Area area = topService.getArea(userDetails);
 		mav.addObject("area", area);
 		mav.setViewName("top/top");
 		return mav;
