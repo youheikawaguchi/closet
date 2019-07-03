@@ -16,14 +16,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
-//@Dataとか使ってみてや
+//@Data
 @Entity
 @Table(name = "coordinate")
 public class Coordinate {
@@ -35,6 +38,7 @@ public class Coordinate {
 	
 	@JsonIgnore
 	@ManyToOne
+	@JsonIdentityReference(alwaysAsId = true)
 	@JoinColumn(name = "id")
 	private User user;
 	
@@ -63,7 +67,6 @@ public class Coordinate {
 	private List<Calendar> calendarList;
 	
 	/*Itemとの多対多連携*/
-	@JsonIgnore
     @ManyToMany( mappedBy = "coordinatelist")
     private List<Item> itemlist;  
 }
