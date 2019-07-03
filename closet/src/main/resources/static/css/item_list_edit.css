@@ -1,5 +1,5 @@
 /* アイテム登録ボタン */
-.btn.btn-block{
+.btn.btn-block.add{
     margin: 10px 0;
     background: #D9B918;
     color: white;
@@ -7,22 +7,11 @@
     font-weight: bolder;
 }
 
-/* アイテム登録ボタン押下 */
-.btn.btn-block:hover{
-    background-color: #BEA10D;
-    color: white;
-}
-
-
-.item{
-    width: 25%;
-    height: 237.5px;
-    border: solid 1px black;
-    float: left;
-    margin: 10px auto;
-    padding: 10px;
-    text-align: center;
-    font-size: 30px;
+.btn.btn-block.item_list{
+	width: 100%;
+	padding: 2%;
+	font-size: 30px;
+	text-align: left;
 }
 
 /* カラーパレット */
@@ -50,7 +39,6 @@ ul , li{
     font-size: 100%;
 }
 
-
 #category , #season{
     font-size: 70px;
     border-bottom: 3px solid gray;
@@ -69,6 +57,12 @@ span{
     font-size: 50px;
 }
 
+/* カテゴリ2 */
+.category2 li{
+    font-size: 40px;
+    border-bottom: 1px solid #C2E9F2;
+}
+
 /* 季節 */
 .season li{
     font-size: 50px;
@@ -76,59 +70,30 @@ span{
     margin: 5px auto;
 }
 
-/* カテゴリ2 */
-.category2 li{
-    font-size: 40px;
-    border-bottom: 1px solid #C2E9F2;
-}
-
 /* カテゴリ1,カテゴリ2,季節の項目非表示 */
 ul.category1,ul.category2,ul.season{
     display: none;
 }
 
-
-
-/* 蟾晏哨 菴� */
+/* アイテム写真＋情報のボックス */
 .pe{
-    float: left;
-    width: 25%;
-    overflow: hidden;
-    padding: 10px 0;
-    transition: 0.4s;
-}
-.pe:hover{
-    background: #ddd;
-}
-.pe img{
-    width: 237px;
-    height: 237px;
-    margin: 0 20px;
-}
-.p-name{
-    margin: 16px 0;
-}
-.p-des{
-    font-style: italic;
-    color: #3498db;
-}
-.p-sm{
-    margin-top: 12px;
-}
-.p-sm a{
-    margin: 0 4px;
+	width: 25%;
     display: inline-block;
-    width: 30px;
-    height: 30px;
-    transition: 0.4s;
+    vertical-align: top; 
+    font-size: 0;
 }
-.p-sm a:hover{
-    transform: scale(1.3);
+
+.pe img{
+    width: 100%;
+    height: 237px;
 }
-.p-sm a i{
-    color: #333;
-    line-height: 30px;
+
+.p-name{
+	width: 100%;
+	font-size: 30px;
+    margin-bottom: 16px;
 }
+
 @media screen and (max-width:600px) {
     .pe{
         width: 100%;

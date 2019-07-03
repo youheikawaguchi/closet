@@ -1,11 +1,15 @@
 package com.example.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.model.Area;
 import com.example.model.User;
+import com.example.repository.AreaRepository;
 import com.example.repository.UserRepository;
 @Service
 @Transactional
@@ -14,20 +18,37 @@ public class UserService {
 	UserRepository userRepository;
 	@Autowired
 	PasswordEncoder passwordEncoder;
-	
-	
+	@Autowired
+	AreaRepository areaRepository;
 //	ユーザー登録
-	public User createUser(User user) {
-		
+	public boolean createUser(User user) {
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
 		user.setPassword(encodedPassword);
-		
-		return userRepository.saveAndFlush(user);
+		try {
+			User result = userRepository.findByUserId(user.getUserId());
+			if(result == null) {
+				userRepository.saveAndFlush(user);
+				return true;
+			}else {
+				return false;
+			}
+		}catch(Exception e){
+			return false;
+		}
 	}
-	
+
+	public User getUserByUserId(String userId) {
+		return userRepository.findByUserId(userId);
+	}
 //	プロフィール登録
-	public User createProfiel(User user) {
-		
-		return userRepository.saveAndFlush(user);
+	public User createProfile(User user, User viewer) {
+		viewer.setArea(user.getArea());
+		viewer.setBornYear(user.getBornYear());
+		viewer.setGender(user.getGender());
+		return userRepository.saveAndFlush(viewer);
+	}
+//	エリアの取得
+	public List<Area> getAllArea() {
+		return areaRepository.findAll();
 	}
 }
