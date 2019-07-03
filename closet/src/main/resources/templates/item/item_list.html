@@ -70,6 +70,7 @@
         <button type="button" class="btn btn-block add">新しいアイテムの登録</button>
       </div>
 
+  <div class="flex">
       <div class="pe" th:each=" item : ${itemList}">
         <a th:href="@{/item/item_details}+(__${item.itemId}__)" class="btn btn-block item_list">
           <div>
@@ -151,6 +152,7 @@
 <!--      </a>-->
 <!--      </div>-->
       
+    </div>
     </div>
 
 	<script type="text/javascript" src="/js/header.js"></script> 
