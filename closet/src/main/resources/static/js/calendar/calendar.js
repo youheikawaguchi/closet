@@ -58,7 +58,7 @@ $(document).ready(function () {
 	      $("#calendar").fullCalendar("addEventSource", result);
 	    },
 	    error: function(data) {
-	      alert("登録イベントが取得できませんでした。");
+//	      alert("登録イベントが取得できませんでした。");
 	    }
 	  });
     }

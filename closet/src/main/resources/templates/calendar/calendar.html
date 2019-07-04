@@ -28,15 +28,7 @@
         <div id="coordinate-wrap">
 	        <p id="cordinate-title"></p>
 	        <div id="cordinate-img" class="row m-1">
-	          <div class="item-img col-4 p-2"><div class="bg-info"></div></div>
-	          <div class="item-img col-4 p-2"><div class="bg-info"></div></div>
-	          <div class="item-img col-4 p-2"><div class="bg-info"></div></div>
-	          <div class="item-img col-4 p-2"><div class="bg-info"></div></div>
-	          <div class="item-img col-4 p-2"><div class="bg-info"></div></div>
-	          <div class="item-img col-4 p-2"><div class="bg-info"></div></div>
-	          <div class="item-img col-4 p-2"><div class="bg-info"></div></div>
-	          <div class="item-img col-4 p-2"><div class="bg-info"></div></div>
-	          <div class="item-img col-4 p-2"><div class="bg-info"></div></div>
+		   	   <div class="item-img col-4 p-2" th:each=" item, i : ${itemlist}"><img th:src="@{${item.picture}}" ></div>
 		      <p id="cordinate-memo"></p>
 		      <a href="#">コーデ詳細を見る</a>
 	      	</div>
@@ -70,7 +62,6 @@
   function print(msg) {
 	document.getElementById("message").innerHTML += msg + "<br>";
   }
-  
   
   calendar_id.forEach((value, index, array) => {
 	  print(calendar_id[index]);
