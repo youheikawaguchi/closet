@@ -50,28 +50,30 @@ table {
 
 /* --------   reset css   ------------ */
 
+.code_info{
+	padding-top: 120px;	
+}
 
 .img_list {
-    margin-top: 70px;
+    width: 536px;
+    margin: auto;
+    margin-top: 100px;
+    border: 1px solid;
+    padding-top: 58px;
 }
 
 ul {
     width: 536px;
     height: 600px;
-    border: solid #616161;
-    margin: auto;
-    padding: 40px 10px 40px 10px;
 }
 
-li {
+.i1 {
     float: left;
     list-style: none;
     width: 150px;
     height: 150px;
-    border: solid 2px #616161;
-    margin: 10px;
-    text-align: center;
-    background-color: #E0E0E0;
+    border: 1px solid black;
+    margin: 14px;
 }
 
 .c_dsc {
@@ -79,7 +81,7 @@ li {
     margin: 50px auto;
 }
 
-p {
+.c_dsc_p {
     width: 766px;
     font-weight: bold;
     font-size: 38px;
@@ -98,12 +100,12 @@ p {
 }
 
 .c_button {
-    width: 665px;
+    width: 650px;
     margin: auto;
 }
 
 .btn {
-    width: 250px;
+    width: 240px;
     height: 80px;
     margin: 40px;
 }

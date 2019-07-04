@@ -8,6 +8,7 @@ import com.example.service.CoordinateService;
 import com.example.service.ItemService;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -26,12 +27,15 @@ public class CoordinateController {
 
     @Autowired
     CoordinateService coordinateService;
+    @Autowired
+    CoordinateForm coordinateForm;
 
     @GetMapping(value = {"/add"})
     public ModelAndView coordinateAdd(){
         ModelAndView mav = new ModelAndView();
-        mav.addObject(new CoordinateForm());
-        mav.setViewName("/coordinate/code_add");
+        coordinateForm = new CoordinateForm();
+        mav.addObject("coordinateForm", coordinateForm);
+        mav.setViewName("coordinate/code_add");
         return mav;
     }
 
@@ -59,7 +63,7 @@ public class CoordinateController {
         mav.setViewName("/coordinate/only_code_dsc" + coordinateId);
         return mav;
     }
-
+    //コーディネート一覧
     @GetMapping(value = {"/list"})
     public ModelAndView coordinateList(ModelAndView mav,@AuthenticationPrincipal UserDetails userDetails){
     	List<Coordinate> codeList = coordinateService.userCoordinateList(userDetails);
@@ -84,12 +88,9 @@ public class CoordinateController {
         return mav;
     }
 
-
     // コーデ登録時のアイテム一覧画面への遷移
     @PostMapping(value = {"/addSave"})
     public ModelAndView coordinateAddSave(ModelAndView mav, CoordinateForm coordinateForm){
-        SessionForm sessionForm = new SessionForm();
-        sessionForm.coordinateForm = coordinateForm;
         mav.setViewName("item/item_list");
         mav.addObject("flg", true);
         return mav;
@@ -98,8 +99,8 @@ public class CoordinateController {
     // コーデ登録時のアイテム一覧画面からの遷移
     @PostMapping(value = {"/responseItem{id}"})
     public ModelAndView coordinateResponseItem(ModelAndView mav, @PathVariable String id){
-        SessionForm sessionForm = new SessionForm();
-        CoordinateForm coordinateForm = sessionForm.getCoordinateForm();
+        Optional<Item> item = coordinateService.coordinateSearchItem(Integer.parseInt(id));
+        coordinateForm.getItemList().add(item.get());
         mav.addObject(coordinateForm);
         mav.setViewName("/coordinate/only_code_dsc");
         return mav;

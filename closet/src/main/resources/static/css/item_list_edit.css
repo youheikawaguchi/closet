@@ -1,22 +1,19 @@
+/* ヘッダー以下全体 */
 .container-fluid{
 	padding-top: 120px;
 }
 
-
-/* アイテム登録ボタン */
-.btn.btn-block.add{
-    margin: 10px 0;
-    background: #D9B918;
-    color: white;
-    font-size: 40px;
-    font-weight: bolder;
+/* 条件選択 */
+.select{
+	margin-top: 20px;
 }
 
-.btn.btn-block.item_list{
-	width: 100%;
-	padding: 2%;
-	font-size: 30px;
-	text-align: left;
+/* スライドメニュー */
+#item_menu {
+    width: 100%;
+    text-align: center;
+    display: block;
+    font-size: 100%;
 }
 
 /* カラーパレット */
@@ -25,23 +22,19 @@ input{
     height: 60px;
 }
 
-/* 検索条件 */
-.select{
-	margin-top: 20px;
+/* アイテム登録遷移ボタン */
+.btn.btn-block.add{
+    margin: 10px 0;
+    background: #D9B918;
+    color: white;
+    font-size: 40px;
+    font-weight: bolder;
 }
 
-ul , li{
+ul,li{
 	list-style: none;
 	margin-left: 0;
 	padding-left: 0;
-}
-
-/* カテゴリ､季節選択 */
-#item_menu {
-    width: 100%;
-    text-align: center;
-    display: block;
-    font-size: 100%;
 }
 
 #category , #season{
@@ -49,20 +42,20 @@ ul , li{
     border-bottom: 3px solid gray;
 }
 
-/* 選択中のカテゴリ､季節 */
+/* 選択中のカテゴリ表示 */
 span{
     color: dimgrey;
     font-size: 50px;
 }
 
-/* カテゴリ1 */
+/* カテゴリー１ */
 .category1 h1{
     background-color: #C2E9F2;
     border-bottom: 2px solid #A6D0DA;
     font-size: 50px;
 }
 
-/* カテゴリ2 */
+/* カテゴリー２ */
 .category2 li{
     font-size: 40px;
     border-bottom: 1px solid #C2E9F2;
@@ -75,13 +68,13 @@ span{
     margin: 5px auto;
 }
 
-/* カテゴリ1,カテゴリ2,季節の項目非表示 */
+/* カテゴリー１、カテゴリー２、季節を非表示 */
 ul.category1,ul.category2,ul.season{
     display: none;
 }
 
+/* アイテム表示部分全体 */
 .flex{
-/* 	width: 100%; */
 	display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -91,21 +84,31 @@ ul.category1,ul.category2,ul.season{
     justify-content: space-around;
 }
 
-/* アイテム写真＋情報のボックス */
+/* アイテムとアイテム情報 */
 .pe{
 	width: 25%;
-    max-width: 241px;	
+    max-width: 241px;
+    position: relative;
 }
-
+.pe a{
+	position: absolute;
+  	top: 0;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+}
+/* アイテム写真 */
 .pe img{
     width: 100%;
     max-width: 237px;
     height: 237px;
 }
-
+/* アイテム情報 */
 .p-name{
 	width: 100%;
 	font-size: 30px;
+	text-align: left;
+	padding: 2%;
     margin-bottom: 16px;
 }
 

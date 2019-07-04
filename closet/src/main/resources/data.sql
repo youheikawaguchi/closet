@@ -4,6 +4,7 @@ INSERT IGNORE INTO category (category_id,category_name)
 VALUES(1,"トップス"),(2,"アウター"),(3,"ボトムス"),(4,"ワンピース"),(5,"小物");
 INSERT IGNORE INTO sub_category (sub_category_id,category_id,subcategory_name)
 VALUES(1,1,"シャツ/ブラウス/カットソー"),(2,1,"ニット"),(3,1,"パーカー/スウェット"),(4,2,"ジャケット"),(5,2,"コート"),(6,2,"ブルゾン"),(7,3,"パンツ"),(8,3,"スカート"),(9,4,"ワンピース"),(10,4,"サロペット"),(11,4,"オールインワン"),(12,5,"帽子"),(13,5,"バッグ"),(14,5,"シューズ");
+--ユーザー
 INSERT IGNORE INTO users (user_id,password,gender,born_year,admin_key,area_id)
     VALUES('IKEDA','4bd854ce541bb5c459f10a1a107d27eeee9d59354021b294b1d81dddb6440966277fde101a6d9ee6','女',1994,0,3);
 INSERT IGNORE INTO users (user_id,password,gender,born_year,admin_key,area_id)
@@ -11,26 +12,41 @@ INSERT IGNORE INTO users (user_id,password,gender,born_year,admin_key,area_id)
     INSERT IGNORE INTO users (user_id,password,gender,born_year,admin_key,area_id)
         VALUES('testid','7579e8efa01e16c0370163b62af00864817adc4b3a76eb67444fb9dd6034ef9f8cc16d43106fc5a3','男',1996,12,15);
 update users set area_id = 13 where id = 3;
+--アイテム
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
     VALUES(1,1,1,1,1,1, 'picture',"メモ");
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
-        VALUES(2,1,1,1,1,3, 'picture1',"comant");
+        VALUES(2,3,1,1,1,3, 'picture1',"comant1");
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
-        VALUES(3,1,1,1,1,3, 'picture2',"hoge");
+        VALUES(3,3,1,1,1,3, 'picture2',"hoge2");
+INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
+        VALUES(4,1,1,1,1,3, 'picture3',"comant3");
+INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
+        VALUES(5,1,1,1,1,3, 'picture4',"hoge4");
+INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
+        VALUES(6,1,1,1,1,3, 'picture5',"comant5");
+INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
+        VALUES(7,1,1,1,1,3, 'picture6',"hoge6");
+--カレンダー
 INSERT IGNORE INTO calendar (calendar_id,id,coordinate_id,event,event_date,met_person)
     VALUES(1, 1, 1,'event', "2019-06-17", "met_person");
     INSERT IGNORE INTO calendar (calendar_id,id,coordinate_id,event,event_date,met_person)
         VALUES(2, 3, 2,'eventname', "2019-06-25", "parent");
+--コーディネート
 INSERT IGNORE INTO coordinate (coordinate_id,id,coordinate_title,comment,created_at,updated_at,have_calendar)
     VALUES(1, 1,'title', "coment", "2019-06-17", "2019-06-17",1);
-    INSERT IGNORE INTO coordinate (coordinate_id,id,coordinate_title,comment,created_at,updated_at,have_calendar)
+INSERT IGNORE INTO coordinate (coordinate_id,id,coordinate_title,comment,created_at,updated_at,have_calendar)
         VALUES(2, 3,'title', "coment", "2019-06-17", "2019-06-17",1);
+INSERT IGNORE INTO coordinate (coordinate_id,id,coordinate_title,comment,created_at,updated_at,have_calendar)
+        VALUES(3, 3,'タイトル', "コメント", "2019-06-17", "2019-06-17",0);
+-- 各タグ
 INSERT IGNORE INTO season (season_id,season_name) VALUES(1,"春"),(2,"夏"),(3,"秋"),(4,"冬"),(5,"春夏"),(6,"秋冬"),(7,"ALL SEASON");
 INSERT IGNORE INTO color (color_id,color_name)
 VALUES(1,"ホワイト"),(2,"ブラック"),(3,"グレー"),(4,"ブラウン"),(5,"ベージュ"),(6,"グリーン"),(7,"ブルー"),(8,"パープル"),(9,"イエロー"),(10,"ピンク"),(11,"レッド"),(12,"オレンジ"),(13,"シルバー"),(14,"ゴールド"),(15,"その他");
+--コーディネートチョイス
 delete from coordinate_choice;
 INSERT IGNORE INTO coordinate_choice (item_id,coordinate_id)
-VALUES(2,2),(3,2);
+VALUES(2,2),(3,2),(4,3),(5,3),(6,3),(7,3);
 -- 以下Areaデータインサート文
 INSERT IGNORE INTO areas (area_id,area_name,latitude,longitude)VALUES(1,"北海道",43.06417,141.34694);
 INSERT IGNORE INTO areas (area_id,area_name,latitude,longitude)VALUES(2,"青森県",40.82444,140.74);
