@@ -13,8 +13,9 @@ import java.util.List;
 public class CalendarForm {
 
     private List<Item> itemList;
+    private String memo;
+    
     private String event;
     private Date eventDate;
     private String metPerson;
-    private String memo;
 }
