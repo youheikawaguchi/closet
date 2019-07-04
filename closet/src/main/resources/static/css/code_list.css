@@ -10,28 +10,46 @@
     margin: 2%;
     padding: 2%;
     border: solid 1px black;
+    position: relative;
 }
 
-/* �����N�͈͗v�f */
-.btn.btn-block.code{
+.code_list a{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+}
+
+.flex{
+/* 	width: 100%; */
+	display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;	
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+/* �ｿｽ�ｿｽ�ｿｽ�ｿｽ�ｿｽN�ｿｽﾍ囲要�ｿｽf */
+.dsc{
 	width: 100%;
-	padding: 2%;
+	margin-top: 2%;
+	padding-top: 2%;
 	font-size: 30px;
 	text-align: left;
 }
 
-/* �R�[�f�g�p�A�C�e�� */
+/* �ｿｽR�ｿｽ[�ｿｽf�ｿｽg�ｿｽp�ｿｽA�ｿｽC�ｿｽe�ｿｽ�ｿｽ */
 .item{
     width: 31%;
     height: 125px;
     border: solid 1px black;
-    float: left;
-    margin: 1%;
-    text-align: center;
-    font-size: 30px;
 }
 
-/* �R�[�f�o�^�{�^�� */
+/* �ｿｽR�ｿｽ[�ｿｽf�ｿｽo�ｿｽ^�ｿｽ{�ｿｽ^�ｿｽ�ｿｽ */
 .add_button{
     width: 150px;
     height: 150px;
@@ -45,14 +63,18 @@
     right: 5%;
 }
 
-/* �^�C�g���A�C�x���g���A���t�Ȃ� */
-p{
+/* �ｿｽ^�ｿｽC�ｿｽg�ｿｽ�ｿｽ�ｿｽA�ｿｽC�ｿｽx�ｿｽ�ｿｽ�ｿｽg�ｿｽ�ｿｽ�ｿｽA�ｿｽ�ｿｽ�ｿｽt�ｿｽﾈゑｿｽ */
+.dsc p.event, p.date, p.title{
     font-size: 30px;
     font-weight: bold;
-    padding: 5px;
+    padding: 2% 2%;
+    margin-top: 2%;
 }
-
-/* �A�C�e���ʐ^ */
+.dsc p.e_name, p.d_name, p.t_name{
+	padding-left: 4%;	
+}
+	
+/* �ｿｽA�ｿｽC�ｿｽe�ｿｽ�ｿｽ�ｿｽﾊ真 */
 img{
     width: 100%;
     height: 100%;

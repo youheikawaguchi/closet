@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
     <link rel="stylesheet" type="text/css" th:href="@{/css/code_add1.css}">
-    <link rel="stylesheet" th:href="@{/css/header.css}" type="text/css" media="all">  
+    <link rel="stylesheet" th:href="@{/css/header.css}"  type="text/css" media="all">  
     
     <title>コーディネート登録</title>
     
@@ -22,7 +22,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="add.js"></script>
 -->
-    <div class=header></div>
         <div class=slc>
             <select id="select1" class="custom-select" name="have_calender" onchange="c_Code()">
                 <option selected value="0">------</option>
@@ -38,35 +37,21 @@
         <div class="photobtn">
             <div class="photobtn_add">
            
-<div class="img_list">
-<ul>
-<li class="i1"><img src=""></li>
-<li class="i1"><img src=""></li>
-<li class="i1"><img src=""></li>
-<br>
-<li class="i1"><img src=""></li>
-<li class="i1"><img src=""></li>
-<li class="i1"><img src=""></li>
-<br>
-<li class="i1"><img src=""></li>
-<li class="i1"><img src=""></li>
-<li class="i1"><img src=""></li>
-</ul>
-</div>
-            <!-- 
-                <button type="button" class="btn1 btn-info1" name="c_item1">＋</button>
-                <button type="button" class="btn1 btn-info1" name="c_item2">＋</button> 
-                <button type="button" class="btn1 btn-info1" name="c_item3">＋</button> 
-                <br>
-                <button type="button" class="btn1 btn-info1" name="c_item4">＋</button>
-                <button type="button" class="btn1 btn-info1" name="c_item5">＋</button> 
-                <button type="button" class="btn1 btn-info1" name="c_item6">＋</button>
-                <br>
-                <button type="button" class="btn1 btn-info1" name="c_item7">＋</button>
-                <button type="button" class="btn1 btn-info1" name="c_item8">＋</button> 
-                <button type="button" class="btn1 btn-info1" name="c_item9">＋</button> 
-                <br>
-               -->
+	<div class="img_list">
+	<ul>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+	<br>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+	<br>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+	</ul>
+	</div>
             </div>
         </div>
         <div class="form1">
@@ -90,35 +75,21 @@
         <div class="photobtn">
             <div class="photobtn_add">
             
-            <div class="img_list">
-<ul>
-<li class="i1"><img src="/images/item/bag.jpg"></li>
-<li class="i1"><img src=""></li>
-<li class="i1"><img src=""></li>
-<br>
-<li class="i1"><img src=""></li>
-<li class="i1"><img src=""></li>
-<li class="i1"><img src=""></li>
-<br>
-<li class="i1"><img src=""></li>
-<li class="i1"><img src=""></li>
-<li class="i1"><img src=""></li>
-</ul>
+    <div class="img_list">
+	<ul>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+	<br>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+	<br>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+	</ul>
 </div>
-            <!-- 
-                <button type="button" class="btn1 btn-info1" name="c_item1">＋</button>
-                <button type="button" class="btn1 btn-info1" name="c_item2">＋</button> 
-                <button type="button" class="btn1 btn-info1" name="c_item3">＋</button> 
-                <br>
-                <button type="button" class="btn1 btn-info1" name="c_item4">＋</button>
-                <button type="button" class="btn1 btn-info1" name="c_item5">＋</button> 
-                <button type="button" class="btn1 btn-info1" name="c_item6">＋</button>
-                <br>
-                <button type="button" class="btn1 btn-info1" name="c_item7">＋</button>
-                <button type="button" class="btn1 btn-info1" name="c_item8">＋</button> 
-                <button type="button" class="btn1 btn-info1" name="c_item9">＋</button> 
-                <br>
-                -->
             </div>
         </div>
 
@@ -157,6 +128,7 @@
     
     </div>
     
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="/js/header.js"></script> 
 	<script type="text/javascript" src="/js/code_add.js"></script>
 	
