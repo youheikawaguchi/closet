@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.Calendar;
+import com.example.model.CalendarForm;
 import com.example.model.CoordinateForm;
 import com.example.service.CalendarService;
 
@@ -30,15 +31,16 @@ public class CalendarController {
 	@Autowired
 	CalendarService calendarService;
 	
+	// カレンダーの表示
 	@GetMapping("/calendar")
-	public ModelAndView showCalendarTest(ModelAndView mav) {
+	public ModelAndView showCalendar(ModelAndView mav) {
 		List<Calendar> calendarlist = calendarService.getAllCalendar();
 		
 		mav.addObject("calendarlist", calendarlist);
 		mav.setViewName("calendar/calendar");
 		return mav;
 	}
-	
+		
 	@ResponseBody
 	@GetMapping("/calendar/getcode")
 	public ResponseEntity<List<Calendar>> json(){
@@ -74,5 +76,26 @@ public class CalendarController {
         
         return mav;
     }
+    
+	// コーデ詳細の表示
+	@GetMapping("/calendar/Clnder_code_dsc")
+	public ModelAndView showCalendarCoord(ModelAndView mav) {
+
+		mav.setViewName("calendar/Clnder_code_dsc");
+		return mav;
+	}
+	
+	// カレンダー登録の表示
+	@GetMapping("/calendar/add")
+	public ModelAndView showAddCalendar(ModelAndView mav, @RequestParam(name = "date", required = false) String date) {
+
+		mav.addObject("date", date);
+
+		mav.addObject(new CoordinateForm());
+		mav.addObject(new CalendarForm());
+		
+		mav.setViewName("/coordinate/code_add");
+		return mav;
+	}
 	
 }
