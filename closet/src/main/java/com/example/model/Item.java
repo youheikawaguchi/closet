@@ -20,8 +20,11 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.Data;
 import lombok.Getter;
@@ -32,6 +35,7 @@ import lombok.Setter;
 //@Data
 @Entity
 @Table(name = "items")
+@JsonIgnoreProperties({"coordinate"}) // これを有効化することで、親テーブル自体をjsonに含めない指定
 public class Item {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,36 +45,33 @@ public class Item {
 	/*CategoryID*/
 	@JsonIgnore
 	@ManyToOne
-	@JsonIdentityReference(alwaysAsId = true)
 	@JoinColumn(name = "category_id")
 	private Category category;
 	
 	/*subCategoryID*/
 	@JsonIgnore
 	@ManyToOne
-	@JsonIdentityReference(alwaysAsId = true)
 	@JoinColumn(name = "sub_category_id")
 	private SubCategory subCategory;
 	
 	/*SeasonID*/
 	@JsonIgnore
 	@ManyToOne
-	@JsonIdentityReference(alwaysAsId = true)
 	@JoinColumn(name = "season_id")
 	private Season season;
 	
 	/*ColorID*/
 	@JsonIgnore
 	@ManyToOne
-	@JsonIdentityReference(alwaysAsId = true) 
 	@JoinColumn(name = "color_id")
 	private Color color;
 	
 	/*usersのID:双方向にするとき*/
 	@JsonIgnore
 	@ManyToOne
-	@JsonIdentityReference(alwaysAsId = true)
 	@JoinColumn(name = "id")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)
 	private User user;
 	
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
@@ -93,6 +94,8 @@ public class Item {
 	
 	/*coordenateとの多対多連携*/
     @ManyToMany
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "coordinateId")//循環参照防止
+    @JsonIdentityReference(alwaysAsId = true)//循環参照防止
     @JoinTable(name="coordinate_choice",
     	schema="closet",
     	joinColumns = @JoinColumn( name = "item_id",referencedColumnName="item_id"),
