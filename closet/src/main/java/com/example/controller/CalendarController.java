@@ -64,24 +64,12 @@ public class CalendarController {
  
 		return ResponseEntity.ok(calendar);
 	}	
-	
-    @PostMapping(value = {"/add"})
-    public ModelAndView AddCalendar(ModelAndView mav, 
-    		@ModelAttribute("calendar") @Validated Calendar calendar, 
-    		@AuthenticationPrincipal UserDetails userDetails,
-    		BindingResult bindingResult){
-    	
-    	Integer calendarId = calendarService.createCalendar(calendar, userDetails);
-        mav.setViewName("/calendar/clnder_code_dsc/" + calendarId);
-        
-        return mav;
-    }
-    
+	    
 	// コーデ詳細の表示
-	@GetMapping("/calendar/Clnder_code_dsc")
-	public ModelAndView showCalendarCoord(ModelAndView mav) {
+	@GetMapping({"/calendar/Clnder_code_dsc", "/calendar/details"})
+	public ModelAndView showCalendarCoord(ModelAndView mav, @RequestParam(name = "c_id", required = false) int c_id) {
 
-		mav.setViewName("calendar/Clnder_code_dsc");
+		mav.setViewName("calendar/Clnder_code_dsc" + c_id);
 		return mav;
 	}
 	
@@ -98,4 +86,16 @@ public class CalendarController {
 		return mav;
 	}
 	
+	// カレンダー登録の登録処理
+    @PostMapping(value = {"/calendar/add"})
+    public ModelAndView AddCalendar(ModelAndView mav, 
+    		@ModelAttribute("calendar") @Validated CalendarForm calendarForm, 
+    		@AuthenticationPrincipal UserDetails userDetails,
+    		BindingResult bindingResult){
+    	
+    	calendarService.createCalendar(calendarForm, userDetails);
+        mav.setViewName("/calendar");
+        
+        return mav;
+    }
 }

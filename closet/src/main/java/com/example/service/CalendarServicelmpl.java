@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.example.model.Calendar;
+import com.example.model.CalendarForm;
 import com.example.model.Coordinate;
 import com.example.model.User;
 import com.example.repository.CalendarRepository;
@@ -36,7 +37,7 @@ public class CalendarServicelmpl implements CalendarService{
 	}
 	
 	@Override
-	public Integer createCalendar(Calendar calendarForm, UserDetails userDetails) {
+	public Integer createCalendar_old(Calendar calendarForm, UserDetails userDetails) {
 		Calendar calendar = new Calendar();
 		
 		// User
@@ -60,4 +61,27 @@ public class CalendarServicelmpl implements CalendarService{
 		return calendar.getCalendarId();
 	}
 	
+	@Override
+	public Calendar createCalendar(CalendarForm calendarForm, UserDetails userDetails) {
+		Calendar calendar = new Calendar();
+		
+		// User
+		// GetUserDetails
+		User user = userRepository.findByUserId(userDetails.getUsername());
+		calendar.setUser(user);
+		
+		// Coordinate
+		Coordinate coordinate = new Coordinate();
+		coordinate.setItemlist(calendarForm.getItemList());
+		coordinate.setComment(calendarForm.getMemo());
+		calendar.setCoordinate(coordinate);
+		
+		// Event, Date, P
+		calendar.setEvent(calendarForm.getEvent());
+		calendar.setEventDate(calendarForm.getEventDate());
+		calendar.setMetPerson(calendarForm.getMetPerson());
+
+		return calendar = calendarRepository.saveAndFlush(calendar);
+	}
+
 }
