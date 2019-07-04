@@ -1,18 +1,44 @@
-
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <div class="header" th:fragment="header">
     
-<img class="header_logo" src="/images/header/header_logo.png" alt="ロゴ">
+<img class="header_logo" th:src="@{/images/header/header_logo.png}" alt="ロゴ">
    
 <dl id="menu">
-    <dt><img class="hamburger" src="/images/header/hamburger.png" alt="ハンバーガーボタン"></dt>
-    <dd id="header_username"><a href="#" class="btn btn-header usr">ユーザー名さん</a></dd>
-    <dd id="header_top"><a href="/top" class="btn btn-header">TOP</a></dd>
-    <dd id="header_clo"><a href="/item/item_list" class="btn btn-header">Item</a></dd>
-    <dd id="header_item"><a href="/coordinate/list" class="btn btn-header">Coordinate</a></dd>
-    <dd id="header_calendar"><a href="/calendar" class="btn btn-header">Calendar</a></dd>
-    <dd id="header_logout"><a href="#" class="btn btn-header logout">ログアウト</a></dd>
+    <dt><img class="hamburger" th:src="@{/images/header/hamburger.png}" alt="ハンバーガーボタン"></dt>
+    <dd id="header_username" >
+    <form th:action="@{/user/profile}" class="user">
+    <button class="btn btn-header" th:text="${user.userId} + 'さん'">ユーザー名さん</button>
+    </form>
+    </dd>
+    <dd id="header_top">
+    <form th:action="@{/top}">
+    <button class="btn btn-header">TOP</button>
+    </form>
+    </dd>
+    <dd id="header_clo">
+    <form th:action="@{/item/item_list}">
+    <button class="btn btn-header">Item</button>
+    </form>
+    </dd>
+    <dd id="header_item">
+    <form th:action="@{/coordinate/list}">
+    <button class="btn btn-header">Coordinate</button>
+    </form>
+    </dd>
+    <dd id="header_calendar">
+    <form th:action="@{/calendar}">
+    <button class="btn btn-header">Calendar</button>
+    </form>
+    </dd>
+    <dd id="header_logout">
+    <form role="form" th:action="@{/logout}" method="post" class="logout">
+    <button class="btn btn-header">ログアウト</button>
+    </form>
+    </dd>
+	
 </dl> 
     
 </div>
 
+</html>
