@@ -131,7 +131,7 @@
             <div class="c_date">
             <div class="Date1">
                 <label for="date2" id="c_label"></label>
-                <input type="date" class="fron-control" id="Dateid" placeholder="Date">
+                <input type="date" class="fron-control" id="Dateid" placeholder="Date" th:value="${strDate}">
             </div>
             
             <div class="calender_photo"></div>
@@ -154,6 +154,9 @@
                 <button type="button" class="btn btn-warning">登録</button>
             </div>
     </form>
+    
+    <a th:text="${strDate}"></a><br>
+    <a th:text="${date}"></a>
     
     </div>
     
