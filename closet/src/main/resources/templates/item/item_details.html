@@ -2,8 +2,9 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../static/css/item_details.css" th:href="@{/css/item_details.css}" type="text/css">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="../../static/css/item_details.css" th:href="@{/css/item_details.css}" type="text/css">
 	<link rel="stylesheet" th:href="@{/css/header.css}" type="text/css" media="all"> 
 </head>
 <body>
@@ -34,20 +35,21 @@
 <!--    削除確認(モーダル表示)-->
     <div id="overlay"></div>
     <div id="modalWindow">
-        <p class="del_mes">本当に削除しますか？</p>
+    <div class="button">
+        <p  class="del_mes">本当に削除しますか？</p>
         <div class="out_block">
-        <div class="in_block">
-        <form>
-        <a th:href="@{/item/item_delete/}"></a>
-        <input class="btn btn-yes" type="submit" value="はい"/>
-        </form>
-        </div>
-        <div class="in_block">
-        <button id="close" class="btn btn-no">いいえ</button>
-        </div></div>
+          <div class="in_block">
+            <form th:action="@{/item/item_details{id}(id=${item.itemId})}" th:method="delete">
+              <input class="btn btn-default btn-red" type="submit" value="はい" />
+            </form>
+          </div>
+          <div class="in_block">
+            <button id="close" class="btn btn-default">いいえ</button>
+          </div>
+       </div>
     </div>
 <!--    ここまでモーダル-->
-	</div>
+</div>
 
 	
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
