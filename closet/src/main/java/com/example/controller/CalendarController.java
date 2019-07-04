@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.Calendar;
+import com.example.model.CalendarForm;
 import com.example.model.CoordinateForm;
 import com.example.service.CalendarService;
 
@@ -33,6 +34,7 @@ public class CalendarController {
 	@Autowired
 	CalendarService calendarService;
 	
+	// カレンダーの表示
 	@GetMapping("/calendar")
 	public ModelAndView showCalendar(ModelAndView mav) {
 		List<Calendar> calendarlist = calendarService.getAllCalendar();
@@ -73,19 +75,24 @@ public class CalendarController {
 		return mav;
 	}
 	
-	@GetMapping("/add={strDate}")
-	public ModelAndView showCalendarAdd(ModelAndView mav, @PathVariable("strDate") String strDate) throws ParseException {
+	// カレンダー登録ページの表示
+	@GetMapping("/calendar/add")
+	public ModelAndView showCalendarAddDate(ModelAndView mav, @RequestParam(name = "date", required = false) String date) {
 
-		mav.addObject("strDate", strDate);
-		
-		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = sdFormat.parse(strDate);
 		mav.addObject("date", date);
+		
+//		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
+//		Date dDate = sdFormat.parse(date);
+//		mav.addObject("dDate", dDate);
+		
+		mav.addObject(new CoordinateForm());
+		mav.addObject(new CalendarForm());
 		
 		mav.setViewName("/coordinate/code_add");
 		return mav;
 	}
 	
+	// カレンダー登録処理
     @PostMapping(value = {"/add/add_calendar"})
     public ModelAndView AddCalendar(ModelAndView mav, 
     		@ModelAttribute("calendar") @Validated Calendar calendar, 
