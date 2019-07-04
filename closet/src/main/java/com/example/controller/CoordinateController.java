@@ -58,7 +58,7 @@ public class CoordinateController {
         mav.setViewName("/coordinate/only_code_dsc" + coordinateId);
         return mav;
     }
-
+    //コーディネート一覧
     @GetMapping(value = {"/list"})
     public ModelAndView coordinateList(ModelAndView mav,@AuthenticationPrincipal UserDetails userDetails){
     	List<Coordinate> codeList = coordinateService.userCoordinateList(userDetails);
