@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -75,7 +76,17 @@ public class CoordinateServiceImpl implements CoordinateService {
     }
 
     private int coordinateSet(Coordinate coordinate, CoordinateForm coordinateForm){
-        coordinate.setItemlist(coordinateForm.getItemList());
+//        if(coordinateForm.getItemList().size() <= 9){
+//            for(int i = coordinateForm.getItemList().size(); i <= 9; i++){
+//                coordinateForm.getItemList().add();
+//            }
+//        }
+        if(coordinateForm.getItemList() != null) {
+//            List<Item> itemlist = new ArrayList<Item>();
+            coordinate.setItemlist(coordinateForm.getItemList());
+//            coordinate.setItemlist(itemlist);
+        }
+
         coordinate.setCoordinate_title(coordinateForm.getTitle());
         coordinate.setComment(coordinateForm.getMemo());
         coordinate.setHaveCalender(0);
