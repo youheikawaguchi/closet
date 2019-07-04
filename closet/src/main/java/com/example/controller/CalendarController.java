@@ -22,14 +22,24 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.Calendar;
 import com.example.model.CalendarForm;
+import com.example.model.Coordinate;
 import com.example.model.CoordinateForm;
+import com.example.model.User;
 import com.example.service.CalendarService;
+import com.example.service.CoordinateService;
+import com.example.service.UserService;
 
 @Controller
 public class CalendarController {
 	
 	@Autowired
 	CalendarService calendarService;
+	
+	@Autowired
+	CoordinateService coordinateService;
+	
+	@Autowired
+	UserService userService;
 	
 	// カレンダーの表示
 	@GetMapping("/calendar")
@@ -67,10 +77,23 @@ public class CalendarController {
 	    
 	// コーデ詳細の表示
 	@GetMapping({"/calendar/Clnder_code_dsc", "/calendar/details"})
-	public ModelAndView showCalendarCoord(ModelAndView mav, @RequestParam(name = "c_id", required = false) String c_id) {
+	public ModelAndView showCalendarCoord(ModelAndView mav
+			, @RequestParam(name = "c_id", required = false) int c_id
+			, @AuthenticationPrincipal UserDetails userDetails) {
 
-		mav.setViewName("calendar/Clnder_code_dsc");
-//		mav.setViewName("calendar/Clnder_code_dsc" + c_id);
+		User viewer = userService.getUserByUserId(userDetails.getUsername());
+		Calendar calendar = calendarService.getCalendarById(c_id);
+		
+		mav.addObject("calendar", calendar);
+		
+		if(viewer.getId() != calendar.getUser().getId()) {
+			mav.setViewName("/calendar"); 
+		}
+		else {
+			mav.setViewName("calendar/Clnder_code_dsc");
+//			mav.setViewName("calendar/Clnder_code_dsc" + c_id);
+		}
+
 		return mav;
 	}
 	
@@ -80,7 +103,6 @@ public class CalendarController {
 
 		mav.addObject("date", date);
 
-		mav.addObject(new CoordinateForm());
 		mav.addObject(new CalendarForm());
 		
 		mav.setViewName("/coordinate/code_add");
