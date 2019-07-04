@@ -21,8 +21,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.Calendar;
+import com.example.model.CalendarForm;
+import com.example.model.Coordinate;
 import com.example.model.CoordinateForm;
+import com.example.model.User;
 import com.example.service.CalendarService;
+import com.example.service.CoordinateService;
+import com.example.service.UserService;
 
 @Controller
 public class CalendarController {
@@ -30,15 +35,22 @@ public class CalendarController {
 	@Autowired
 	CalendarService calendarService;
 	
+	@Autowired
+	CoordinateService coordinateService;
+	
+	@Autowired
+	UserService userService;
+	
+	// カレンダーの表示
 	@GetMapping("/calendar")
-	public ModelAndView showCalendarTest(ModelAndView mav) {
+	public ModelAndView showCalendar(ModelAndView mav) {
 		List<Calendar> calendarlist = calendarService.getAllCalendar();
 		
 		mav.addObject("calendarlist", calendarlist);
 		mav.setViewName("calendar/calendar");
 		return mav;
 	}
-	
+		
 	@ResponseBody
 	@GetMapping("/calendar/getcode")
 	public ResponseEntity<List<Calendar>> json(){
@@ -62,17 +74,52 @@ public class CalendarController {
  
 		return ResponseEntity.ok(calendar);
 	}	
+	    
+	// コーデ詳細の表示
+	@GetMapping({"/calendar/Clnder_code_dsc", "/calendar/details"})
+	public ModelAndView showCalendarCoord(ModelAndView mav
+			, @RequestParam(name = "c_id", required = false) int c_id
+			, @AuthenticationPrincipal UserDetails userDetails) {
+
+		User viewer = userService.getUserByUserId(userDetails.getUsername());
+		Calendar calendar = calendarService.getCalendarById(c_id);
+		
+		mav.addObject("calendar", calendar);
+		
+		if(viewer.getId() != calendar.getUser().getId()) {
+			mav.setViewName("calendar/calendar"); 
+		}
+		else {
+			mav.setViewName("calendar/Clnder_code_dsc");
+//			mav.setViewName("calendar/Clnder_code_dsc" + c_id);
+		}
+
+		mav.setViewName("calendar/Clnder_code_dsc");
+		return mav;
+	}
 	
-    @PostMapping(value = {"/add"})
+	// カレンダー登録の表示
+	@GetMapping("/calendar/add")
+	public ModelAndView showAddCalendar(ModelAndView mav, @RequestParam(name = "date", required = false) String date) {
+
+		mav.addObject("date", date);
+
+		mav.addObject(new CalendarForm());
+		
+		mav.setViewName("/coordinate/code_add");
+		return mav;
+	}
+	
+	// カレンダー登録の登録処理
+    @PostMapping(value = {"/calendar/add"})
     public ModelAndView AddCalendar(ModelAndView mav, 
-    		@ModelAttribute("calendar") @Validated Calendar calendar, 
+    		@ModelAttribute("calendar") @Validated CalendarForm calendarForm, 
     		@AuthenticationPrincipal UserDetails userDetails,
     		BindingResult bindingResult){
     	
-    	Integer calendarId = calendarService.createCalendar(calendar, userDetails);
-        mav.setViewName("/calendar/clnder_code_dsc/" + calendarId);
+    	calendarService.createCalendar(calendarForm, userDetails);
+        mav.setViewName("/calendar");
         
         return mav;
     }
-	
 }

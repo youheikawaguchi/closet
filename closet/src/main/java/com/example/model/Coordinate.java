@@ -30,6 +30,7 @@ import lombok.Setter;
 @Setter
 //@Data
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property="@Id")
 @Table(name = "coordinate")
 public class Coordinate {
 
@@ -40,8 +41,6 @@ public class Coordinate {
 	
 	@JsonIgnore
 	@ManyToOne
-	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-    @JsonIdentityReference(alwaysAsId = true)
 	@JoinColumn(name = "id")
 	private User user;
 	

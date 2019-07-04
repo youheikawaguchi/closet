@@ -17,7 +17,10 @@ $(document).ready(function () {
 		var i = $(".fc-row").index(select) - 1;
 		$("#calendar .fc-scroller").height(h);
 		$("#calendar .fc-scroller").animate({scrollTop:h*i});
+//		$("#calendar").height(h);
+//		$("#calendar").animate({scrollTop:h*i});
 		$("#item #date").text(date.format());
+		$("#calendar").css("height","auto");
       
 		$.ajax({
 			url: "/calendar/getdatecoorde",
@@ -29,12 +32,31 @@ $(document).ready(function () {
 			},
 			success: function(cal) {
 				$('#cordinate-title').text(cal.event);
-				console.log(cal.metPerson);
-				console.log(cal.coordinate);
+				$('#metperson').text(cal.metPerson);
+				$('#cordinate-memo').text(cal.comment);
 				
+				//a 空にしてitem画像追加
+				$('#cordinate-img').empty();				
+				$.each(cal.coordinate.itemlist,function(index,value){
+					$('#cordinate-img').append($("<img>").attr("src", value.picture));
+					$("img").error(function(){
+						$(this).attr({
+							"src":"/images/item/noimage.png"
+						});
+					});
+				});
+		    	$('#coordinate_add_link').hide();
+		    	$('#coordinate_detail_link').attr("href","/calendar/detail?c_id="+cal.coordinate.coordinateId);
+
+				console.log(cal.coordinate);
+				console.log(cal.coordinate.itemlist);
+				$('#coordinate-wrap').show();
 		    },
 		    error: function(data) {
-		    	$('#cordinate-title').text(date.format("YYYY-MM-DD"));
+		    	$('#cordinate-title').text(date.format("YYYY年MM月DD日"));
+		    	$('#coordinate_add_link').attr("href","/calendar/add?date="+date.format());
+		    	$('#coordinate_add_link').show();
+		    	$('#coordinate-wrap').hide();
 		    }
 		});
 	      
@@ -58,7 +80,7 @@ $(document).ready(function () {
 	      $("#calendar").fullCalendar("addEventSource", result);
 	    },
 	    error: function(data) {
-	      alert("登録イベントが取得できませんでした。");
+//	      alert("登録イベントが取得できませんでした。");
 	    }
 	  });
     }
@@ -66,6 +88,7 @@ $(document).ready(function () {
   
   //console.log($('#calendar').fullCalendar('getView').start);
   $('#close').on('click', function() {
-      $("#calendar .fc-scroller").height(600);
+      $("#calendar").css("height","100vh");
+      $("#calendar .fc-scroller").css("height","100vh");
   });
 });
