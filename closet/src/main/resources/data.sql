@@ -20,7 +20,7 @@ INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id
 INSERT IGNORE INTO calendar (calendar_id,id,coordinate_id,event,event_date,met_person)
     VALUES(1, 1, 1,'event', "2019-06-17", "met_person");
     INSERT IGNORE INTO calendar (calendar_id,id,coordinate_id,event,event_date,met_person)
-        VALUES(2, 3, 2,'eventname', "2019-06-17", "parent");
+        VALUES(2, 3, 2,'eventname', "2019-06-25", "parent");
 INSERT IGNORE INTO coordinate (coordinate_id,id,coordinate_title,comment,created_at,updated_at,have_calendar)
     VALUES(1, 1,'title', "coment", "2019-06-17", "2019-06-17",1);
     INSERT IGNORE INTO coordinate (coordinate_id,id,coordinate_title,comment,created_at,updated_at,have_calendar)
