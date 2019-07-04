@@ -34,10 +34,6 @@ public class UserController {
 		
 		String title = "はじめまして！";
 		mav.addObject("title",title);
-
-//		if() {
-//			mav.addObject("errorMsg", errorMsg);
-//		}
 		
 		mav.setViewName("users/createacc");
 		return mav;
@@ -76,9 +72,6 @@ public class UserController {
 		
 		List<Area> areaList = userService.getAllArea();
 		mav.addObject("areaList", areaList);
-		
-//		User user =new User();
-//		mav.addObject(user);
 		
 		mav.setViewName("users/profile");
 		return mav;
