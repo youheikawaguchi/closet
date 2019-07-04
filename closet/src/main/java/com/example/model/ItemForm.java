@@ -16,5 +16,7 @@ public class ItemForm {
     private Integer seasonId;
     private Integer colorId;
     private String memo;
+    
+    private Integer itemId;
 
 }

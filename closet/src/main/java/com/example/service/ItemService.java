@@ -17,5 +17,5 @@ public interface ItemService {
 
 	public List<Item> userItemList(UserDetails userDetails);
 	
-	//public int itemUpdate(int id, ItemForm itemForm, UserDetails userDetails);
+	public Item itemUpdate(int id, ItemForm itemForm, UserDetails userDetails);
 }

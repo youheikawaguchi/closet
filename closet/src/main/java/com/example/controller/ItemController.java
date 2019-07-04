@@ -4,6 +4,7 @@ import com.example.model.Item;
 import com.example.model.ItemForm;
 import com.example.model.ItemSelect;
 import com.example.service.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -36,7 +37,7 @@ public class ItemController {
 		return new ModelAndView("redirect:/item/item_list");
 	}
 
-	//アイテム登録/編集
+	//アイテム登録
 	@GetMapping("/item/item_edit")
 	public ModelAndView ItemEdit(ModelAndView mav) {
 
@@ -49,43 +50,40 @@ public class ItemController {
 		return mav;
 	}
 	
-	//アイテム登録/編集
-		@GetMapping("/item/item_edit{id}")
-		public ModelAndView ItemCompilation(ModelAndView mav, @PathVariable("id") String id) {
-			System.out.println(id);
-			
-			ItemSelect itemSelect = itemservice.itemCreateForm();
-			ItemForm EditItemForm = new ItemForm();
-			Item item = itemservice.getItemById(Integer.parseInt(id));
-			EditItemForm.setCategoryId(item.getCategory().getCategoryId());
-			EditItemForm.setSubCategoryId(item.getSubCategory().getSubCategoryId());
-			EditItemForm.setSeasonId(item.getSeason().getSeason_id());
-			EditItemForm.setColorId(item.getColor().getColorId());
-			EditItemForm.setMemo(item.getComment());
-			System.out.println(EditItemForm);
-			mav.addObject("itemForm",EditItemForm);
-			mav.addObject("itemSelect", itemSelect);
-			mav.setViewName("item/item_edit");
-			return mav;
+	//アイテム編集
+	@GetMapping("/item/item_edit{id}")
+	public ModelAndView ItemCompilation(ModelAndView mav, @PathVariable("id") String id) {
+		ItemSelect itemSelect = itemservice.itemCreateForm();
+		ItemForm EditItemForm = new ItemForm();
+		Item item = itemservice.getItemById(Integer.parseInt(id));
+		EditItemForm.setCategoryId(item.getCategory().getCategoryId());
+		EditItemForm.setSubCategoryId(item.getSubCategory().getSubCategoryId());
+		EditItemForm.setSeasonId(item.getSeason().getSeason_id());
+		EditItemForm.setColorId(item.getColor().getColorId());
+		EditItemForm.setMemo(item.getComment());
+		EditItemForm.setItemId(item.getItemId());
+		mav.addObject("itemForm",EditItemForm);
+		mav.addObject("itemSelect", itemSelect);
+		mav.setViewName("item/item_edit");
+		return mav;
 		}
 	
 	@PostMapping("/item/item_edit")
 	public ModelAndView postItemEdit(@ModelAttribute ItemForm itemForm, ModelAndView mav, @AuthenticationPrincipal UserDetails userDetails) {
+		Item i;
 		
-		//String c_name = item.getCategory().getCategoryName();
-//		Category category = categoryservice.getCategoryByName(item.getCategory().getCategoryName());
-//		SubCategory subcategory = subcategoryservice.getSubCategoryByName(item.getSubCategory().getSubCategoryName());
-//		Season season = seasonservice.getSeasonByName(item.getSeason().getSeasonName());
-//		Color color = colorservice.getColorByName(item.getColor().getColorName());
-//		itemservice.ItemCreate(item, category, subcategory, season, color);
-
 		if (itemForm.getPicture().isEmpty()) {
 			mav.setViewName("redirect:/item/item_edit");
 			return mav;
 		}
-		Item i = itemservice.ItemCreate(itemForm, userDetails);
+		if(itemForm.getItemId() == null) {
+			i = itemservice.ItemCreate(itemForm, userDetails);
+		}else {
+			i = itemservice.itemUpdate(itemForm.getItemId(), itemForm, userDetails);
+		}
+		
 		return new ModelAndView("redirect:/item/item_details" + i.getItemId().toString());
-	}	
+	}
 	
 	//アイテム一覧
 	@GetMapping("/item/item_list")
