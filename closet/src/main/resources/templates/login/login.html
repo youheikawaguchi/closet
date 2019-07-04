@@ -6,20 +6,22 @@
     <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css">
     <title>ログイン画面</title>
 </head>
-    <body>  
+    <body>
+    
         <div class="container-fluid">
         <div class="photo"></div>
         
 	        <form th:action="@{/login}" method="POST" id="login_form">
 	            <div class="form-group">
 	                <label for="userId"></label>
+	                <span id="Password1_error" class="error_message text-danger font-weight-bold h5" th:if="${param.error}" >UserID・パスワードを確認してください</span>
 	                <span id="UserId1_error" class="error_message text-danger font-weight-bold h5"></span>
 	                <input type="text" class="form-control" id="UserId1" aria-describedby="UserID" placeholder="UserID" name="userId">   
 	            </div> 
 	            <div class="form-group">
 	                <label for="passWord"></label>
 	                <span id="Password1_error" class="error_message text-danger font-weight-bold h5"></span>
-	                <input type="password" class="form-control" id="Password1" placeholder="Password" name="password">  
+	                <input type="password" class="form-control" id="Password1" placeholder="Password" name="password">
 	            </div>
 	            
 	             <div class="button_wrapper">
