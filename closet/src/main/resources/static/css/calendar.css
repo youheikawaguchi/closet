@@ -33,6 +33,7 @@ body {
 #date {
   z-index: 100;
   width: 100%;
+    font-size: 35px;
   text-align: center;
 }
 
@@ -57,4 +58,12 @@ body {
 
 .fc-event-container {
     pointer-events: none;
+}
+
+a {
+    color: #D9B918;
+    font-size: 35px;
+    margin-top: 2rem;
+    display: block;
+    text-align: center;
 }

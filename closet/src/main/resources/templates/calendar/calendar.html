@@ -7,9 +7,9 @@
   <script th:src="@{/webjars/moment/2.24.0/moment.js}"></script>
   <script th:src="@{/webjars/fullcalendar/3.10.0/dist/fullcalendar.js}"></script>
   <link rel='stylesheet' th:href="@{/webjars/fullcalendar/3.10.0/dist/fullcalendar.css}" />
-  <link rel="stylesheet" href="../css/calendar.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" th:href="@{/css/header.css}" type="text/css" media="all">  
+  <link rel="stylesheet" href="../css/calendar.css">
   
   <title>Calendar Test</title>
   
@@ -29,10 +29,12 @@
 	        <p id="cordinate-title"></p>
 	        <div id="cordinate-img" class="row m-1">
 		   	   <div class="item-img col-4 p-2" th:each=" item, i : ${itemlist}"><img th:src="@{${item.picture}}" ></div>
-		      <p id="cordinate-memo"></p>
-		      <a href="#">コーデ詳細を見る</a>
 	      	</div>
+	        <p id="metperson"></p>
+		    <p id="cordinate-memo"></p>
+		    <a href="#" id="coordinate_detail_link">コーデ詳細を見る</a>
       </div>
+      <a href="/calendar/add" id="coordinate_add_link">コーデを新しく登録する</a>
       <div class="overlay"></div>
     </div>
 </body>

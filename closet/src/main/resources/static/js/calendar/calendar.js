@@ -29,12 +29,24 @@ $(document).ready(function () {
 			},
 			success: function(cal) {
 				$('#cordinate-title').text(cal.event);
-				console.log(cal.metPerson);
-				console.log(cal.coordinate);
+				$('#metperson').text(cal.metPerson);
+				$('#cordinate-memo').text(cal.comment);
 				
+				//a 空にしてitem画像追加
+				$('#cordinate-img').empty();				
+				$.each(cal.coordinate.itemlist,function(index,value){
+					$('#cordinate-img').append($("<img>").attr("src", value.picture));	
+				});
+		    	$('#coordinate_add_link').hide();		
+
+				console.log(cal.coordinate);
+				console.log(cal.coordinate.itemlist);
 		    },
 		    error: function(data) {
-		    	$('#cordinate-title').text(date.format("YYYY-MM-DD"));
+		    	$('#cordinate-title').text(date.format("YYYY年MM月DD日"));
+		    	$('#coordinate_add_link').attr("href","/calendar/add?date="+date.format());
+		    	$('#coordinate_add_link').show();
+		    	$('#coordinate-wrap').hide();
 		    }
 		});
 	      
