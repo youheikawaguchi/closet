@@ -21,24 +21,27 @@
         
   <div class="container-fluid" th:each="code : ${codeList}">
 
-    <div class="code_list" id="add_calender">
-      <a  href="/calendar/Clnder_code_dsc" class="btn btn-block code">
+  <div class="flex">
+    <div class="code_list" th:id="${isEven} ? 'add_calender' : 'only_code'">
       <div>
-        <ul class="list  list-unstyled" >
-          <li class="item" th:each="item : ${code.itemlist}"><img th:text="${item.picture}"  th:src="@{/images/item/Tshirt.jpg}"></li>
-
+        <ul class="list list-unstyled flex">
+          <li class="item" th:each="item : ${code.itemlist}"><img th:text="${item.picture}" th:src="@{/images/item/Tshirt.jpg}"></li>
         </ul>
       </div>
-       <div th:switch="${code.haveCalender}">
-      <div class="dsc" th:case="1" th:each="calendar : ${code.calendarList}">
-        <p class="event" th:text="${calendar.event}"> EVENT </p>
-        <p class="date" th:text="${calendar.eventDate}"> DATE </p>
-      </div> 
-      <div class="dsc" th:case="0 or null">
-      	<p class="event" th:text="${code.coordinate_title}"> TITLE </p>
-      </div>
-      </div>
-
+      <div th:switch="${code.haveCalender}">
+        <div class="dsc" th:case="1" th:each="calendar : ${code.calendarList}">
+          <p class="event" > EVENT </p>
+          <p class="e_name" th:text="${calendar.event}"> ○○○-○○○コンサート </p>
+          <p class="date" > DATE </p>
+          <p class="d_name" th:text="${calendar.eventDate}"> 2019/08/10  </p>
+        </div>
+          <div class="dsc" th:case="0 or null">
+            <p class="title" > TITLE </p>
+            <p class="t_name" th:text="${code.coordinate_title}">○○○○コンサート用</p>
+            <p></p>
+          </div> 
+        </div>
+      <a  href="/calendar/Clnder_code_dsc"> </a>
     </div>
     </a>
         
