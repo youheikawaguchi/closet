@@ -17,7 +17,10 @@ $(document).ready(function () {
 		var i = $(".fc-row").index(select) - 1;
 		$("#calendar .fc-scroller").height(h);
 		$("#calendar .fc-scroller").animate({scrollTop:h*i});
+//		$("#calendar").height(h);
+//		$("#calendar").animate({scrollTop:h*i});
 		$("#item #date").text(date.format());
+		$("#calendar").css("height","auto");
       
 		$.ajax({
 			url: "/calendar/getdatecoorde",
@@ -35,12 +38,19 @@ $(document).ready(function () {
 				//a 空にしてitem画像追加
 				$('#cordinate-img').empty();				
 				$.each(cal.coordinate.itemlist,function(index,value){
-					$('#cordinate-img').append($("<img>").attr("src", value.picture));	
+					$('#cordinate-img').append($("<img>").attr("src", value.picture));
+					$("img").error(function(){
+						$(this).attr({
+							"src":"/images/item/noimage.png"
+						});
+					});
 				});
-		    	$('#coordinate_add_link').hide();		
+		    	$('#coordinate_add_link').hide();
+		    	$('#coordinate_detail_link').attr("href","/calendar/detail?c_id="+cal.coordinate.coordinateId);
 
 				console.log(cal.coordinate);
 				console.log(cal.coordinate.itemlist);
+				$('#coordinate-wrap').show();
 		    },
 		    error: function(data) {
 		    	$('#cordinate-title').text(date.format("YYYY年MM月DD日"));
@@ -78,6 +88,7 @@ $(document).ready(function () {
   
   //console.log($('#calendar').fullCalendar('getView').start);
   $('#close').on('click', function() {
-      $("#calendar .fc-scroller").height(600);
+      $("#calendar").css("height","100vh");
+      $("#calendar .fc-scroller").css("height","100vh");
   });
 });

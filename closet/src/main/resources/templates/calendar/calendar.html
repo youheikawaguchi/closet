@@ -21,20 +21,23 @@
 	<div th:replace="common/header::header"></div>
 	<!-- ヘッダー終了 -->
 	
-  <div class="container">
+  <div class="container-fluid">
       <div id='calendar'></div>
       <div id='item'>
         <div id="date-wrap" class=" bg-dark text-white p-1"><p id="date" class="text-center m-0 p-2"></p><div id="close" class="p-2 pr-4">×</div></div>
         <div id="coordinate-wrap">
-	        <p id="cordinate-title"></p>
-	        <div id="cordinate-img" class="row m-1">
+	        <div><span class="label">Title: </span><span id="cordinate-title"></span></div>
+	        <div id="cordinate-img" class="row mx-1">
 		   	   <div class="item-img col-4 p-2" th:each=" item, i : ${itemlist}"><img th:src="@{${item.picture}}" ></div>
 	      	</div>
-	        <p id="metperson"></p>
-		    <p id="cordinate-memo"></p>
-		    <a href="#" id="coordinate_detail_link">コーデ詳細を見る</a>
+	        <div><span class="label">Met Person: </span><span id="metperson"></span></div>
+		    <div><span class="label">Comment: </span></div>
+		    <div id="comment-box">
+		    	<p id="cordinate-memo"></p>
+		    </div>
+		    <a href="/calendar/detail" id="coordinate_detail_link" class="yellow_a">コーデ詳細を見る</a>
       </div>
-      <a href="/calendar/add" id="coordinate_add_link">コーデを新しく登録する</a>
+      <a href="/calendar/add" id="coordinate_add_link" class="yellow_a">コーデを新しく登録する</a>
       <div class="overlay"></div>
     </div>
 </body>
