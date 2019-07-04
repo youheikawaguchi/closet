@@ -51,7 +51,7 @@ public class UserController {
 			ModelAndView mav) {
 		
 		if(userService.createUser(user)) {
-			mav.setViewName("/login/login");
+			mav.setViewName("/users/profile");
 			return mav;
 		}else {
 			ErrorData errorMsg = new ErrorData();
