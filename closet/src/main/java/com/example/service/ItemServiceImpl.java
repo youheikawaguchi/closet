@@ -138,13 +138,12 @@ public class ItemServiceImpl implements ItemService{
 
 		//パスの指定								
 		//Resource resource = resourceLoader.getResource( "static/images/item");
-		Resource resource = resourceLoader.getResource( "//file/Users/s.yamamoto/Documents/closet");
-		String path = resource.toString();
+		String filepath = "/var/closet/app/uploads/" + userId;
 
 		try {
 			// /static/images/item/userId の状態になる  fileクラスpathクラスたぶんfile
 			//File uploadDir = new File(Objects.requireNonNull(resource.getFile()) + File.separator + userId);
-			File uploadDir = new File(path);
+			File uploadDir = new File(filepath);
 
 			// アップロードファイルを格納するディレクトリがなければ作成する
 			if(!uploadDir.exists())	uploadDir.mkdirs();

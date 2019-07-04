@@ -30,7 +30,7 @@
     <div class=memo th:text="*{comment}">MEMO</div>
     
     <form method="get" th:action="@{/item/item_edit}+(__*{itemId}__)" enctype="multipart/form-data">
-    	<div class="button">
+    	<div
         	<button id="open" type="button" class="btn btn-primary">削除</button>
         	<button type="submit" class="btn btn-secondary">編集</button>
     	</div>
