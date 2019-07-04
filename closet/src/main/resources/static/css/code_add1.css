@@ -1,29 +1,9 @@
+/* ヘッダー以下全体 */
 .code_add_screen{
 	padding-top: 120px;
 }
 
-.img_list {
-    padding-top: 25px;
-}
-
-.i1 {
-    float: left;
-    list-style: none;
-    width: 140px;
-    height: 140px;
-    /* border: solid 2px black; */
-    margin: 20px 10px;
-    text-align: center;
-    /*
-    background-image: url("/images/item/code_add_button.png");
-    background-size: 132px; */
-}
-
-.img {
-   width: 140px;
-   height: 140px;
-}
-
+/* セレクトボックス範囲 */
 .slc{
     display: block;
     width: 750px;
@@ -31,22 +11,57 @@
     margin-top: 30px;
     margin-bottom: 30px;
 }
-
-
 .custom-select{
     width: 750px;
     height: 100px;
+    font-size: 30px;
+    background-color:#E0F4F8;
     margin: 0 auto;
 }
 
+/* アイテム写真表示範囲 */
+.img_list {
+    padding-top: 25px;
+}
+.flex{
+	display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;	
+    flex-flow: row wrap;
+    justify-content: space-around;
+    
+}
+
+.i1 {
+    list-style: none;
+    width: 140px;
+    height: 140px;
+    /* border: solid 2px black; */
+    margin: 20px 10px;
+    /* プラスをテキスト表示してた名残？　text-align: center; */
+    /*
+    background-image: url("/images/item/code_add_button.png");
+    background-size: 132px; */
+}
+
+.img {
+	width: 100%;
+  /*  width: 140px;
+   height: 140px; */
+}
+
+/* .custom-selectで指定
 #select1{
     width: 750px;
     height: 100px;
     background-color:#E0F4F8;
     margin: auto;
-    font-size: 30px
-}
+    font-size: 30px;
+} */
 
+/* アイテム写真表示範囲の背景 */
 .photobtn{
     height: 600px;
     width: 480px;
@@ -55,12 +70,7 @@
     margin: 50px auto; 
 }
 
-.photobtn_add{
-    height: 600px;
-    width: 480px;
-    text-align: center;
-}
-
+/* 該当クラスなし
 .photobtn
 .btn1,.btn-info1{
     margin: 55px 5px 8px 20px;
@@ -71,11 +81,11 @@
     color: #ffffff;
     border-radius: 20px;
     border: 1px solid #ccc;
-}
+} */
 
 .Title1{
     width: 750px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .Title1
@@ -108,7 +118,7 @@ input[type="date"] {
   box-sizing: border-box;
   font-size: 14px;
   color: #999;
- border: 1px solid #ccc;
+  border: 1px solid #ccc;
 }
 
 
@@ -127,12 +137,14 @@ input[type="date"] {
     width: 750px;
     height: 100px;
     font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
 .Memo1{
     width: 750px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .Memo1
@@ -144,44 +156,26 @@ input[type="date"] {
     font-size: 30px;
 }
 
-
+/* ボタンボックス */
 .enterbtn{
     width: 660px;
     margin: 60px auto;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;	
 }
-
+/* ボタンデザイン */
 .btn{
     width: 250px;
     height: 60px;
     border-radius: 10px;
-    float:left;
-    text-align: center;
+    font-size: 28px;
     color: white;
-}
-
-.btn.btn-success {
-    background-color: #95B8BF;
+    text-align: center;
     margin: 40px;
-    border: none;
-    font-size: 28px;
 }
-
-.btn.btn-success:hover {
-    background-color: #95B8BF;
-}
-
-.btn.btn-warning {
-    background-color: #D9B918;
-    margin: 40px;
-    border: none;
-    font-size: 28px;
-}
-
-.btn.btn-warnig:hover {
-background-color: #D9B918;
-}
-
-.hide {
-  /* 陦ｨ遉ｺ縺ｮ蛻�繧頑崛縺医↓菴ｿ逕ｨ縺吶ｋ */
-  display: none;
-}
+/* ボタン文字色変更 */
+.back { background-color: #95B8BF; }
+.add { background-color: #D9B918; }

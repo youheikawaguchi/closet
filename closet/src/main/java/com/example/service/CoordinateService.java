@@ -20,4 +20,6 @@ public interface CoordinateService {
     public Coordinate coordinateDetails(Integer coordinateId);
     
     public List<Coordinate> userCoordinateList(UserDetails userDetails);
+
+    public Optional<Item> coordinateSearchItem(int id);
 }
