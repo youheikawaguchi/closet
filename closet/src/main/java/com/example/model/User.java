@@ -29,8 +29,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Data
-@JsonIgnoreProperties(ignoreUnknown=true)
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)//循環参照防止
 @Table(name = "users")
 public class User {
 	@Id
@@ -58,8 +58,6 @@ public class User {
 	
 	@JsonIgnore
 	@ManyToOne
-	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "areaId")
-    @JsonIdentityReference(alwaysAsId = true)
 	@JoinColumn(name = "area_id")
 	private Area area;
 	
