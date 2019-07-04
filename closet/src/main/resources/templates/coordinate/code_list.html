@@ -9,6 +9,7 @@
   <link rel="stylesheet" th:href="@{/css/header.css}" type="text/css" media="all">  
   
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
@@ -21,24 +22,27 @@
         
   <div class="container-fluid" th:each="code : ${codeList}">
 
-    <div class="code_list" id="add_calender">
-      <a  href="/calendar/Clnder_code_dsc" class="btn btn-block code">
+  <div class="flex">
+    <div class="code_list" th:id="${isEven} ? 'add_calender' : 'only_code'">
       <div>
-        <ul class="list  list-unstyled" >
-          <li class="item" th:each="item : ${code.itemlist}"><img th:text="${item.picture}"  th:src="@{/images/item/Tshirt.jpg}"></li>
-
+        <ul class="list list-unstyled flex">
+          <li class="item" th:each="item : ${code.itemlist}"><img th:text="${item.picture}" th:src="@{/images/item/Tshirt.jpg}"></li>
         </ul>
       </div>
-       <div th:switch="${code.haveCalender}">
-      <div class="dsc" th:case="1" th:each="calendar : ${code.calendarList}">
-        <p class="event" th:text="${calendar.event}"> EVENT </p>
-        <p class="date" th:text="${calendar.eventDate}"> DATE </p>
-      </div> 
-      <div class="dsc" th:case="0 or null">
-      	<p class="event" th:text="${code.coordinate_title}"> TITLE </p>
-      </div>
-      </div>
-
+      <div th:switch="${code.haveCalender}">
+        <div class="dsc" th:case="1" th:each="calendar : ${code.calendarList}">
+          <p class="event" > EVENT </p>
+          <p class="e_name" th:text="${calendar.event}"> ○○○-○○○コンサート </p>
+          <p class="date" > DATE </p>
+          <p class="d_name" th:text="${calendar.eventDate}"> 2019/08/10  </p>
+        </div>
+          <div class="dsc" th:case="0 or null">
+            <p class="title" > TITLE </p>
+            <p class="t_name" th:text="${code.coordinate_title}">○○○○コンサート用</p>
+            <p></p>
+          </div> 
+        </div>
+      <a  href="/calendar/Clnder_code_dsc"> </a>
     </div>
     </a>
         
@@ -49,7 +53,9 @@
     </div>
   </div>
   
-  <script type="text/javascript" src="/js/header.js"></script> 
-    
+  
+  <script type="text/javascript" src="/js/header.js"></script>
+   
+  
 </body>
 </html>
