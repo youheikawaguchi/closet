@@ -10,6 +10,7 @@
     <title>コーディネート登録</title>
 
 </head>
+
 <body>
 
 <!-- ヘッダー開始 -->
@@ -34,32 +35,28 @@
     <form th:action="@{/coordinate/add}" th:object="${coordinateForm}" method="post">
         <div id="c_code">
             <div class="photobtn">
-                <div class="photobtn_add">
-                    <div class="img_list">
-                        <div>
-                            <a href="item/item_list" th:each="item : ${coordinateForm.getItemList()}">
-                                <li class="i1">
-                                    <img class="img" th:src="${item.getPicture()} ? @{${item.getPicture()}} : @{${/images/item/code_add_button.png}}">
-                                </li>
-                            </a>
-                        </div>
+                <div class="img_list">
+                    <div class="flex">
+                        <a href="item/item_list" th:each="item : ${coordinateForm.getItemList()}">
+                            <li class="i1">
+                                <img class="img" th:src="${item.getPicture()} ? @{${item.getPicture()}} : @{${/images/item/code_add_button.png}}">
+                            </li>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="form1">
                 <div class="Title1">
-                    <label></label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="Title_name" placeholder="Title" name="c_title">
+                    <input type="text" class="form-control" id="exampleInputEmail1" th:field="*{title}" aria-describedby="Title_name" placeholder="Title" name="c_title">
                 </div>
 
                 <div class="Memo1">
-                    <label></label>
-                    <textarea class="form-control" id="exampleInputEmail1" aria-describedby="Memo_name" placeholder="Memo" name="comment"></textarea>
+                    <textarea class="form-control" id="exampleInputEmail1" th:field="*{memo}" aria-describedby="Memo_name" placeholder="Memo" name="comment"></textarea>
                 </div>
             </div>
-            <div class=enterbtn>
-                <button type="button" class="btn btn-success" onclick="history.back()">戻る</button>
-                <input type="submit" class="btn btn-warning" value="登録">
+            <div class="enterbtn">
+                <button type="button" class="btn back" onclick="history.back()">戻る</button>
+                <input type="submit" class="btn add" value="登録">
             </div>
         </div>
     </form>
@@ -69,54 +66,48 @@
     <form action="#">
         <div  id="calender">
             <div class="photobtn">
-                <div class="photobtn_add">
-
-                    <div class="img_list">
-                        <ul>
-                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                            <br>
-                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                            <br>
-                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                        </ul>
+                <div class="img_list">
+                    <div class="flex">
+                        /ここから/
+                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                        <br>
+                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                        <br>
+                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                        /ここまで書き換えお願いします/
                     </div>
                 </div>
             </div>
 
             <div class="selectbox">
                 <div class="Title1">
-                    <label></label>
                     <input type="text" class="form-control" id="titleid" aria-describedby="Title_name" placeholder="Event">
                 </div>
 
                 <div class="c_date">
                     <div class="Date1">
-                        <label id="c_label"></label>
                         <input type="date" class="fron-control" id="Dateid" placeholder="Date">
                     </div>
-
                     <div class="calender_photo"></div>
                 </div>
 
                 <div class="Person1">
-                    <label></label>
                     <input type="text" class="form-control" id="Personid" aria-describedby="person_name" placeholder="Person">
                 </div>
 
                 <div class="Memo1">
-                    <label></label>
                     <textarea class="form-control" id="Memoid" aria-describedby="Memo_name" placeholder="Memo"></textarea>
                 </div>
             </div>
-            <div class=enterbtn>
-                <button type="button" class="btn btn-success" onclick="history.back()">戻る</button>
-                <input type="submit" class="btn btn-warning" value="登録">
+            <div class="enterbtn">
+                <button type="button" class="btn back" onclick="history.back()">戻る</button>
+                <input type="submit" class="btn add" value="登録">
             </div>
         </div>
     </form>
