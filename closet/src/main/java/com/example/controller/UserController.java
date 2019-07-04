@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.Area;
+import com.example.model.ErrorData;
 import com.example.model.User;
 import com.example.service.UserService;
 
@@ -28,13 +28,22 @@ public class UserController {
 //	ユーザー登録
 	@GetMapping(value="users/createacc")
 	ModelAndView userForm(ModelAndView mav) {
-	
+		
 		User user =new User();
 		mav.addObject(user);
+		
+		String title = "はじめまして！";
+		mav.addObject("title",title);
+
+//		if() {
+//			mav.addObject("errorMsg", errorMsg);
+//		}
 		
 		mav.setViewName("users/createacc");
 		return mav;
 	}
+	
+	
 	//コントローラにPOSTされた時の処理
 	@PostMapping(value = "/users/createacc")
 	public ModelAndView addUser(@ModelAttribute("user") @Validated User user, 
@@ -45,7 +54,9 @@ public class UserController {
 			mav.setViewName("/login/login");
 			return mav;
 		}else {
+			ErrorData errorMsg = new ErrorData();
 			mav.setViewName("/users/createacc");
+			mav.addObject("errorMsg", errorMsg.getAddUser());
 			return mav;
 		}
 	}

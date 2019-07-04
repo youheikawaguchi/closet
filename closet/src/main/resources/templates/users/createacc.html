@@ -10,15 +10,16 @@
     <body>
         <div class="container">
             <div class="start2">
-                <p id="hello">はじめまして！</p>
+                <p id="hello" th:text="${title}"></p>
                 <p>このアプリでクローゼットの中身を<br>便利に管理しましょう</p>
             </div>
+            
             
        <form th:action="@{/users/createacc}"
         th:object="${user}" method="post" id="login_form">
             <div class="form-group">
                 <label for="useId"></label>
-                <span id="UserId1_error" class="error_message text-danger font-weight-bold h5"></span>
+                <span id="UserId1_error" class="error_message text-danger font-weight-bold h5" th:text="${errorMsg}"></span>
                 <input type="text" class="form-control" th:field="${user.userId}" id="UserId1" aria-describedby="UserID" placeholder="UserID"  name="user_id">
             </div> 
             <div class="form-group">
