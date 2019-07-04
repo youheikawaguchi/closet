@@ -1,5 +1,5 @@
 .code_info_screen{
-	padding-top: 170px;
+	padding-top: 120px;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -48,18 +48,18 @@ table {
 /* --------   reset css   ------------ */
 .img_list {
     
-    width: 450px;
-    height: 450px;
+    width: 536px;
     margin: auto;
+    margin-top: 58px;
+    margin-bottom: 58px;
+    padding-top:58px;
+    padding-bottom:58px;
+    border: 1px solid;
 }
 
 ul {
     width: 536px;
-    height: 450px;
-    border: solid black;
     display: table-cell;
-  vertical-align: middle;
-    
 }
 
 li {
@@ -67,10 +67,19 @@ li {
     list-style: none;
     width: 150px;
     height: 150px;
-    border: solid 2px black;
-    margin: 10px;
+    border: solid 1px black;
+    margin: 14px;
     text-align: center;
     background-color: #E0E0E0;
+}
+
+.i1 {
+    float: left;
+    list-style: none;
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    margin: 14px;
 }
 
 img {
@@ -83,7 +92,7 @@ img {
     margin: 50px auto;
 }
 
-p {
+.title {
     width: 766px;
     font-weight: bold;
     font-size: 38px;
