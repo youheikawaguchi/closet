@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 public interface ItemService {
 	public List<Item> getAllItem();
 	public Item getItemById(int id);
+	public void delete(int id);
 
 	ItemSelect itemCreateForm();
 
@@ -18,4 +19,5 @@ public interface ItemService {
 	public List<Item> userItemList(UserDetails userDetails);
 	
 	public Item itemUpdate(int id, ItemForm itemForm, UserDetails userDetails);
+
 }

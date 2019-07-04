@@ -9,10 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -99,13 +103,21 @@ public class ItemController {
 	}
 	
 	//アイテム詳細
-	@GetMapping("/item/item_details{id}")
-	public ModelAndView ItemDetails(ModelAndView mav, @PathVariable("id") String id) {
-		Item item = itemservice.getItemById(Integer.parseInt(id));
-		mav.addObject("item",item);
-		mav.setViewName("item/item_details");
-		return mav;
-	}
+    @GetMapping("/item/item_details{id}")
+    public ModelAndView ItemDetails(ModelAndView mav, @PathVariable("id") String id) {
+        Item item = itemservice.getItemById(Integer.parseInt(id));
+        mav.addObject("item",item);
+        mav.setViewName("item/item_details");
+        return mav;
+    }
+	
+    //アイテム削除
+	@DeleteMapping("/item/item_details{id}")
+    public ModelAndView destroy(ModelAndView mav, @PathVariable("id") String id) {
+        itemservice.delete(Integer.parseInt(id));
+        mav.setViewName("redirect:/item/item_list");
+        return mav;
+    }
 	
 	//アイテムselect
 	//アイテム詳細
