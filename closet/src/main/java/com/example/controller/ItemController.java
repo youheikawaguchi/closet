@@ -71,7 +71,6 @@ public class ItemController {
 	@PostMapping("/item/item_edit")
 	public ModelAndView postItemEdit(@ModelAttribute ItemForm itemForm, ModelAndView mav, @AuthenticationPrincipal UserDetails userDetails) {
 		Item i;
-		
 		if (itemForm.getPicture().isEmpty()) {
 			mav.setViewName("redirect:/item/item_edit");
 			return mav;
