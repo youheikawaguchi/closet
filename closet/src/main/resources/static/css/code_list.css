@@ -16,11 +16,11 @@
 
 /* コーデと情報 */
 .code_list{
-    width: 46%;
+    width: 45%;
     max-width: 437px;
     height: 600px;
     margin: 2%;
-    padding: 2%;
+    /* padding: 1%; */
     border: solid 1px black;
     position: relative;
 }
@@ -32,12 +32,18 @@
   left: 0;
 }
 
+.item_list{
+	/* margin: 10px; */
+	padding: 3%;
+}
 /* コーディネートに使用するアイテム */
 .item{
     width: 31%;
     height: 125px;
+    margin: 1%;
     border: solid 1px black;
 }
+
 /* アイテム写真 */
 img{
     width: 100%;
