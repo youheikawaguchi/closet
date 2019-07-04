@@ -52,6 +52,10 @@ public class ItemServiceImpl implements ItemService{
 //	public Item getItemByName(String name) {
 //		return ItemRepository.findByName(name);
 //	}
+	
+	public void delete(int id) {
+		itemRepository.deleteById(id);
+	}
 
 	@Override
 	public ItemSelect itemCreateForm(){

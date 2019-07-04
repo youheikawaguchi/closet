@@ -20,7 +20,7 @@
 	<div th:replace="common/header::header"></div>
 	<!-- ヘッダー終了 -->
         
-  <div class="container-fluid" th:each="code : ${codeList}">
+  <div class="container-fluid"  th:each="code : ${codeList}">
 
   <div class="flex">
     <div class="code_list" th:id="${isEven} ? 'add_calender' : 'only_code'">
@@ -44,7 +44,7 @@
         </div>
       <a  href="/calendar/Clnder_code_dsc"> </a>
     </div>
-    </a>
+  </div>
         
     <div class="button">
       <a href="/coordinate/code_add">

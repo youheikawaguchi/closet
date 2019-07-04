@@ -2,30 +2,26 @@
 	padding-top: 120px;
 }
 
-
-ul {
-    width: 480px;
-    height: 600px;
-    border: solid black;
-    margin: auto;
-    padding: 40px 10px 40px 10px;
+.img_list {
+    padding-top: 25px;
 }
 
 .i1 {
     float: left;
     list-style: none;
-    width: 132px;
-    height: 132px;
-    //border: solid 2px black;
+    width: 140px;
+    height: 140px;
+    /* border: solid 2px black; */
     margin: 20px 10px;
     text-align: center;
+    /*
     background-image: url("/images/item/code_add_button.png");
-    background-size: 132px;
+    background-size: 132px; */
 }
 
-img {
-   width: 132px;
-   height: 132px;
+.img {
+   width: 140px;
+   height: 140px;
 }
 
 .slc{
