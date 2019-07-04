@@ -67,9 +67,10 @@ public class CalendarController {
 	    
 	// コーデ詳細の表示
 	@GetMapping({"/calendar/Clnder_code_dsc", "/calendar/details"})
-	public ModelAndView showCalendarCoord(ModelAndView mav, @RequestParam(name = "c_id", required = false) int c_id) {
+	public ModelAndView showCalendarCoord(ModelAndView mav, @RequestParam(name = "c_id", required = false) String c_id) {
 
-		mav.setViewName("calendar/Clnder_code_dsc" + c_id);
+		mav.setViewName("calendar/Clnder_code_dsc");
+//		mav.setViewName("calendar/Clnder_code_dsc" + c_id);
 		return mav;
 	}
 	
