@@ -35,7 +35,7 @@ import lombok.Setter;
 //@Data
 @Entity
 @Table(name = "items")
-@JsonIgnoreProperties({"coordinate"}) // これを有効化することで、親テーブル自体をjsonに含めない指定
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property="@Id")
 public class Item {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -70,8 +70,6 @@ public class Item {
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id")
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-    @JsonIdentityReference(alwaysAsId = true)
 	private User user;
 	
 	//@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
@@ -94,8 +92,6 @@ public class Item {
 	
 	/*coordenateとの多対多連携*/
     @ManyToMany
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "coordinateId")//循環参照防止
-    @JsonIdentityReference(alwaysAsId = true)//循環参照防止
     @JoinTable(name="coordinate_choice",
     	schema="closet",
     	joinColumns = @JoinColumn( name = "item_id",referencedColumnName="item_id"),
