@@ -34,42 +34,43 @@
 	<!-- ヘッダー開始 -->
 	<div th:replace="common/header::header"></div>
 	<!-- ヘッダー終了 -->
+  
+  <div class="container-fluid"  th:each="code : ${codeList}">
 
-	<div class="container-fluid" th:each="code : ${codeList}">
+  <div class="flex">
+    <div class="code_list" th:id="${code.haveCalender} ? 'add_calender' : 'only_code'">
+      <div>
+        <ul class="list list-unstyled flex">
+          <li class="item" th:each="item : ${code.itemlist}"><img th:src="@{${item.picture}}"></li>
+        </ul>
+      </div>
+      <div th:switch="${code.haveCalender}">
+        <div class="dsc" th:case="1" th:each="calendar : ${code.calendarList}">
+          <p class="event" > EVENT </p>
+          <p class="e_name" th:text="${calendar.event}"> ○○○-○○○コンサート </p>
+          <p class="date" > DATE </p>
+          <p class="d_name" th:text="${calendar.eventDate}"> 2019/08/10  </p>
+        </div>
+          <div class="dsc" th:case="0">
+            <p class="title" > TITLE </p>
+            <p class="t_name" th:text="${code.coordinate_title}">○○○○コンサート用</p>
+            <p></p>
+          </div> 
+        </div>
+      <a  th:href="@{'/calendar/details'+ ${code.coordinateId}}"> </a>
+    </div>
+  </div>
+        
+    <div class="button">
+      <a th:href="@{'/coordinate/code_add'}">
+      <button type="button" class="add_button" name="add"> + </button>
+      </a>
+    </div>
+  </div>
+  
+  
+  <script type="text/javascript" src="/js/header.js"></script>
+   
 
-		<div class="flex">
-			<div class="code_list" th:id="${code.haveCalender} ? 'add_calender' : 'only_code'">
-				<div>
-					<ul class="list list-unstyled flex">
-						<li class="item" th:each="item : ${code.itemlist}"><img
-							 th:src="@{${item.picture}}"></li>
-					</ul>
-				</div>
-				<div th:switch="${code.haveCalender}">
-					<div class="dsc" th:case="1"
-						th:each="calendar : ${code.calendarList}">
-						<p class="event">EVENT</p>
-						<p class="e_name" th:text="${calendar.event}">○○○-○○○コンサート</p>
-						<p class="date">DATE</p>
-						<p class="d_name" th:text="${calendar.eventDate}">2019/08/10</p>
-					</div>
-					<div class="dsc" th:case="0">
-						<p class="title">TITLE</p>
-						<p class="t_name" th:text="${code.coordinate_title}">○○○○コンサート用</p>
-						<p></p>
-					</div>
-				</div>
-				<a th:href="@{'/calendar/details'+ ${code.coordinateId}}"> </a>
-			</div>
-
-			<div class="button">
-				<a th:href="@{'/coordinate/code_add'}">
-					<button type="button" class="add_button" name="add">+</button>
-				</a>
-			</div>
-		</div>
-	</div>
-
-		<script type="text/javascript" src="/js/header.js"></script>
 </body>
 </html>
