@@ -54,7 +54,8 @@ table {
     margin-bottom: 58px;
     padding-top:58px;
     padding-bottom:58px;
-    border: 1px solid;
+    /*border: 1px solid;*/
+    background-color: #E0E0E0;
 }
 
 ul {
@@ -62,23 +63,12 @@ ul {
     display: table-cell;
 }
 
-li {
-    float: left;
-    list-style: none;
-    width: 150px;
-    height: 150px;
-    border: solid 1px black;
-    margin: 14px;
-    text-align: center;
-    background-color: #E0E0E0;
-}
-
 .i1 {
     float: left;
     list-style: none;
     width: 150px;
     height: 150px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     margin: 14px;
 }
 
