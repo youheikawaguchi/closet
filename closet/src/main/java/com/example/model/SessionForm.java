@@ -22,5 +22,5 @@ public class SessionForm implements Serializable{
 	private static final long serialVersionUID = 6334063099671792256L;
 	
 	public CalendarForm calendarForm;
-	public CoordinateForm coordinateForm;
+	public List<Item> itemList;
 }

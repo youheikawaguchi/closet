@@ -1,139 +1,131 @@
 <!doctype html>
-<html lang="ja">
-    
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" th:href="@{/css/code_add1.css}">
-    <link rel="stylesheet" th:href="@{/css/header.css}"  type="text/css" media="all">  
-    
+    <link rel="stylesheet" th:href="@{/css/header.css}"  type="text/css" media="all">
+
     <title>コーディネート登録</title>
-    
-</head>   
 
-<body> 
+</head>
+<body>
 
-	<!-- ヘッダー開始 -->
-	<div th:replace="common/header::header"></div>
-	<!-- ヘッダー終了 -->
+<!-- ヘッダー開始 -->
+<div th:replace="common/header::header"></div>
+<!-- ヘッダー終了 -->
 
-	<div class="code_add_screen">
-<!-- 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="add.js"></script>
--->
-        <div class=slc>
-            <select id="select1" class="custom-select" name="have_calender" onchange="c_Code()">
-                <option selected value="0">------</option>
-                <option value="1">コーディネートのみ登録</option>
-                <option value="2">カレンダーに登録</option>
-            </select>
-        </div>
-    
-<!-----------------------------コーディネート登録----------------------------------------------------->
-   
-	<form action="#">
+<div class="code_add_screen">
+    <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="add.js"></script>
+    -->
+    <div class="slc">
+        <select id="select1" class="custom-select" name="have_calender" onchange="c_Code()">
+            <option selected value="0">------</option>
+            <option value="1">コーディネートのみ登録</option>
+            <option value="2">カレンダーに登録</option>
+        </select>
+    </div>
+
+    <!-----------------------------コーディネート登録----------------------------------------------------->
+
+    <form th:action="@{/coordinate/add}" th:object="${coordinateForm}" method="post">
         <div id="c_code">
-        <div class="photobtn">
-            <div class="photobtn_add">
-           
-	<div class="img_list">
-	<ul>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-	<br>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-	<br>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-	</ul>
-	</div>
+            <div class="photobtn">
+                <div class="photobtn_add">
+                    <div class="img_list">
+                        <div>
+                            <a href="item/item_list" th:each="item : ${coordinateForm.getItemList()}">
+                                <li class="i1">
+                                    <img class="img" th:src="${item.getPicture()} ? @{${item.getPicture()}} : @{${/images/item/code_add_button.png}}">
+                                </li>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form1">
-            <div class="Title1">
-                <label for="Title2"></label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="Title_name" placeholder="Title" name="c_title">
-            </div>
+            <div class="form1">
+                <div class="Title1">
+                    <label></label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="Title_name" placeholder="Title" name="c_title">
+                </div>
 
-            <div class="Memo1">
-                <label for="Memo2"></label>
-                <textarea class="form-control" id="exampleInputEmail1" aria-describedby="Memo_name" placeholder="Memo" name="comment"></textarea>
+                <div class="Memo1">
+                    <label></label>
+                    <textarea class="form-control" id="exampleInputEmail1" aria-describedby="Memo_name" placeholder="Memo" name="comment"></textarea>
+                </div>
             </div>
-        </div>
-        </div>
-    </form>
-    
-<!--------------------------------カレンダー登録--------------------------------------->  
-    
-    <form action="#">
-        <div  id="calender">
-        <div class="photobtn">
-            <div class="photobtn_add">
-            
-    <div class="img_list">
-	<ul>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-	<br>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-	<br>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-		<a href="item/item_list"><li class="i1"><img th:if="${#lists.isEmpty(items)}"th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-	</ul>
-</div>
-            </div>
-        </div>
-
-        <div class="selectbox">
-            <div class="Title1">
-                <label for="Title2"></label>
-                <input type="text" class="form-control" id="titleid" aria-describedby="Title_name" placeholder="Event">
-            </div>
-            
-            <div class="c_date">
-            <div class="Date1">
-                <label for="date2" id="c_label"></label>
-                <input type="date" class="fron-control" id="Dateid" placeholder="Date">
-            </div>
-            
-            <div class="calender_photo"></div>
-            </div>
-            
-            <div class="Person1">
-                <label for="Person2"></label>
-                <input type="text" class="form-control" id="Personid" aria-describedby="person_name" placeholder="Person">
-            </div>
-            
-            <div class="Memo1">
-                <label for="Memo2"></label>
-                <textarea class="form-control" id="Memoid" aria-describedby="Memo_name" placeholder="Memo"></textarea>
-            </div>
-        </div>
-        </div>
-        
             <div class=enterbtn>
                 <button type="button" class="btn btn-success" onclick="history.back()">戻る</button>
-                <button type="button" class="btn btn-warning">登録</button>
+                <input type="submit" class="btn btn-warning" value="登録">
             </div>
+        </div>
     </form>
-    
-    </div>
-    
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/header.js"></script> 
-	<script type="text/javascript" src="/js/code_add.js"></script>
-	
-  
+
+    <!--------------------------------カレンダー登録--------------------------------------->
+
+    <form action="#">
+        <div  id="calender">
+            <div class="photobtn">
+                <div class="photobtn_add">
+
+                    <div class="img_list">
+                        <ul>
+                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                            <br>
+                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                            <br>
+                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                            <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="selectbox">
+                <div class="Title1">
+                    <label></label>
+                    <input type="text" class="form-control" id="titleid" aria-describedby="Title_name" placeholder="Event">
+                </div>
+
+                <div class="c_date">
+                    <div class="Date1">
+                        <label id="c_label"></label>
+                        <input type="date" class="fron-control" id="Dateid" placeholder="Date">
+                    </div>
+
+                    <div class="calender_photo"></div>
+                </div>
+
+                <div class="Person1">
+                    <label></label>
+                    <input type="text" class="form-control" id="Personid" aria-describedby="person_name" placeholder="Person">
+                </div>
+
+                <div class="Memo1">
+                    <label></label>
+                    <textarea class="form-control" id="Memoid" aria-describedby="Memo_name" placeholder="Memo"></textarea>
+                </div>
+            </div>
+            <div class=enterbtn>
+                <button type="button" class="btn btn-success" onclick="history.back()">戻る</button>
+                <input type="submit" class="btn btn-warning" value="登録">
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/js/header.js" th:src="@{/js/header.js}"></script>
+<script type="text/javascript" src="../../static/js/code_add.js" th:src="@{/js/code_add.js}"></script>
+
 </body>
-        
-    
 </html>

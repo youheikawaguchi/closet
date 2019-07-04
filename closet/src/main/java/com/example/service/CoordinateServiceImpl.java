@@ -1,10 +1,8 @@
 package com.example.service;
 
-import com.example.model.Coordinate;
-import com.example.model.CoordinateForm;
-import com.example.model.Item;
-import com.example.model.User;
+import com.example.model.*;
 import com.example.repository.CoordinateRepository;
+import com.example.repository.ItemRepository;
 import com.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,6 +21,8 @@ public class CoordinateServiceImpl implements CoordinateService {
     CoordinateRepository coordinateRepository;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    ItemRepository itemRepository;
 
     //コーディネート新規登録
     @Override
@@ -68,6 +68,11 @@ public class CoordinateServiceImpl implements CoordinateService {
 		User user = userRepository.findByUserId(userDetails.getUsername());
 		return coordinateRepository.findByUserId(user.getId());
 	}
+
+	@Override
+    public Optional<Item> coordinateSearchItem(int id){
+        return itemRepository.findById(id);
+    }
 
     private int coordinateSet(Coordinate coordinate, CoordinateForm coordinateForm){
         coordinate.setItemlist(coordinateForm.getItemList());
