@@ -77,7 +77,7 @@
    	   <div>
    	     <img th:src="@{${itemList[__${i.index}__].picture}}" >
    	   </div>
-    	  <div class="p-name" th:text="${item.getCategory()}+${item.getSubCategory()}+${item.getSeason()}+${item.getColor()}"></div>
+    	  <div class="p-name" th:text="${item.getCategory().getCategoryName()}+${item.getSubCategory().getSubCategoryName()}+${item.getSeason().getSeasonName()}+${item.getColor().getColorName()}"></div>
   	 <a th:href="${flg} ? @{/session} : @{/item/item_details}+(__${item.itemId}__)">  </a>
   	</div>
 
