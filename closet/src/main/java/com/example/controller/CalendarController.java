@@ -3,6 +3,8 @@ package com.example.controller;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -70,7 +73,20 @@ public class CalendarController {
 		return mav;
 	}
 	
-    @PostMapping(value = {"/add_calendar"})
+	@GetMapping("/add={strDate}")
+	public ModelAndView showCalendarAdd(ModelAndView mav, @PathVariable("strDate") String strDate) throws ParseException {
+
+		mav.addObject("strDate", strDate);
+		
+		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = sdFormat.parse(strDate);
+		mav.addObject("date", date);
+		
+		mav.setViewName("/coordinate/code_add");
+		return mav;
+	}
+	
+    @PostMapping(value = {"/add/add_calendar"})
     public ModelAndView AddCalendar(ModelAndView mav, 
     		@ModelAttribute("calendar") @Validated Calendar calendar, 
     		@AuthenticationPrincipal UserDetails userDetails,
