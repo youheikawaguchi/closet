@@ -87,13 +87,14 @@ public class CalendarController {
 		mav.addObject("calendar", calendar);
 		
 		if(viewer.getId() != calendar.getUser().getId()) {
-			mav.setViewName("/calendar"); 
+			mav.setViewName("calendar/calendar"); 
 		}
 		else {
 			mav.setViewName("calendar/Clnder_code_dsc");
 //			mav.setViewName("calendar/Clnder_code_dsc" + c_id);
 		}
 
+		mav.setViewName("calendar/Clnder_code_dsc");
 		return mav;
 	}
 	
