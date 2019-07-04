@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface CoordinateRepository extends JpaRepository<Coordinate, Integer> {
     public List<Coordinate> findAll();
-    //public Coordinate findById(Integer id);
+    public List<Coordinate> findByUserId(Integer id);
 }

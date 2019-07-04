@@ -135,7 +135,9 @@ public class ItemServiceImpl implements ItemService{
 			uploadFileStream.write(bytes);
 			uploadFileStream.close();
 
-			return strpath;
+			String serverPath = "/uploads/" + userId + "/" + filename + extension;
+	        
+	        return serverPath;
 		} catch (Throwable e) {
 			// 異常終了時の処理
 			System.out.println("画像置くのに失敗したよ");

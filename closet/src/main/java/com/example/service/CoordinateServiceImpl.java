@@ -62,6 +62,13 @@ public class CoordinateServiceImpl implements CoordinateService {
         return coordinate.get();
     }
 
+
+	@Override
+	public List<Coordinate> userCoordinateList(UserDetails userDetails) {
+		User user = userRepository.findByUserId(userDetails.getUsername());
+		return coordinateRepository.findByUserId(user.getId());
+	}
+
     private int coordinateSet(Coordinate coordinate, CoordinateForm coordinateForm){
         coordinate.setItemlist(coordinateForm.getItemList());
         coordinate.setCoordinate_title(coordinateForm.getTitle());
