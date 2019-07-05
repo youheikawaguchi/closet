@@ -15,9 +15,9 @@
         <div class="container-fluid">
             <form th:object="${itemForm}" method="post" th:action="@{/item/item_edit}" enctype="multipart/form-data">
                 <div class="photo">
-                	<canvas id="canvas" width="0" height="0"></canvas>
-                	<input  id="select_photo" type="file" th:field="*{picture}" accept="image/png, image/jpeg, image/jpg">
-               <!--    	<p th:if="${#lists.isEmpty(itemForm)}" th:text="${itemList[__*{itemId}-1__].picture}" ></p>--> 
+                	<canvas th:if="${itemForm.itemId == null}" id="canvas" width="0" height="0"></canvas>
+                	<input th:if="${itemForm.itemId == null}"  id="select_photo" type="file" th:field="*{picture}" accept="image/png, image/jpeg, image/jpg">
+         			<img th:if="${itemForm.itemId != null}" th:src="@{${itemList[__*{itemId}-1__].picture}}" >
                   			
                 </div>
 
