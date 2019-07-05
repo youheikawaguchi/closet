@@ -50,7 +50,7 @@ table {
 	width: 480px;
 	margin: auto;
 	height: 600px;
-    border: solid 3px #B8DDE6;
+    /*border: solid 3px #B8DDE6;*/
     text-align: center;
     margin: 70px auto 30px auto;
 }
@@ -60,7 +60,7 @@ table {
     width: 480px;
     background-color: #E0E0E0;
     text-align: center;
-    margin: 40px auto;
+    /*margin: 40px auto;*/
     border: solid 1px black;
     background-image: url("/images/item/plus.png");
     background-position: center center; 
@@ -70,7 +70,7 @@ table {
 	position: absolute;
 	width: 480px;
 	height: 600px;	
-	top:40px;
+	top:0;
 	left:0;
 	opacity:0.0;
 	/* display:none; */
