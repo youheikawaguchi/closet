@@ -1,6 +1,7 @@
 package com.example.repository;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,5 +14,8 @@ public interface CalendarRepository extends JpaRepository<Calendar, Integer>{
 
 	@Query("select x from Calendar x where x.id = :userid and x.eventDate = :date")
 	public Calendar findByDate(int userid, Date date);
+	
+	@Query("select x from Calendar x where x.id = :userid")
+	public List<Calendar> findAll(int userid);
 
 }
