@@ -36,20 +36,28 @@ $(document).ready(function () {
 				$('#cordinate-memo').text(cal.comment);
 				
 				//a 空にしてitem画像追加
+//				console.log(cal.coordinate.itemlist);
 				$('#cordinate-img').empty();				
-				$.each(cal.coordinate.itemlist,function(index,value){
-					$('#cordinate-img').append($("<img>").attr("src", value.picture));
-					$("img").error(function(){
-						$(this).attr({
-							"src":"/images/item/noimage.png"
-						});
-					});
+				$.each(cal.coordinate.itemlist, function(index,value){
+					$('#cordinate-img').append($('<div class="item-img col-4 p-2"><img src="'+value.picture+'"></div>'));
 				});
+				
+//				console.log($('.item-img>img'));
+				$('.item-img>img').each(function(index,value){
+					console.log(value);
+					console.log(value.message());
+//					value.message(function(){
+//						$(this).attr({src:'/images/item/noimage.png'});
+//					});
+				});
+//				$('.item-img>img').error(function(){
+//					$(this).attr("src","/images/item/noimage.png");
+//				});
 		    	$('#coordinate_add_link').hide();
 		    	$('#coordinate_detail_link').attr("href","/calendar/detail?c_id="+cal.coordinate.coordinateId);
 
-				console.log(cal.coordinate);
-				console.log(cal.coordinate.itemlist);
+//				console.log(cal.coordinate);
+//				console.log(cal.coordinate.itemlist);
 				$('#coordinate-wrap').show();
 		    },
 		    error: function(data) {
