@@ -138,6 +138,8 @@ public class ItemServiceImpl implements ItemService{
 					new BufferedOutputStream(new FileOutputStream(strpath));
 			uploadFileStream.write(bytes);
 			uploadFileStream.close();
+			//aaaaaaaa
+			
 
 			String serverPath = "/uploads/" + userId + "/" + filename + extension;
 	        
