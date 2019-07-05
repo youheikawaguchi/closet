@@ -15,10 +15,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class CalendarForm {
 
     private List<Item> itemList;
+    
     private String memo;
+    
     private String event;
     
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date eventDate;
+    
     private String metPerson;
 }

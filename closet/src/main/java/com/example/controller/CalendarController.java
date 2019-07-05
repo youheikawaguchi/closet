@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,6 +45,7 @@ public class CalendarController {
 	UserService userService;
 	
 	// カレンダーの表示
+
 	@GetMapping("/calendar")
 	public ModelAndView showCalendar(ModelAndView mav, @AuthenticationPrincipal UserDetails userDetails) {
 		List<Calendar> calendarlist = calendarService.getAllCalendar(userDetails.getUsername());
@@ -78,7 +80,7 @@ public class CalendarController {
 	}	
 	    
 	// コーデ詳細の表示
-	@GetMapping({"/calendar/Clnder_code_dsc", "/calendar/details"})
+	@GetMapping(value = {"/calendar/Clnder_code_dsc", "/calendar/details"})
 	public ModelAndView showCalendarCoord(ModelAndView mav
 			, @RequestParam(name = "c_id", required = false) int c_id
 			, @AuthenticationPrincipal UserDetails userDetails) {
@@ -89,19 +91,41 @@ public class CalendarController {
 		mav.addObject("calendar", calendar);
 		
 		if(viewer.getId() != calendar.getUser().getId()) {
-			mav.setViewName("calendar/calendar"); 
+			return new ModelAndView("redirect:/calendar");
 		}
 		else {
 			mav.setViewName("calendar/Clnder_code_dsc");
-//			mav.setViewName("calendar/Clnder_code_dsc" + c_id);
 		}
 
-		mav.setViewName("calendar/Clnder_code_dsc");
 		return mav;
 	}
 	
+	// コーデ詳細の編集、削除
+    @PostMapping(value = {"/calendar/{action}"})
+    public ModelAndView editCalendar(ModelAndView mav
+    		, @ModelAttribute("calendar") @Validated CalendarForm calendarForm
+    		, @PathVariable("action") String action
+    		, @RequestParam(name = "c_id", required = false) int c_id
+    		, @AuthenticationPrincipal UserDetails userDetails
+    		, BindingResult bindingResult){
+    	
+		switch(action) {	
+			default:
+			case "edit":
+				calendarService.editCalendar(calendarForm, userDetails, c_id);
+				break;
+			case "delete":
+				calendarService.deleteCalendar(calendarForm, userDetails,  c_id);
+				break;
+		}
+
+        mav.setViewName("calendar/calendar");
+        
+        return mav;
+    }
+	
 	// カレンダー登録の表示
-	@GetMapping("/calendar/add")
+	@GetMapping(value = {"/calendar/add"})
 	public ModelAndView showAddCalendar(ModelAndView mav, @RequestParam(name = "date", required = false) String date) {
 
 		mav.addObject("date", date);
