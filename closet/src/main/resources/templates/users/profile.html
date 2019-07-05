@@ -16,9 +16,9 @@
                 <p id="regist">プロフィール登録</p>
                 <p id="tell">あなたのことを教えてください！</p> 
             </div>
-    <form th:action="@{/users/profile}" 
+    <form action="/users/profile" th:action="@{/users/profile}" 
     th:object="${user}" method="post">    
-    
+    	<input type="hidden" name="id" th:field="${user.userId}"/>
     
         <div class=slc>       
             <select id="select1" class="custom-select" th:field="${user.bornYear}">
