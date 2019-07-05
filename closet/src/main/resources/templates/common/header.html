@@ -7,7 +7,7 @@
 <dl id="menu">
     <dt><img class="hamburger" th:src="@{/images/header/hamburger.png}" alt="ハンバーガーボタン"></dt>
     <dd id="header_username" >
-    <form th:action="@{/user/profile}" class="user">
+    <form th:action="@{/users/profile}" class="user">
     <button class="btn btn-header" th:text="${user.userId} + 'さん'">ユーザー名さん</button>
     </form>
     </dd>
