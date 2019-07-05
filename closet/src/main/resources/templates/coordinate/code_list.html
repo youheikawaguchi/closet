@@ -35,11 +35,12 @@
 	<div th:replace="common/header::header"></div>
 	<!-- ヘッダー終了 -->
   
-  <div class="container-fluid"  th:each="code : ${codeList}">
+
+  <div class="container-fluid" >
 
   <div class="flex">
-    <div class="code_list" th:id="${code.haveCalender} ? 'add_calender' : 'only_code'">
-      <div>
+    <div class="code_list"  th:each="code : ${codeList}" th:id="${code.haveCalender} ? 'add_calender' : 'only_code'">
+      <div class="item_list">
         <ul class="list list-unstyled flex">
           <li class="item" th:each="item : ${code.itemlist}"><img th:src="@{'/var/closet/app/uploads/'+${code.user.userId}+'/'+${item.picture}}"></li>
         </ul>

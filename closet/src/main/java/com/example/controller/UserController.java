@@ -50,6 +50,7 @@ public class UserController {
 			ModelAndView mav) {
 		
 		if(userService.createUser(user)) {
+
 			List<Area> areaList = userService.getAllArea();
 			mav.addObject("areaList", areaList);
 			mav.setViewName("login/login");
