@@ -1,0 +1,15 @@
+.container-fulid{
+    margin: auto;
+}
+
+h1{
+    color: #95B8BF;
+    font-size: 100px;
+    font-weight: bold;
+    margin: 30px 0;
+}
+p{
+    color: dimgrey;
+    font-size: 50px;
+    margin: 10px 0;
+}
