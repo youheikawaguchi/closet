@@ -108,13 +108,16 @@ margin: auto;
     background: white;
     position: relative;
 }
-#menu dd a{
+#menu dd{
 	width: 100%;
 	height: 100%;
 	color: #4D919F;
 }
 
-.btn-header{
+.btn.btn-header{
+	width: 100%;
+	height: 100%;
+	color: #4D919F;
 	background-color: transparent;
 	border-radius: 0;
 	
@@ -128,6 +131,7 @@ margin: auto;
 .usr{
 	border-bottom: solid 2px #4D919F; 
 }
+
 .logout{
 	border-top: solid 2px #4D919F; 
 }

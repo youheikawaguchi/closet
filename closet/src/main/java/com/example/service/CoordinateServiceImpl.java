@@ -1,16 +1,15 @@
 package com.example.service;
 
-import com.example.model.Coordinate;
-import com.example.model.CoordinateForm;
-import com.example.model.Item;
-import com.example.model.User;
+import com.example.model.*;
 import com.example.repository.CoordinateRepository;
+import com.example.repository.ItemRepository;
 import com.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +22,8 @@ public class CoordinateServiceImpl implements CoordinateService {
     CoordinateRepository coordinateRepository;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    ItemRepository itemRepository;
 
     //コーディネート新規登録
     @Override
@@ -69,8 +70,23 @@ public class CoordinateServiceImpl implements CoordinateService {
 		return coordinateRepository.findByUserId(user.getId());
 	}
 
+	@Override
+    public Optional<Item> coordinateSearchItem(int id){
+        return itemRepository.findById(id);
+    }
+
     private int coordinateSet(Coordinate coordinate, CoordinateForm coordinateForm){
-        coordinate.setItemlist(coordinateForm.getItemList());
+//        if(coordinateForm.getItemList().size() <= 9){
+//            for(int i = coordinateForm.getItemList().size(); i <= 9; i++){
+//                coordinateForm.getItemList().add();
+//            }
+//        }
+        if(coordinateForm.getItemList() != null) {
+//            List<Item> itemlist = new ArrayList<Item>();
+            coordinate.setItemlist(coordinateForm.getItemList());
+//            coordinate.setItemlist(itemlist);
+        }
+
         coordinate.setCoordinate_title(coordinateForm.getTitle());
         coordinate.setComment(coordinateForm.getMemo());
         coordinate.setHaveCalender(0);

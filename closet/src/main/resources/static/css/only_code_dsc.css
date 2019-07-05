@@ -47,26 +47,29 @@ table {
 }
 /* --------   reset css   ------------ */
 .img_list {
-    margin: 70px;
+    
+    width: 536px;
+    margin: auto;
+    margin-top: 58px;
+    margin-bottom: 58px;
+    padding-top:58px;
+    padding-bottom:58px;
+    /*border: 1px solid;*/
+    background-color: #E0E0E0;
 }
 
 ul {
     width: 536px;
-    height: 600px;
-    border: solid black;
-    margin: auto;
-    padding: 40px 10px 40px 10px;
+    display: table-cell;
 }
 
-li {
+.i1 {
     float: left;
     list-style: none;
     width: 150px;
     height: 150px;
-    border: solid 2px black;
-    margin: 10px;
-    text-align: center;
-    background-color: #E0E0E0;
+    /*border: 1px solid black;*/
+    margin: 14px;
 }
 
 img {
@@ -79,7 +82,7 @@ img {
     margin: 50px auto;
 }
 
-p {
+.title {
     width: 766px;
     font-weight: bold;
     font-size: 38px;
@@ -103,7 +106,7 @@ p {
     margin: auto;
 }
 
-.btn {
+.btn1 {
     width: 250px;
     height: 80px;
     margin: 90px 40px;
@@ -113,6 +116,7 @@ p {
     font-size: 28px;
     background-color:#95B8BF;
     border:none;
+    float: left;
 }
 
 .btn.btn-info:hover {

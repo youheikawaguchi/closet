@@ -111,6 +111,7 @@ public class ItemController {
 		mav.addObject("itemSelect", itemSelect);
 		mav.addObject("itemList", itemList);
 		mav.setViewName("item/item_list");
+		mav.addObject("flg", false);
 
 		return mav;
 	}
