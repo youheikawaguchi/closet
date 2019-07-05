@@ -45,9 +45,10 @@ public class CalendarController {
 	UserService userService;
 	
 	// カレンダーの表示
-	@GetMapping(value = {"/calendar"})
-	public ModelAndView showCalendar(ModelAndView mav) {
-		List<Calendar> calendarlist = calendarService.getAllCalendar();
+
+	@GetMapping("/calendar")
+	public ModelAndView showCalendar(ModelAndView mav, @AuthenticationPrincipal UserDetails userDetails) {
+		List<Calendar> calendarlist = calendarService.getAllCalendar(userDetails.getUsername());
 		
 		mav.addObject("calendarlist", calendarlist);
 		mav.setViewName("calendar/calendar");
@@ -56,12 +57,12 @@ public class CalendarController {
 		
 	@ResponseBody
 	@GetMapping("/calendar/getcode")
-	public ResponseEntity<List<Calendar>> json(){
+	public ResponseEntity<List<Calendar>> json(@AuthenticationPrincipal UserDetails userDetails){
  
 		List<Calendar> calendarlist = null;
 //		if(key.isPresent()) {
 			//calendarlist = calendarService.getMonthCalendar(key.get());
-			calendarlist = calendarService.getAllCalendar();
+			calendarlist = calendarService.getAllCalendar(userDetails.getUsername());
 //		}
  
 		return ResponseEntity.ok(calendarlist);

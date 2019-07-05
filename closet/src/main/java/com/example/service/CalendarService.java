@@ -10,7 +10,7 @@ import com.example.model.Calendar;
 import com.example.model.CalendarForm;
 
 public interface CalendarService {
-	public List<Calendar> getAllCalendar();
+	public List<Calendar> getAllCalendar(String userid);
 	public Calendar getCalendarById(int id);
 	public Calendar getCalendarByDate(int userid, Date date);
 	public Calendar getCalendarByCoordinateId(int coordinateId);

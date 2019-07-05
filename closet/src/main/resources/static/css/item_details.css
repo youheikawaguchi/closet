@@ -56,7 +56,7 @@ table {
 }
 
 .category {
-    width: 879px;
+    width: 881px;
     margin: auto;
 }
 
@@ -88,6 +88,9 @@ table {
 .button {
     width: 660px;
     margin: auto;
+}
+.alert_button{
+	margin: auto;
 }
 
 .btn {

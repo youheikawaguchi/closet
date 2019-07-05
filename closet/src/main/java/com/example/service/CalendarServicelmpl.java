@@ -21,14 +21,17 @@ import com.example.repository.CoordinateRepository;
 public class CalendarServicelmpl implements CalendarService{
 	@Autowired
 	CalendarRepository calendarRepository;
-    @Autowired
+	@Autowired
     UserRepository userRepository;
     @Autowired
     CoordinateRepository coordinateRepository;
-	
+	@Autowired
+    UserService userService;
+
 	@Override
-	public List<Calendar> getAllCalendar() {
-		return calendarRepository.findAll();
+	public List<Calendar> getAllCalendar(String userid) {
+		int numId = userService.getUserByUserId(userid).getId();
+		return calendarRepository.findAll(numId);
 	}
 	
 	@Override
