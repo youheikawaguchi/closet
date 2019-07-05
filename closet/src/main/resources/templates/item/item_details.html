@@ -35,16 +35,16 @@
 <!--    削除確認(モーダル表示)-->
     <div id="overlay"></div>
     <div id="modalWindow">
-    <div class="button">
+    <div class="alert_button">
         <p  class="del_mes">本当に削除しますか？</p>
         <div class="out_block">
           <div class="in_block">
             <form th:action="@{/item/item_details{id}(id=${item.itemId})}" th:method="delete">
-              <input class="btn btn-default btn-red" type="submit" value="はい" />
+              <input class="btn btn-default btn-yes" type="submit" value="はい" />
             </form>
           </div>
           <div class="in_block">
-            <button id="close" class="btn btn-default">いいえ</button>
+            <button id="close" class="btn btn-no">いいえ</button>
           </div>
        </div>
     </div>
