@@ -79,9 +79,12 @@ margin: auto;
     border-bottom: solid 2px #4D919F; 
 }
 #menu dt {
-    width: 120px;
-    height: 114px;
+    /*width: 120px;
+    height: 114px;*/
+    width: 100%;
+    height: 110px;
     float: right;
+    text-align: right;
 }
 
 .hamburger {
@@ -92,14 +95,15 @@ margin: auto;
 }
 
 #menu {
-    width: 300px;
+    /*width: 300px;*/
+    width: 100%;
     border: solid 3px #4D919F;
     float: right;
 }
 
 #menu dd {
-    width: 294px;
-    height: 114px;
+    /*width: 294px;
+    height: 114px;*/
     text-align: center;
     display: none;
     height: 40px;
