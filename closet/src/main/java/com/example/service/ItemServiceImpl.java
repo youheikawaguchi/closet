@@ -91,6 +91,33 @@ public class ItemServiceImpl implements ItemService{
 
 		return itemRepository.saveAndFlush(item);
 	}
+	
+	
+	private Item itemSet(Item item, ItemForm itemForm, UserDetails userDetails){
+	    //null判定が必要
+        Optional<Category> category = categoryRepository.findById(itemForm.getCategoryId());
+        Optional<SubCategory> subCategory = subCategoryRepository.findById(itemForm.getSubCategoryId());
+        Optional<Season> season = seasonRepository.findById(itemForm.getSeasonId());
+        Optional<Color> color = colorRepository.findById(itemForm.getColorId());
+        User user = userRepository.findByUserId(userDetails.getUsername());
+
+        item.setCategory(category.get());
+        item.setSubCategory(subCategory.get());
+        item.setSeason(season.get());
+        item.setColor(color.get());
+        item.setUser(user);
+        item.setComment(itemForm.getMemo());
+        return itemRepository.saveAndFlush(item);
+    }
+	
+	@Override
+    public Item itemUpdate(int id, ItemForm itemForm, UserDetails userDetails){
+        Item item = getItemById(id);
+        item.setUpdatedAt(new Date());
+        User user = userRepository.findByUserId(userDetails.getUsername());
+        item.setUser(user);
+        return itemSet(item, itemForm, userDetails);
+    }
 
 	@Override
 	public List<Item> userItemList(UserDetails userDetails){

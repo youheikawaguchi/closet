@@ -48,6 +48,10 @@ table {
 .photo {
 	width: 480px;
 	margin: auto;
+	height: 600px;
+    border: solid 3px #B8DDE6;
+    text-align: center;
+    margin: 70px auto 30px auto;
 }
 
 #canvas {

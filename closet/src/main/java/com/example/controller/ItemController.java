@@ -40,36 +40,48 @@ public class ItemController {
 		return new ModelAndView("redirect:/item/item_list");
 	}
 
-	//アイテム登録/編集
+	//アイテム登録
 	@GetMapping("/item/item_edit")
 	public ModelAndView ItemEdit(ModelAndView mav) {
-
 		ItemSelect itemSelect = itemservice.itemCreateForm();
 		mav.addObject("itemForm", new ItemForm());
-		mav.addObject("itemSelect", itemSelect);
-		
+		mav.addObject("itemSelect", itemSelect);	
 		mav.setViewName("item/item_edit");
-
+		return mav;
+	}
+	
+	@GetMapping("/item/item_edit{id}")
+	public ModelAndView ItemCompilation(ModelAndView mav, @PathVariable("id") String id,@AuthenticationPrincipal UserDetails userDetails) {
+		ItemSelect itemSelect = itemservice.itemCreateForm();
+		ItemForm EditItemForm = new ItemForm();
+		Item item = itemservice.getItemById(Integer.parseInt(id));
+		EditItemForm.setCategoryId(item.getCategory().getCategoryId());
+		EditItemForm.setSubCategoryId(item.getSubCategory().getSubCategoryId());
+		EditItemForm.setSeasonId(item.getSeason().getSeason_id());
+		EditItemForm.setColorId(item.getColor().getColorId());
+		EditItemForm.setMemo(item.getComment());
+		EditItemForm.setItemId(item.getItemId());
+		
+		mav.addObject("itemForm",EditItemForm);
+		mav.addObject("itemSelect", itemSelect);
+		mav.addObject("item", item);
+		mav.setViewName("item/item_edit");
 		return mav;
 	}
 	
 	@PostMapping("/item/item_edit")
 	public ModelAndView postItemEdit(@ModelAttribute ItemForm itemForm, ModelAndView mav, @AuthenticationPrincipal UserDetails userDetails) {
-		
-		//String c_name = item.getCategory().getCategoryName();
-//		Category category = categoryservice.getCategoryByName(item.getCategory().getCategoryName());
-//		SubCategory subcategory = subcategoryservice.getSubCategoryByName(item.getSubCategory().getSubCategoryName());
-//		Season season = seasonservice.getSeasonByName(item.getSeason().getSeasonName());
-//		Color color = colorservice.getColorByName(item.getColor().getColorName());
-//		itemservice.ItemCreate(item, category, subcategory, season, color);
-
-		if (itemForm.getPicture().isEmpty()) {
-			mav.setViewName("redirect:/item/item_edit");
-			return mav;
+		Item i;
+		if(itemForm.getItemId() == null) {
+			if (itemForm.getPicture().isEmpty()) {
+				mav.setViewName("redirect:/item/item_edit");
+				return mav;
+			}
+			i = itemservice.ItemCreate(itemForm, userDetails);
+		}else {
+			i = itemservice.itemUpdate(itemForm.getItemId(), itemForm, userDetails);
 		}
-		itemservice.ItemCreate(itemForm, userDetails);
-		
-		return new ModelAndView("redirect:/item/item_details");
+		return new ModelAndView("redirect:/item/item_details" + i.getItemId().toString());
 	}	
 	
 	//アイテム一覧
@@ -108,12 +120,8 @@ public class ItemController {
 	//アイテム詳細
 	@GetMapping("/item/item_select")
 	public ModelAndView ItemSelect(ModelAndView mav) {
-
 		mav.setViewName("item/item_select");
-
 		return mav;
 	}
-	
-	
-	
+
 }

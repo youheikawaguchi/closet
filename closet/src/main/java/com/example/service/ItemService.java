@@ -12,11 +12,9 @@ public interface ItemService {
 	public void delete(int id);
 
 	ItemSelect itemCreateForm();
-
 	//public Item getItemByName(String name);
 	public Item ItemCreate(ItemForm itemForm, UserDetails userDetails);
-
 	public List<Item> userItemList(UserDetails userDetails);
-	
+	public Item itemUpdate(int id, ItemForm itemForm, UserDetails userDetails);
 	
 }

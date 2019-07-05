@@ -15,8 +15,9 @@
         <div class="container-fluid">
             <form th:object="${itemForm}" method="post" th:action="@{/item/item_edit}" enctype="multipart/form-data">
                 <div class="photo">
-                	<canvas id="canvas" width="0" height="0"></canvas>
-                	<input id="select_photo" type="file" th:field="*{picture}" accept="image/png, image/jpeg, image/jpg">
+                	<canvas th:if="${itemForm.itemId == null}" id="canvas" width="0" height="0"></canvas>
+                	<input th:if="${itemForm.itemId == null}"  id="select_photo" type="file" th:field="*{picture}" accept="image/png, image/jpeg, image/jpg">
+         			<img th:if="${itemForm.itemId != null}" th:src="@{${item.picture}}" class="img-fluid">
                 </div>
 
                 <div id="select_list" >
@@ -28,7 +29,7 @@
                         </select>
                     </div>
                     <div>
-                        <select class="select custom-select subCategory" th:field="*{subCategoryId}" disabled>
+                        <select class="select custom-select subCategory" th:field="*{subCategoryId}">
                             <option value="" data-th-data-val="0">サブカテゴリーを選択してください</option>
                             <option th:each="subCategory : ${itemSelect.subCategoryList}" th:value="${subCategory.getSubCategoryId()}"
                                     th:text="${subCategory.getSubCategoryName()}" data-th-data-val="${subCategory.getCategory().getCategoryId()}"></option>
@@ -38,7 +39,7 @@
                         <select class="select custom-select" th:field="*{seasonId}">
                             <option value="">季節を選択してください</option>
                             <option th:each="season : ${itemSelect.seasonList}" th:value="${season.getSeason_id()}"
-                                    th:text="${season.getSeasonName()}"}></option>
+                                    th:text="${season.getSeasonName()}"></option>
                         </select>
                     </div>
                     <div>
@@ -52,6 +53,10 @@
 
                 <div class="memo">
                     <textarea name="memo" class="textarea" placeholder="MEMO" th:field="*{memo}"></textarea>
+                </div>
+                
+                <div>
+                	<input type="hidden" th:field="*{itemId}">
                 </div>
 
                 <div class=button>
