@@ -63,46 +63,38 @@
 
     <!--------------------------------カレンダー登録--------------------------------------->
 
-    <form action="#">
-        <div  id="calender">
+    <form th:action="@{/calendar/add}" th:object="${calendarForm}" method="post">
+        <div id="calender">
             <div class="photobtn">
                 <div class="img_list">
                     <div class="flex">
-                        /ここから/
-                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                        <br>
-                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                        <br>
-                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                        <a href="item/item_list"><li class="i1"><img th:src="@{/images/item/code_add_button.png}" class="img"></li></a>
-                        /ここまで書き換えお願いします/
+                        <a href="item/item_list" th:each="item : ${calendarForm.getItemList()}">
+                            <li class="i1">
+                                <img class="img" th:src="${item.getPicture()} ? @{${item.getPicture()}} : @{${/images/item/code_add_button.png}}">
+                            </li>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <div class="selectbox">
                 <div class="Title1">
-                    <input type="text" class="form-control" id="titleid" aria-describedby="Title_name" placeholder="Event">
+                    <input type="text" class="form-control" id="titleid" aria-describedby="Title_name" placeholder="Event" th:field="*{event}">
                 </div>
 
                 <div class="c_date">
                     <div class="Date1">
-                        <input type="date" class="fron-control" id="Dateid" placeholder="Date">
+                        <input type="date" class="fron-control" id="Dateid" placeholder="Date" th:value="${date}" name="eventDate">
                     </div>
                     <div class="calender_photo"></div>
                 </div>
 
                 <div class="Person1">
-                    <input type="text" class="form-control" id="Personid" aria-describedby="person_name" placeholder="Person">
+                    <input type="text" class="form-control" id="Personid" aria-describedby="person_name" placeholder="Person" th:field="*{metPerson}">
                 </div>
 
                 <div class="Memo1">
-                    <textarea class="form-control" id="Memoid" aria-describedby="Memo_name" placeholder="Memo"></textarea>
+                    <textarea class="form-control" id="Memoid" aria-describedby="Memo_name" placeholder="Memo" th:field="*{memo}"></textarea>
                 </div>
             </div>
             <div class="enterbtn">

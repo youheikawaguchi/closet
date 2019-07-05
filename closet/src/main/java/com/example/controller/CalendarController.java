@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -103,10 +105,11 @@ public class CalendarController {
 	public ModelAndView showAddCalendar(ModelAndView mav, @RequestParam(name = "date", required = false) String date) {
 
 		mav.addObject("date", date);
-
+		
+		mav.addObject(new CoordinateForm());
 		mav.addObject(new CalendarForm());
 		
-		mav.setViewName("/coordinate/code_add");
+		mav.setViewName("coordinate/code_add");
 		return mav;
 	}
 	
@@ -118,7 +121,7 @@ public class CalendarController {
     		BindingResult bindingResult){
     	
     	calendarService.createCalendar(calendarForm, userDetails);
-        mav.setViewName("/calendar");
+        mav.setViewName("calendar/calendar");
         
         return mav;
     }

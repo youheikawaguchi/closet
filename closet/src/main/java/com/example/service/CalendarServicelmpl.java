@@ -1,5 +1,7 @@
 package com.example.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -82,6 +84,15 @@ public class CalendarServicelmpl implements CalendarService{
 		calendar.setMetPerson(calendarForm.getMetPerson());
 
 		return calendar = calendarRepository.saveAndFlush(calendar);
+	}
+	
+	@Override
+	public Date strToDate(String sDate) throws ParseException {
+		
+		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date dDate = sdFormat.parse(sDate);
+		
+		return dDate;
 	}
 
 }
