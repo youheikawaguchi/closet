@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -14,4 +15,5 @@ public interface CalendarService {
 	public Calendar getCalendarByDate(int userid, Date date);
 	public Integer createCalendar_old(Calendar calendarForm, UserDetails userDetails);
 	public Calendar createCalendar(CalendarForm calendarForm, UserDetails userDetails);
+	public Date strToDate(String sDate) throws ParseException;
 }
