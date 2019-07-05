@@ -13,5 +13,8 @@ public interface CalendarRepository extends JpaRepository<Calendar, Integer>{
 
 	@Query("select x from Calendar x where x.id = :userid and x.eventDate = :date")
 	public Calendar findByDate(int userid, Date date);
+	
+	@Query("select x from Calendar x where x.coordinate = :c_id")
+	public Calendar findByCoordinateId(int c_id);
 
 }

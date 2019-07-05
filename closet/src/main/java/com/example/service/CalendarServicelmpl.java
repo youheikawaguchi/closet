@@ -39,6 +39,75 @@ public class CalendarServicelmpl implements CalendarService{
 	}
 	
 	@Override
+	public Calendar getCalendarByCoordinateId(int coordinateId) {
+		return calendarRepository.findByCoordinateId(coordinateId);
+	}
+	
+	@Override
+	public void createCalendar(CalendarForm calendarForm, UserDetails userDetails) {
+		
+		Calendar calendar = new Calendar();
+		
+		// User
+		// GetUserDetails
+		User user = userRepository.findByUserId(userDetails.getUsername());
+		calendar.setUser(user);
+		
+		// Coordinate
+		Coordinate coordinate = new Coordinate();
+		coordinate.setItemlist(calendarForm.getItemList());
+		coordinate.setComment(calendarForm.getMemo());
+		calendar.setCoordinate(coordinate);
+		
+		// Event, Date, P
+		calendar.setEvent(calendarForm.getEvent());
+		calendar.setEventDate(calendarForm.getEventDate());
+		calendar.setMetPerson(calendarForm.getMetPerson());
+
+		calendarRepository.saveAndFlush(calendar);
+	}
+	
+	@Override
+	public void editCalendar(CalendarForm calendarForm
+			, UserDetails userDetails
+			, int c_id) {
+		
+		Calendar calendar = getCalendarByCoordinateId(c_id);
+		
+		// Coordinate
+		Coordinate coordinate = new Coordinate();
+		coordinate.setItemlist(calendarForm.getItemList());
+		coordinate.setComment(calendarForm.getMemo());
+		calendar.setCoordinate(coordinate);
+		
+		// Event, Date, P
+		calendar.setEvent(calendarForm.getEvent());
+		calendar.setEventDate(calendarForm.getEventDate());
+		calendar.setMetPerson(calendarForm.getMetPerson());
+		
+		calendarRepository.saveAndFlush(calendar);
+	}
+	
+	@Override
+	public void deleteCalendar(CalendarForm calendarForm
+			, UserDetails userDetails
+			, int c_id) {
+	
+		Calendar calendar = getCalendarByCoordinateId(c_id);
+		
+		calendarRepository.deleteById(calendar.getCalendarId());
+	}
+
+	@Override
+	public Date strToDate(String sDate) throws ParseException {
+		
+		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date dDate = sdFormat.parse(sDate);
+		
+		return dDate;
+	}
+
+	@Override
 	public Integer createCalendar_old(Calendar calendarForm, UserDetails userDetails) {
 		Calendar calendar = new Calendar();
 		
@@ -63,36 +132,4 @@ public class CalendarServicelmpl implements CalendarService{
 		return calendar.getCalendarId();
 	}
 	
-	@Override
-	public Calendar createCalendar(CalendarForm calendarForm, UserDetails userDetails) {
-		Calendar calendar = new Calendar();
-		
-		// User
-		// GetUserDetails
-		User user = userRepository.findByUserId(userDetails.getUsername());
-		calendar.setUser(user);
-		
-		// Coordinate
-		Coordinate coordinate = new Coordinate();
-		coordinate.setItemlist(calendarForm.getItemList());
-		coordinate.setComment(calendarForm.getMemo());
-		calendar.setCoordinate(coordinate);
-		
-		// Event, Date, P
-		calendar.setEvent(calendarForm.getEvent());
-		calendar.setEventDate(calendarForm.getEventDate());
-		calendar.setMetPerson(calendarForm.getMetPerson());
-
-		return calendar = calendarRepository.saveAndFlush(calendar);
-	}
-	
-	@Override
-	public Date strToDate(String sDate) throws ParseException {
-		
-		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date dDate = sdFormat.parse(sDate);
-		
-		return dDate;
-	}
-
 }
