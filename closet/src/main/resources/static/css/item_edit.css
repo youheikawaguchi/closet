@@ -46,6 +46,7 @@ table {
 /* --------   reset css   ------------ */
 
 .photo {
+	position: relative;
 	width: 480px;
 	margin: auto;
 	height: 600px;
@@ -55,7 +56,6 @@ table {
 }
 
 #canvas {
-	position: relative;
     height: 600px;
     width: 480px;
     background-color: #E0E0E0;
@@ -71,6 +71,7 @@ table {
 	width: 480px;
 	height: 600px;	
 	top:40px;
+	left:0;
 	opacity:0.0;
 	/* display:none; */
 }
