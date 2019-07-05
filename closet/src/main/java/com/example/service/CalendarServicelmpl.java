@@ -18,12 +18,16 @@ import com.example.repository.UserRepository;
 public class CalendarServicelmpl implements CalendarService{
 	@Autowired
 	CalendarRepository calendarRepository;
-    @Autowired
+	@Autowired
     UserRepository userRepository;
+	@Autowired
+    UserService userService;
+    
 	
 	@Override
-	public List<Calendar> getAllCalendar() {
-		return calendarRepository.findAll();
+	public List<Calendar> getAllCalendar(String userid) {
+		int numId = userService.getUserByUserId(userid).getId();
+		return calendarRepository.findAll(numId);
 	}
 	
 	@Override
