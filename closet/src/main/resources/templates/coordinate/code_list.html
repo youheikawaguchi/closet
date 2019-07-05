@@ -41,7 +41,7 @@
     <div class="code_list" th:id="${code.haveCalender} ? 'add_calender' : 'only_code'">
       <div>
         <ul class="list list-unstyled flex">
-          <li class="item" th:each="item : ${code.itemlist}"><img th:src="@{${item.picture}}"></li>
+          <li class="item" th:each="item : ${code.itemlist}"><img th:src="@{'/var/closet/app/uploads/'+${code.user.userId}+'/'+${item.picture}}"></li>
         </ul>
       </div>
       <div th:switch="${code.haveCalender}">
