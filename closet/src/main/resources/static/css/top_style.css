@@ -12,7 +12,7 @@
 }
 
 
-/*TOP逕ｻ蜒�*/
+/*TOP騾包ｽｻ陷抵ｿｽ*/
 .top_image{
   display: flex;
   justify-content: center;
@@ -40,7 +40,7 @@
   background-repeat: no-repeat;
 }
 
-/*TOP縺九ｉ莉悶�ｮ繝壹�ｼ繧ｸ縺ｸ縺ｮ驕ｷ遘ｻ繝懊ち繝ｳ*/
+/*TOP邵ｺ荵晢ｽ芽脂謔ｶ�ｿｽ�ｽｮ郢晏｣ｹ�ｿｽ�ｽｼ郢ｧ�ｽｸ邵ｺ�ｽｸ邵ｺ�ｽｮ鬩包ｽｷ驕假ｽｻ郢晄㈱縺｡郢晢ｽｳ*/
 .top_button{
   display: flex;
   justify-content: center;
@@ -84,7 +84,7 @@
   font-size: 40px;
 }
 
-/*TOP荳狗判髱｢*/
+/*TOP闕ｳ迢怜愛鬮ｱ�ｽ｢*/
 .top_bottom{
 	width: 100%;
   /*height: auto;*/
@@ -93,7 +93,7 @@
   overflow: hidden;
 }
 
-/*繧｢繧､繝�繝�縲�繧ｹ繝ｩ繧､繝峨す繝ｧ繝ｼ*/
+/*郢ｧ�ｽ｢郢ｧ�ｽ､郢晢ｿｽ郢晢ｿｽ邵ｲ�ｿｽ郢ｧ�ｽｹ郢晢ｽｩ郢ｧ�ｽ､郢晏ｳｨ縺咏ｹ晢ｽｧ郢晢ｽｼ*/
 .slide_show{
   width: 50%;
   height: 100%;
@@ -105,17 +105,18 @@
 
 .slide_flame{
   background: #95B8BF;
-  width: auto;
-  height:auto;
-
+  width: 420px;
+  height:525px;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
 }
 .slide_pic{
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
   padding: 10px;
   box-sizing: border-box;
   object-fit:cover;
@@ -124,7 +125,7 @@
 	color: #D9B918;
 }
 
-/*螟ｩ豌�*/
+/*陞滂ｽｩ雎鯉ｿｽ*/
 .weather{
   width: 50%;
   height: 100%;
