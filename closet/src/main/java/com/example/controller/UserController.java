@@ -11,6 +11,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.Area;
@@ -19,6 +21,7 @@ import com.example.model.User;
 import com.example.service.UserService;
 
 @Controller
+@RequestMapping("/users")
 public class UserController {
 	
 	@Autowired
@@ -26,7 +29,7 @@ public class UserController {
 
 	
 //	ユーザー登録
-	@GetMapping(value="users/createacc")
+	@GetMapping("/createacc")
 	ModelAndView userForm(ModelAndView mav) {
 		
 		User user =new User();
@@ -41,17 +44,20 @@ public class UserController {
 	
 	
 	//コントローラにPOSTされた時の処理
-	@PostMapping(value = "/users/createacc")
+	@PostMapping("/createacc")
 	public ModelAndView addUser(@ModelAttribute("user") @Validated User user, 
 			BindingResult bindingResult,
 			ModelAndView mav) {
 		
 		if(userService.createUser(user)) {
-			mav.setViewName("/login/login");
+
+			List<Area> areaList = userService.getAllArea();
+			mav.addObject("areaList", areaList);
+			mav.setViewName("login/login");
 			return mav;
 		}else {
 			ErrorData errorMsg = new ErrorData();
-			mav.setViewName("/users/createacc");
+			mav.setViewName("users/createacc");
 			mav.addObject("errorMsg", errorMsg.getAddUser());
 			return mav;
 		}
@@ -63,7 +69,7 @@ public class UserController {
 //		return "users/profile";
 //	}
 	
-	@GetMapping(value="users/profile")
+	@GetMapping("/profile")
 	ModelAndView userProfiel(ModelAndView mav,
 			@AuthenticationPrincipal UserDetails userDetails) {
 	
@@ -78,11 +84,13 @@ public class UserController {
 	}
 
 //	プロフィール登録処理
-	@PostMapping(value = "/users/profile")
-	public ModelAndView addprofiel(@ModelAttribute("user") @Validated User user, 
+	@PostMapping("/profile")
+	public ModelAndView addprofile(@ModelAttribute("user") @Validated User user, 
 			BindingResult bindingResult,
 			ModelAndView mav, @AuthenticationPrincipal UserDetails userDetails) {
-
+		//if(bindingResult.hasErrors()) {
+			//バインドエラー時
+		//}
 		User viewer = userService.getUserByUserId(userDetails.getUsername());
 		
 		 userService.createProfile(user, viewer);

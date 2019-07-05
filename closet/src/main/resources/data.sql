@@ -14,19 +14,19 @@ INSERT IGNORE INTO users (user_id,password,gender,born_year,admin_key,area_id)
 update users set area_id = 13 where id = 3;
 --アイテム
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
-    VALUES(1,1,1,1,1,1, 'picture',"メモ");
+    VALUES(1,1,1,1,1,1, '/uploads/testid/picture',"メモ");
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
-        VALUES(2,3,1,1,1,3, 'picture1',"comant1");
+        VALUES(2,3,1,1,1,3, '/uploads/testid/picture1',"comant1");
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
-        VALUES(3,3,1,1,1,3, 'picture2',"hoge2");
+        VALUES(3,3,1,1,1,3, '/uploads/testid/picture2',"hoge2");
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
-        VALUES(4,1,1,1,1,3, 'picture3',"comant3");
+        VALUES(4,1,1,1,1,3, '/uploads/testid/picture3',"comant3");
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
-        VALUES(5,1,1,1,1,3, 'picture4',"hoge4");
+        VALUES(5,1,1,1,1,3, '/uploads/testid/picture4',"hoge4");
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
-        VALUES(6,1,1,1,1,3, 'picture5',"comant5");
+        VALUES(6,1,1,1,1,3, '/uploads/testid/picture5',"comant5");
 INSERT IGNORE INTO items (item_id,category_id,sub_category_id,season_id,color_id,id,picture,comment)
-        VALUES(7,1,1,1,1,3, 'picture6',"hoge6");
+        VALUES(7,1,1,1,1,3, '/uploads/testid/picture6',"hoge6");
 --カレンダー
 INSERT IGNORE INTO calendar (calendar_id,id,coordinate_id,event,event_date,met_person)
     VALUES(1, 1, 1,'event', "2019-06-17", "met_person");
