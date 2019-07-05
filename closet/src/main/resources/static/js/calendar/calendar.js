@@ -54,7 +54,7 @@ $(document).ready(function () {
 //					$(this).attr("src","/images/item/noimage.png");
 //				});
 		    	$('#coordinate_add_link').hide();
-		    	$('#coordinate_detail_link').attr("href","/calendar/detail?c_id="+cal.coordinate.coordinateId);
+		    	$('#coordinate_detail_link').attr("href","/calendar/details?c_id="+cal.coordinate.coordinateId);
 
 //				console.log(cal.coordinate);
 //				console.log(cal.coordinate.itemlist);
