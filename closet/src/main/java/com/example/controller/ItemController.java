@@ -17,8 +17,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+//import org.springframework.mock.web.MockMultipartFile;
 
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
@@ -56,7 +65,7 @@ public class ItemController {
 	
 	//アイテム編集
 	@GetMapping("/item/item_edit{id}")
-	public ModelAndView ItemCompilation(ModelAndView mav, @PathVariable("id") String id) {
+	public ModelAndView ItemCompilation(ModelAndView mav, @PathVariable("id") String id,@AuthenticationPrincipal UserDetails userDetails) {
 		ItemSelect itemSelect = itemservice.itemCreateForm();
 		ItemForm EditItemForm = new ItemForm();
 		Item item = itemservice.getItemById(Integer.parseInt(id));
@@ -66,8 +75,12 @@ public class ItemController {
 		EditItemForm.setColorId(item.getColor().getColorId());
 		EditItemForm.setMemo(item.getComment());
 		EditItemForm.setItemId(item.getItemId());
+
+		List<Item> itemList = itemservice.userItemList(userDetails);
+		
 		mav.addObject("itemForm",EditItemForm);
 		mav.addObject("itemSelect", itemSelect);
+		mav.addObject("itemList", itemList);
 		mav.setViewName("item/item_edit");
 		return mav;
 		}

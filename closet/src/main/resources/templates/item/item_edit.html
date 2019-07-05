@@ -16,7 +16,9 @@
             <form th:object="${itemForm}" method="post" th:action="@{/item/item_edit}" enctype="multipart/form-data">
                 <div class="photo">
                 	<canvas id="canvas" width="0" height="0"></canvas>
-                	<input id="select_photo" type="file" th:field="*{picture}" accept="image/png, image/jpeg, image/jpg">
+                	<input  id="select_photo" type="file" th:field="*{picture}" accept="image/png, image/jpeg, image/jpg">
+               <!--    	<p th:if="${#lists.isEmpty(itemForm)}" th:text="${itemList[__*{itemId}-1__].picture}" ></p>--> 
+                  			
                 </div>
 
                 <div id="select_list" >
