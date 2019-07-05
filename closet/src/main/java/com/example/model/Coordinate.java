@@ -71,4 +71,8 @@ public class Coordinate {
 	/*Itemとの多対多連携*/
     @ManyToMany( mappedBy = "coordinatelist")
     private List<Item> itemlist;  
+    
+	@JsonIgnore
+	@Column(name = "item_id")
+	private int itemId;
 }

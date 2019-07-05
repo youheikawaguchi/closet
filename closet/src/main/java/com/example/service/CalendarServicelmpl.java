@@ -15,6 +15,7 @@ import com.example.model.Coordinate;
 import com.example.model.User;
 import com.example.repository.CalendarRepository;
 import com.example.repository.UserRepository;
+import com.example.repository.CoordinateRepository;
 
 @Service
 public class CalendarServicelmpl implements CalendarService{
@@ -22,6 +23,8 @@ public class CalendarServicelmpl implements CalendarService{
 	CalendarRepository calendarRepository;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    CoordinateRepository coordinateRepository;
 	
 	@Override
 	public List<Calendar> getAllCalendar() {
@@ -55,8 +58,14 @@ public class CalendarServicelmpl implements CalendarService{
 		
 		// Coordinate
 		Coordinate coordinate = new Coordinate();
-		coordinate.setItemlist(calendarForm.getItemList());
+		coordinate.setUser(user);
+//		coordinate.setItemlist(calendarForm.getItemList());
 		coordinate.setComment(calendarForm.getMemo());
+		
+		coordinate.setHaveCalender(1);
+		coordinate.setItemId(0);
+		
+		coordinateRepository.saveAndFlush(coordinate);
 		calendar.setCoordinate(coordinate);
 		
 		// Event, Date, P

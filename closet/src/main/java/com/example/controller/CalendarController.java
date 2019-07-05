@@ -100,11 +100,11 @@ public class CalendarController {
 	}
 	
 	// コーデ詳細の編集、削除
-    @PostMapping(value = {"/calendar/details?={c_id}/{action}"})
+    @PostMapping(value = {"/calendar/{action}"})
     public ModelAndView editCalendar(ModelAndView mav
     		, @ModelAttribute("calendar") @Validated CalendarForm calendarForm
-    		, @PathVariable("c_id") int c_id
     		, @PathVariable("action") String action
+    		, @RequestParam(name = "c_id", required = false) int c_id
     		, @AuthenticationPrincipal UserDetails userDetails
     		, BindingResult bindingResult){
     	
